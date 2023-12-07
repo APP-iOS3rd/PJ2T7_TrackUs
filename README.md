@@ -22,18 +22,20 @@
 
 > 지역 내 러닝 메이트를 찾아 새로운 사회적 연결을 형성하는 플랫폼으로서, 사용자들은 새로운 러너들과의 만남을 통해 다양한 환경에서의 러닝을 경험을 할 수 있는 기회를 제공합니다.
 
-|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/90ca2902-906b-4161-9027-38996164fae5" width="250">|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/5bee6fdb-3e9d-43ab-9bbf-e11b2f411009" width="250">|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/bf7897f3-ce1a-4358-a3ec-56c25e868db8" width="250">|
+<p align="center">
+|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/90ca2902-906b-4161-9027-38996164fae5" width="240">|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/5bee6fdb-3e9d-43ab-9bbf-e11b2f411009" width="240">|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/bf7897f3-ce1a-4358-a3ec-56c25e868db8" width="240">|
 |:-------:|:-------:|-------:|
-
+</p>
 
 ## 👥 **지역 기반 러너들이 소통 가능한 커뮤니티**
 
 - `TrackUs`는 지역 기반의 러닝 커뮤니티를 제공하여 사용자들끼리 소통하고 정보를 공유할 수 있는 플랫폼을 제공합니다.
 
 > 지역 내 러닝 커뮤니티를 **활성화** 지역 상권이 활성화되고, 지역 주민들 간의 상호 교류가 증진됩니다. 지역사회에 더 많은 활기를 불어넣습니다.
-
-|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/c4086877-6f1d-44d9-b47a-dc279bc2faf2" width="250">|
+<p align="center">
+|<img src="https://github.com/APP-iOS3rd/PJ2T8_TrackUs/assets/127680963/c4086877-6f1d-44d9-b47a-dc279bc2faf2" width="240">|
 |:-------:|
+</p>
 
 ### 📈 **러닝 이력 및 성장 그래프 제공**
 
