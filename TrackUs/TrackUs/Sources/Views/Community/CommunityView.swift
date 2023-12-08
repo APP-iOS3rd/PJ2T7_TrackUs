@@ -9,7 +9,18 @@ import SwiftUI
 
 struct CommunityView: View {
     var body: some View {
-        Text("커뮤니티 화면")
+        ZStack {
+            Color.main
+                .edgesIgnoringSafeArea(.all)
+            ScrollView {
+                LazyVStack(spacing: Constants.GlobalUIConst.VERTICAL_SPACING) {
+                    ForEach(1...40, id: \.self) { _ in
+                        CommunityCard()
+                    }
+                }
+            }
+            .padding(.horizontal, Constants.GlobalUIConst.HORIZONTAL_SPACING)
+        }
     }
 }
 

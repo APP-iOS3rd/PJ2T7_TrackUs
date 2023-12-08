@@ -38,4 +38,7 @@ extension Color {
       static let peach = Color(hex: "#ff8882")
       static let ivory = Color(hex: "f8ede3")
       static let brown = Color(hex: "897853")  // #을 제거하고 사용해도 됩니다.
+      
+    // 임시로 컬러값 지정
+    static let comunityCard = Color(hex: "434343")
 }
