@@ -15,6 +15,8 @@
 		61D617D32B2243CC008AC1BB /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D617D22B2243CC008AC1BB /* CommunityView.swift */; };
 		61D617D52B224438008AC1BB /* MateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D617D42B224438008AC1BB /* MateView.swift */; };
 		61D617D72B224449008AC1BB /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D617D62B224449008AC1BB /* MyPageView.swift */; };
+		8227B18E2B234D6A00C5E4E6 /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227B18D2B234D6A00C5E4E6 /* AddPostView.swift */; };
+		8227B1902B2363DB00C5E4E6 /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227B18F2B2363DB00C5E4E6 /* View+Keyboard.swift */; };
 		827DB1142B2274BD00B298D3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB1132B2274BD00B298D3 /* Color+.swift */; };
 		827DB1162B2278A200B298D3 /* TUText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB1152B2278A200B298D3 /* TUText.swift */; };
 		827DB1182B227A1F00B298D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB1172B227A1F00B298D3 /* Constants.swift */; };
@@ -22,6 +24,7 @@
 		827DB11F2B227E0200B298D3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB11E2B227E0200B298D3 /* UserViewModel.swift */; };
 		82962F962B23221900C7A54B /* TUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F952B23221900C7A54B /* TUButton.swift */; };
 		82962F982B2329DE00C7A54B /* CommunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F972B2329DE00C7A54B /* CommunityCard.swift */; };
+		82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F992B234C2100C7A54B /* CommunityDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,8 @@
 		61D617D22B2243CC008AC1BB /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
 		61D617D42B224438008AC1BB /* MateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateView.swift; sourceTree = "<group>"; };
 		61D617D62B224449008AC1BB /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		8227B18D2B234D6A00C5E4E6 /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
+		8227B18F2B2363DB00C5E4E6 /* View+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Keyboard.swift"; sourceTree = "<group>"; };
 		827DB1132B2274BD00B298D3 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		827DB1152B2278A200B298D3 /* TUText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUText.swift; sourceTree = "<group>"; };
 		827DB1172B227A1F00B298D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -41,6 +46,7 @@
 		827DB11E2B227E0200B298D3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		82962F952B23221900C7A54B /* TUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUButton.swift; sourceTree = "<group>"; };
 		82962F972B2329DE00C7A54B /* CommunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCard.swift; sourceTree = "<group>"; };
+		82962F992B234C2100C7A54B /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 			children = (
 				61D617D22B2243CC008AC1BB /* CommunityView.swift */,
 				82962F972B2329DE00C7A54B /* CommunityCard.swift */,
+				8227B18D2B234D6A00C5E4E6 /* AddPostView.swift */,
+				82962F992B234C2100C7A54B /* CommunityDetailView.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -192,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				827DB1132B2274BD00B298D3 /* Color+.swift */,
+				8227B18F2B2363DB00C5E4E6 /* View+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,9 +287,12 @@
 				827DB1142B2274BD00B298D3 /* Color+.swift in Sources */,
 				827DB11F2B227E0200B298D3 /* UserViewModel.swift in Sources */,
 				61D617C52B223F58008AC1BB /* ContentView.swift in Sources */,
+				8227B18E2B234D6A00C5E4E6 /* AddPostView.swift in Sources */,
+				8227B1902B2363DB00C5E4E6 /* View+Keyboard.swift in Sources */,
 				61D617D12B224240008AC1BB /* MainView.swift in Sources */,
 				61D617D52B224438008AC1BB /* MateView.swift in Sources */,
 				61D617D32B2243CC008AC1BB /* CommunityView.swift in Sources */,
+				82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */,
 				82962F962B23221900C7A54B /* TUButton.swift in Sources */,
 				827DB1162B2278A200B298D3 /* TUText.swift in Sources */,
 				61D617C32B223F58008AC1BB /* TrackUsApp.swift in Sources */,

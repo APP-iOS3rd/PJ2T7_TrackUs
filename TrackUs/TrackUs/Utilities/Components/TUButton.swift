@@ -21,9 +21,9 @@ struct TUButton: View {
     
     var body: some View {
         Button(action: action, label: {
-            TUText(style: .big_title, text: text)
+            TUText(style: .bigTitle, text: text)
+                .frame(maxWidth: .infinity, minHeight: 56)
         })
-        .frame(maxWidth: .infinity, minHeight: 56)
         .background(.sub)
         .clipShape(Capsule())
     }

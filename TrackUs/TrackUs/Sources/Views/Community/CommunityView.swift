@@ -7,19 +7,20 @@
 
 import SwiftUI
 
+// 커뮤니티 메인화면
 struct CommunityView: View {
     var body: some View {
         ZStack {
             Color.main
                 .edgesIgnoringSafeArea(.all)
             ScrollView {
-                LazyVStack(spacing: Constants.GlobalUIConst.VERTICAL_SPACING) {
+                LazyVStack(spacing: 20) {
                     ForEach(1...40, id: \.self) { _ in
                         CommunityCard()
                     }
                 }
             }
-            .padding(.horizontal, Constants.GlobalUIConst.HORIZONTAL_SPACING)
+            .padding(.horizontal, 20)
         }
     }
 }

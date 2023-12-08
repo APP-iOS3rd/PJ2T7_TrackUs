@@ -11,7 +11,7 @@ import SwiftUI
 struct CommunityCard: View {
     
     var body: some View {
-        VStack(spacing: Constants.GlobalUIConst.VERTICAL_SPACING ) {
+        VStack(spacing: 20) {
             // MARK: - 유저
             HStack {
                 // 프로필 이미지
@@ -21,15 +21,15 @@ struct CommunityCard: View {
                     .clipShape(Circle())
                     .frame(width: 50, height: 50)
                 // 유저이름
-                TUText(style: .medium_title, text: "트랙어스")
+                TUText(style: .mediumTitle, text: "트랙어스")
                 Spacer()
                 Image("ellipsis")
             }
             
             // MARK: - 컨텐츠
-            VStack(alignment:.leading, spacing: Constants.GlobalUIConst.VERTICAL_SPACING) {
+            VStack(alignment:.leading, spacing: 20) {
                 // 제목
-                TUText(style: .big_title, text: "제목")
+                TUText(style: .bigTitle, text: "제목")
                     .lineLimit(1)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -54,7 +54,7 @@ struct CommunityCard: View {
                             .foregroundColor(.white)
                         
                     })
-                    TUText(style: .medium_title, text: "10")
+                    TUText(style: .mediumTitle, text: "10")
                     
                     // 댓글 버튼
                     Button(action: {}, label: {
@@ -63,12 +63,12 @@ struct CommunityCard: View {
                         .frame(width: 20, height: 20)
                         .foregroundColor(.white)
                     })
-                    TUText(style: .medium_title, text: "10")
+                    TUText(style: .mediumTitle, text: "10")
                 }
                 
             }
         }
-        .padding(Constants.GlobalUIConst.HORIZONTAL_SPACING)
+        .padding(20)
         .background(Color.comunityCard)
         .cornerRadius(15)
     }
