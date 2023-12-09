@@ -17,13 +17,13 @@ struct ContentView: View {
                     Text("홈")
                 }
             
-            CommunityView()
+            MateView()
                 .tabItem {
                     Image(systemName: "doc.plaintext")
                     Text("메이트 모집")
                 }
             
-            MateView()
+            CommunityView()
                 .tabItem {
                     Image(systemName: "bubble.left.and.exclamationmark.bubble.right")
                     Text("커뮤니티")
