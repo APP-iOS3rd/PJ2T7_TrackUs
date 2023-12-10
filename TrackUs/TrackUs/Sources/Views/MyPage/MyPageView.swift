@@ -13,7 +13,7 @@ struct MyPageView: View {
     
     var body: some View {
         
-        NavigationStack {
+
             VStack {
                 ScrollView(showsIndicators: false) {
                     MyProfile() //앱타이틀, 사용자 이미지, 이름
@@ -36,7 +36,7 @@ struct MyPageView: View {
                             .padding(.vertical, 10)
                             .foregroundStyle(.white)
                         
-                        NavigationLink(destination: CalendarHomeView().toolbar(.hidden, for: .tabBar) , label: {
+                        NavigationLink(destination: CalendarHomeView() , label: {
                             SmallDatePicker(currentDate: $currentDate) //캘린더
                                 .foregroundStyle(.white)
                         })
@@ -44,7 +44,7 @@ struct MyPageView: View {
                 }
                 .padding(.horizontal, 20)
                 
-            }
+            
             .background(Color.main)
         }
     }
