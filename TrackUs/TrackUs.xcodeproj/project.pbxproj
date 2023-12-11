@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61498BFE2B269A8E00AF3AF7 /* AddTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61498BFD2B269A8E00AF3AF7 /* AddTrack.swift */; };
 		616C28062B24BE8F0029857B /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FD2B24BE8E0029857B /* CustomDatePicker.swift */; };
 		616C28072B24BE8F0029857B /* CalendarHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FE2B24BE8E0029857B /* CalendarHomeView.swift */; };
 		616C28082B24BE8F0029857B /* RunningChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FF2B24BE8E0029857B /* RunningChartView.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61498BFD2B269A8E00AF3AF7 /* AddTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrack.swift; sourceTree = "<group>"; };
 		616C27FD2B24BE8E0029857B /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		616C27FE2B24BE8E0029857B /* CalendarHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHomeView.swift; sourceTree = "<group>"; };
 		616C27FF2B24BE8E0029857B /* RunningChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningChartView.swift; sourceTree = "<group>"; };
@@ -149,7 +151,11 @@
 			isa = PBXGroup;
 			children = (
 				61D617D42B224438008AC1BB /* MateView.swift */,
+
+				61498BFD2B269A8E00AF3AF7 /* AddTrack.swift */,
+
 				9694BF1B2B25A4770012C83F /* MateDetailView.swift */,
+
 			);
 			path = Mate;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				616C280D2B24BE8F0029857B /* SmallDatePicker.swift in Sources */,
 				61D617D32B2243CC008AC1BB /* CommunityView.swift in Sources */,
 				8227B1922B236C6700C5E4E6 /* CommentCell.swift in Sources */,
+				61498BFE2B269A8E00AF3AF7 /* AddTrack.swift in Sources */,
 				8227B1942B236EC300C5E4E6 /* CommentInput.swift in Sources */,
 				82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */,
 				82962F962B23221900C7A54B /* TUButton.swift in Sources */,
