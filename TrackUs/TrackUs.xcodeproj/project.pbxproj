@@ -39,6 +39,9 @@
 		82962F962B23221900C7A54B /* TUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F952B23221900C7A54B /* TUButton.swift */; };
 		82962F982B2329DE00C7A54B /* CommunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F972B2329DE00C7A54B /* CommunityCard.swift */; };
 		82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F992B234C2100C7A54B /* CommunityDetailView.swift */; };
+		98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721072B26A3FD00E9C1AA /* TUFont.swift */; };
+		98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721092B26A41400E9C1AA /* MateList.swift */; };
+		98A7210C2B26A41400E9C1AA /* MateList2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7210A2B26A41400E9C1AA /* MateList2.swift */; };
 		9694BF1C2B25A4770012C83F /* MateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9694BF1B2B25A4770012C83F /* MateDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +79,9 @@
 		82962F952B23221900C7A54B /* TUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUButton.swift; sourceTree = "<group>"; };
 		82962F972B2329DE00C7A54B /* CommunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCard.swift; sourceTree = "<group>"; };
 		82962F992B234C2100C7A54B /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
+		98A721072B26A3FD00E9C1AA /* TUFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUFont.swift; sourceTree = "<group>"; };
+		98A721092B26A41400E9C1AA /* MateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateList.swift; sourceTree = "<group>"; };
+		98A7210A2B26A41400E9C1AA /* MateList2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateList2.swift; sourceTree = "<group>"; };
 		9694BF1B2B25A4770012C83F /* MateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				61D617D02B224240008AC1BB /* MainView.swift */,
+				98A721092B26A41400E9C1AA /* MateList.swift */,
+				98A7210A2B26A41400E9C1AA /* MateList2.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -247,6 +255,7 @@
 				827DB1152B2278A200B298D3 /* TUText.swift */,
 				82962F952B23221900C7A54B /* TUButton.swift */,
 				8227B1952B237A1000C5E4E6 /* FloatingButton.swift */,
+				98A721072B26A3FD00E9C1AA /* TUFont.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -348,8 +357,10 @@
 				61D617C52B223F58008AC1BB /* ContentView.swift in Sources */,
 				8227B1962B237A1000C5E4E6 /* FloatingButton.swift in Sources */,
 				616C280A2B24BE8F0029857B /* MyProfileView.swift in Sources */,
+				98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */,
 				616C28062B24BE8F0029857B /* CustomDatePicker.swift in Sources */,
 				8227B18E2B234D6A00C5E4E6 /* AddPostView.swift in Sources */,
+				98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */,
 				616C28072B24BE8F0029857B /* CalendarHomeView.swift in Sources */,
 				8227B1902B2363DB00C5E4E6 /* View+Keyboard.swift in Sources */,
 				616C28082B24BE8F0029857B /* RunningChartView.swift in Sources */,
@@ -370,6 +381,7 @@
 				61D617D72B224449008AC1BB /* MyPageView.swift in Sources */,
 				827DB11A2B227DA200B298D3 /* User.swift in Sources */,
 				827DB1182B227A1F00B298D3 /* Constants.swift in Sources */,
+				98A7210C2B26A41400E9C1AA /* MateList2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
