@@ -151,3 +151,6 @@ struct MateDetailView: View {
         }
     }
 }
+#Preview {
+    MateDetailView()
+}

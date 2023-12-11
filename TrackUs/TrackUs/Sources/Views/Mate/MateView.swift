@@ -8,6 +8,15 @@
 import SwiftUI
 
 struct MateView: View {
+    
+    let items: [ListItemModel] = {
+        var listItems: [ListItemModel] = []
+        for index in 1...10 {
+            listItems.append(ListItemModel(title: "심장 터질정도로 달릴 러닝 브로",distance: "500m", date: "2023.12.5", time: "9:00pm-11:00pm"))
+        }
+        return listItems
+    }()
+    
     var body: some View {
             VStack {
                     HStack {
@@ -31,39 +40,48 @@ struct MateView: View {
                 }
                 
             NavigationView {
-                List(0 ..< 20) { item in
+                List {
                     //이미지 수정필요(human runing Image)
-                    HStack {
-                        Image(systemName: "figure.run")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 40)
-                            
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("심장 터질정도로 달릴 러닝 브로")
-                                .font(.system(size: 18, weight: .semibold))
-                                .lineLimit(1)
-                                .frame(width: 200)
-                            
+                    ForEach(items) { item in
+                        NavigationLink(destination: MateDetailView()) {
                             HStack {
-                                Image(systemName: "figure.track.and.field")
-                                Text("500m")
-                                    .font(.subheadline)
-                                    .foregroundColor(.init(hex: "FFA500"))
-                            }
-                            
-                            HStack {
-                                Image(systemName: "calendar")
-                                Text("2023.12.02")
-                                    .font(.subheadline)
-                                    .foregroundColor(.init(hex: "FFA500"))
-                            }
-                            
-                            HStack {
-                                Image(systemName: "clock")
-                                Text("9:00 PM ~ 11:00 PM")
-                                    .font(.subheadline)
-                                    .foregroundColor(.init(hex: "FFA500"))
+                                Image(systemName: "figure.run")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 40)
+                                    
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text(item.title)
+                                        .font(.system(size: 18, weight: .semibold))
+                                        .lineLimit(1)
+                                        .frame(width: 200)
+                                    
+                                    HStack {
+                                        Image(systemName: "figure.track.and.field")
+                                        Text(item.distance)
+                                            .font(.subheadline)
+                                            .foregroundColor(.init(hex: "FFA500"))
+                                            .frame(width: 50)
+                                    }
+                                    HStack {
+                                        Image(systemName: "calendar")
+                                        Text(item.date)
+                                            .font(.subheadline)
+                                            .foregroundColor(.init(hex: "FFA500"))
+                                            .lineLimit(1)
+                                            .frame(width: 80)
+                                    }
+                                    
+                                    HStack {
+                                        Image(systemName: "clock")
+                                        Text(item.time)
+                                            .font(.subheadline)
+                                            .foregroundColor(.init(hex: "FFA500"))
+                                            .frame(width: 50)
+                                            .lineLimit(1)
+                                            .frame(width: 60)
+                                    }
+                                }
                             }
                         }
                     }
@@ -71,6 +89,14 @@ struct MateView: View {
             }
         }
     }
+}
+
+struct ListItemModel: Identifiable {
+    let id = UUID()
+    let title: String
+    let distance : String
+    let date: String
+    let time: String
 }
 
 #Preview {
