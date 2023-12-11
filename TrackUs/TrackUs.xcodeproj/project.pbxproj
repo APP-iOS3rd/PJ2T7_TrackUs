@@ -41,6 +41,8 @@
 		82962F962B23221900C7A54B /* TUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F952B23221900C7A54B /* TUButton.swift */; };
 		82962F982B2329DE00C7A54B /* CommunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F972B2329DE00C7A54B /* CommunityCard.swift */; };
 		82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F992B234C2100C7A54B /* CommunityDetailView.swift */; };
+		82DF82C52B26F5A300D1DA12 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF82C42B26F5A300D1DA12 /* TrackViewModel.swift */; };
+		82DF82C72B26F5C800D1DA12 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF82C62B26F5C800D1DA12 /* Track.swift */; };
 		9694BF1C2B25A4770012C83F /* MateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9694BF1B2B25A4770012C83F /* MateDetailView.swift */; };
 		98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721072B26A3FD00E9C1AA /* TUFont.swift */; };
 		98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721092B26A41400E9C1AA /* MateList.swift */; };
@@ -85,6 +87,8 @@
 		82962F952B23221900C7A54B /* TUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUButton.swift; sourceTree = "<group>"; };
 		82962F972B2329DE00C7A54B /* CommunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCard.swift; sourceTree = "<group>"; };
 		82962F992B234C2100C7A54B /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
+		82DF82C42B26F5A300D1DA12 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		82DF82C62B26F5C800D1DA12 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		9694BF1B2B25A4770012C83F /* MateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateDetailView.swift; sourceTree = "<group>"; };
 		98A721072B26A3FD00E9C1AA /* TUFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUFont.swift; sourceTree = "<group>"; };
 		98A721092B26A41400E9C1AA /* MateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateList.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 		827DB10D2B2272AE00B298D3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				82DF82C32B26F59100D1DA12 /* Track */,
 				827DB11D2B227DF100B298D3 /* Authentication */,
 			);
 			path = ViewModels;
@@ -238,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				827DB1192B227DA200B298D3 /* User.swift */,
+				82DF82C62B26F5C800D1DA12 /* Track.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +294,14 @@
 				451651DA2B26D09D00E652C6 /* MapViewModel.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		82DF82C32B26F59100D1DA12 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				82DF82C42B26F5A300D1DA12 /* TrackViewModel.swift */,
+			);
+			path = Track;
 			sourceTree = "<group>";
 		};
 		E8DE86725EA8CAADEA346C3D /* Frameworks */ = {
@@ -426,6 +440,7 @@
 				616C280B2B24BE8F0029857B /* ChartTabBarView.swift in Sources */,
 				616C280C2B24BE8F0029857B /* DataValue.swift in Sources */,
 				827DB1142B2274BD00B298D3 /* Color+.swift in Sources */,
+				82DF82C52B26F5A300D1DA12 /* TrackViewModel.swift in Sources */,
 				827DB11F2B227E0200B298D3 /* UserViewModel.swift in Sources */,
 				61D617C52B223F58008AC1BB /* ContentView.swift in Sources */,
 				451651D92B26D06F00E652C6 /* MapView.swift in Sources */,
@@ -443,6 +458,7 @@
 				8227B19A2B2385B700C5E4E6 /* View+Border.swift in Sources */,
 				61D617D52B224438008AC1BB /* MateView.swift in Sources */,
 				616C280D2B24BE8F0029857B /* SmallDatePicker.swift in Sources */,
+				82DF82C72B26F5C800D1DA12 /* Track.swift in Sources */,
 				61D617D32B2243CC008AC1BB /* CommunityView.swift in Sources */,
 				8227B1922B236C6700C5E4E6 /* CommentCell.swift in Sources */,
 				61498BFE2B269A8E00AF3AF7 /* AddTrack.swift in Sources */,
