@@ -11,14 +11,14 @@ import SwiftUI
 struct CommunityView: View {
     @State private var action: Int? = 0  // 화면이동 테스트를 위해서 임시로 선언
     var body: some View {
-        NavigationStack {
+        
             ZStack(alignment: .bottomTrailing) {
                 Color.main
                     .edgesIgnoringSafeArea(.all)
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         ForEach(1...40, id: \.self) { _ in
-                            NavigationLink(destination: CommunityDetailView().navigationTitle("상세보기").toolbar(.hidden, for: .tabBar) ) {
+                            NavigationLink(destination: CommunityDetailView().navigationTitle("상세보기") ) {
                                 CommunityCard()
                             }
                         }
@@ -29,15 +29,13 @@ struct CommunityView: View {
                 .padding(.horizontal, 20)
                 
                 // 글추가 화면으로 이동
-                NavigationLink(destination: AddPostView().toolbar(.hidden, for: .tabBar), tag: 1, selection: $action) {
+                NavigationLink(destination: AddPostView(), tag: 1, selection: $action) {
                    EmptyView()
                 }
                 FloatingButton(action: {
                                 self.action = 1
                 })
                     .padding(20)
-                    
-            }
         }
     }
 }
