@@ -38,6 +38,7 @@
 		82962F962B23221900C7A54B /* TUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F952B23221900C7A54B /* TUButton.swift */; };
 		82962F982B2329DE00C7A54B /* CommunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F972B2329DE00C7A54B /* CommunityCard.swift */; };
 		82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F992B234C2100C7A54B /* CommunityDetailView.swift */; };
+		9694BF1C2B25A4770012C83F /* MateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9694BF1B2B25A4770012C83F /* MateDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		82962F952B23221900C7A54B /* TUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUButton.swift; sourceTree = "<group>"; };
 		82962F972B2329DE00C7A54B /* CommunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCard.swift; sourceTree = "<group>"; };
 		82962F992B234C2100C7A54B /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
+		9694BF1B2B25A4770012C83F /* MateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				61D617D42B224438008AC1BB /* MateView.swift */,
+				9694BF1B2B25A4770012C83F /* MateDetailView.swift */,
 			);
 			path = Mate;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				8227B1942B236EC300C5E4E6 /* CommentInput.swift in Sources */,
 				82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */,
 				82962F962B23221900C7A54B /* TUButton.swift in Sources */,
+				9694BF1C2B25A4770012C83F /* MateDetailView.swift in Sources */,
 				827DB1162B2278A200B298D3 /* TUText.swift in Sources */,
 				61D617C32B223F58008AC1BB /* TrackUsApp.swift in Sources */,
 				61D617D72B224449008AC1BB /* MyPageView.swift in Sources */,
@@ -500,6 +504,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -529,6 +534,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
