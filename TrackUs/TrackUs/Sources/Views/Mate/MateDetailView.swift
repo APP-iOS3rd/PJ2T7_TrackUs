@@ -25,7 +25,7 @@ struct MateDetailView: View {
     @State private var showJoinButton: Bool = true
 
     var body: some View {
-        Color.main
+//        Color.main
         
         ScrollView {
             VStack(spacing: 10) {
@@ -150,4 +150,7 @@ struct MateDetailView: View {
             }
         }
     }
+}
+#Preview {
+    MateDetailView()
 }
