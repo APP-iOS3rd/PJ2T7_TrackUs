@@ -74,7 +74,7 @@ struct RecruitmentCell: View {
                     }
                     HStack{
                         Image(systemName: "clock")
-                        Text("\(formattedTime)")
+                        Text("\(formattedDateTime)")
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
@@ -97,15 +97,21 @@ struct RecruitmentCell: View {
     
     var formattedDate: String {
         let formatter  = DateFormatter()
-        formatter.dateFormat = "YYYY/MM/dd"
+        formatter.dateFormat = "YYYY.MM.dd"
         return formatter.string(from: trackInfo.startDate)
     }
     
-    var formattedTime: String {
-        let seconds = trackInfo.timeTaken
-        let minutes = (seconds / 60) % 60
-        let hours = seconds / 3600
-        return String(format: "%02d:%02d", hours, minutes)
+//    var formattedTime: String {
+//        let seconds = trackInfo.timeTaken
+//        let minutes = (seconds / 60) % 60
+//        let hours = seconds / 3600
+//        return String(format: "%02d:%02d", hours, minutes)
+//    }
+    
+    var formattedDateTime: String {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: trackInfo.startDate)
     }
 }
 
