@@ -31,7 +31,7 @@ struct MateDetailView: View {
 
     var formattedDate: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY/MM/dd"
+        formatter.dateFormat = "YYYY.MM.dd"
         return formatter.string(from: trackInfo.startDate)
     }
     
@@ -39,7 +39,13 @@ struct MateDetailView: View {
         let seconds = trackInfo.timeTaken
         let minutes = (seconds / 60) % 60
         let hours = seconds / 3600
-        return String(format: "%02d:%02d", hours, minutes)
+        return String(format: "%02d", minutes)
+    }
+    
+    var formattedDateTime: String {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: trackInfo.startDate)
     }
 
     var body: some View {
@@ -54,7 +60,8 @@ struct MateDetailView: View {
                 HStack(spacing: 70) {
                     if let firstTrack = trackViewModel.trackDatas.first {
                         TUText(style: .mediumTitle, text: "\(trackInfo.estimatedDistance)km")
-                        TUText(style: .mediumTitle, text: "\(trackInfo.timeTaken)min")
+//                        TUText(style: .mediumTitle, text: "\(trackInfo.timeTaken)min")
+                        TUText(style: .mediumTitle, text: "\(formattedTime)min")
                         TUText(style: .mediumTitle, text: "\(trackInfo.caloriesConsumed)kcal")
                     } else {
                         // 예외 처리: 트랙 정보가 없을 경우 기본값 또는 에러 메시지 표시
@@ -90,7 +97,7 @@ struct MateDetailView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.white)
-                        TUText(style: .body, text: formattedTime)
+                        TUText(style: .body, text: formattedDateTime)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
 
