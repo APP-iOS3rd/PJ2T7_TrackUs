@@ -17,7 +17,7 @@ struct TrackInfo {
     var participations: [UUID] // 참여자리스트
     var timeTaken: Int // 소요시간
     var author: UUID // 작성
-    var trackPaths: [NMFMarker]
+    var trackPaths: [NMFMarker] 
 }
 
 

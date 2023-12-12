@@ -12,8 +12,6 @@ struct MainView: View {
     @State private var mapViewHeight = UIScreen.main.bounds.height * 3/7
     @State private var listViewHeight = UIScreen.main.bounds.height * 3/7
 
-    
-    var body: some View {
         NavigationStack{
             VStack{
                 

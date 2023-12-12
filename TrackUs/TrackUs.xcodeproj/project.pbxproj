@@ -40,10 +40,11 @@
 		827DB1182B227A1F00B298D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB1172B227A1F00B298D3 /* Constants.swift */; };
 		827DB11A2B227DA200B298D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB1192B227DA200B298D3 /* User.swift */; };
 		827DB11F2B227E0200B298D3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB11E2B227E0200B298D3 /* UserViewModel.swift */; };
+		828E6D6B2B281BE4000D7453 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E6D6A2B281BE4000D7453 /* TrackViewModel.swift */; };
 		82962F962B23221900C7A54B /* TUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F952B23221900C7A54B /* TUButton.swift */; };
 		82962F982B2329DE00C7A54B /* CommunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F972B2329DE00C7A54B /* CommunityCard.swift */; };
 		82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F992B234C2100C7A54B /* CommunityDetailView.swift */; };
-		82DF82C72B26F5C800D1DA12 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF82C62B26F5C800D1DA12 /* Track.swift */; };
+		82DF82C72B26F5C800D1DA12 /* TrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF82C62B26F5C800D1DA12 /* TrackInfo.swift */; };
 		98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721072B26A3FD00E9C1AA /* TUFont.swift */; };
 		98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721092B26A41400E9C1AA /* MateList.swift */; };
 		98A7210C2B26A41400E9C1AA /* MateList2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7210A2B26A41400E9C1AA /* MateList2.swift */; };
@@ -86,11 +87,11 @@
 		827DB1172B227A1F00B298D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		827DB1192B227DA200B298D3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		827DB11E2B227E0200B298D3 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		828E6D6A2B281BE4000D7453 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		82962F952B23221900C7A54B /* TUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUButton.swift; sourceTree = "<group>"; };
 		82962F972B2329DE00C7A54B /* CommunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCard.swift; sourceTree = "<group>"; };
 		82962F992B234C2100C7A54B /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
-		82DF82C42B26F5A300D1DA12 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
-		82DF82C62B26F5C800D1DA12 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		82DF82C62B26F5C800D1DA12 /* TrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackInfo.swift; sourceTree = "<group>"; };
 		98A721072B26A3FD00E9C1AA /* TUFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUFont.swift; sourceTree = "<group>"; };
 		98A721092B26A41400E9C1AA /* MateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateList.swift; sourceTree = "<group>"; };
 		98A7210A2B26A41400E9C1AA /* MateList2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateList2.swift; sourceTree = "<group>"; };
@@ -244,7 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				827DB1192B227DA200B298D3 /* User.swift */,
-				82DF82C62B26F5C800D1DA12 /* Track.swift */,
+				82DF82C62B26F5C800D1DA12 /* TrackInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,7 +300,7 @@
 		82DF82C32B26F59100D1DA12 /* Track */ = {
 			isa = PBXGroup;
 			children = (
-				82DF82C42B26F5A300D1DA12 /* TrackViewModel.swift */,
+				828E6D6A2B281BE4000D7453 /* TrackViewModel.swift */,
 			);
 			path = Track;
 			sourceTree = "<group>";
@@ -450,6 +451,7 @@
 				98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */,
 				616C28062B24BE8F0029857B /* CustomDatePicker.swift in Sources */,
 				610D59CF2B27EAD1006362AD /* MateView.swift in Sources */,
+				828E6D6B2B281BE4000D7453 /* TrackViewModel.swift in Sources */,
 				8227B18E2B234D6A00C5E4E6 /* AddPostView.swift in Sources */,
 				98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */,
 				616C28072B24BE8F0029857B /* CalendarHomeView.swift in Sources */,
@@ -460,7 +462,7 @@
 				61D617D12B224240008AC1BB /* MainView.swift in Sources */,
 				8227B19A2B2385B700C5E4E6 /* View+Border.swift in Sources */,
 				616C280D2B24BE8F0029857B /* SmallDatePicker.swift in Sources */,
-				82DF82C72B26F5C800D1DA12 /* Track.swift in Sources */,
+				82DF82C72B26F5C800D1DA12 /* TrackInfo.swift in Sources */,
 				61D617D32B2243CC008AC1BB /* CommunityView.swift in Sources */,
 				610D59CD2B27EAD1006362AD /* MyRunning.swift in Sources */,
 				8227B1922B236C6700C5E4E6 /* CommentCell.swift in Sources */,
