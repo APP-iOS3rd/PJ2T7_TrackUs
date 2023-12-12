@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct Recruitment: View {
-    
+    @StateObject private var trackViewModel = TrackViewModel.shared
     private var vGridItems = [GridItem()]
     
     var body: some View {
             ScrollView{
                 NavigationLink(destination: MateDetailView(), label: {
                 LazyVGrid(columns: vGridItems, spacing: 0) {
-                    ForEach((1...10), id: \.self) { item in
-                        RecruitmentCell(title: "500m", date: "12/02", time: "11시 50 - 12시")
-                            
+                    ForEach(trackViewModel.trackDatas, id: \.self) { item in
+                        RecruitmentCell(title: item.trackName, distance: item.distance, date: item.startDate, time: item.participationTime)
                     }
                 }
             })
@@ -30,6 +29,7 @@ struct Recruitment: View {
 struct RecruitmentCell: View {
     
     let title: String
+    let distance: String
     let date: String
     let time: String
     
@@ -46,8 +46,8 @@ struct RecruitmentCell: View {
                 
                 Spacer()
                 
-                VStack(alignment: .leading) {
-                    Text("심장 터질 정도로 달릴 러닝 브로...")
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(title)
                         .font(.headline)
                         .bold()
                         .lineLimit(1)
@@ -56,7 +56,7 @@ struct RecruitmentCell: View {
                         .foregroundStyle(.white)
                     HStack{
                         Image(systemName: "figure.track.and.field")
-                        Text("\(title)")
+                        Text("\(distance)")
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
