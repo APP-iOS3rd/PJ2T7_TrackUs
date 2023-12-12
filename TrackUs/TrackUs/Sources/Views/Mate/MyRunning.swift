@@ -36,7 +36,7 @@ struct MyRunningCell: View {
     let trackInfo: TrackInfo
     
     var body: some View {
-        NavigationLink(destination: MateDetailView(), label: {
+        NavigationLink(destination: MateDetailView(trackInfo: trackInfo)) {
         VStack{
             HStack(spacing: 10) {
                 
@@ -91,7 +91,7 @@ struct MyRunningCell: View {
             
         }
         .background(Color.main)
-        })
+        }
     }
     
     var formattedDate: String {

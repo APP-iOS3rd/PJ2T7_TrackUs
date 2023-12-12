@@ -8,48 +8,35 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var mapViewHeight = UIScreen.main.bounds.height * 3/8
-    @State private var listViewHeight = UIScreen.main.bounds.height * 4/8
+    
+    @State private var mapViewHeight = UIScreen.main.bounds.height * 3/7
+    @State private var listViewHeight = UIScreen.main.bounds.height * 3/7
     
     var body: some View {
+        
         NavigationStack{
             VStack{
-                // TrackUs 제목용
-                //            HStack(spacing: 0, content: {
-                //                Text("Track")
-                //                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                //                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                //                Text("Us")
-                //                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                //                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                //                    .foregroundStyle(.mainTheme)
-                //                Spacer()
-                //            })
-                //            .padding(.init(top: 50, leading: 20, bottom: 0, trailing: 0))
-                //            .frame(height: UIScreen.main.bounds.height * 1/7)
-                
                 // 지도
-                VStack{
-                    ZStack{
-                        // map 추가 코드
-                        Color.black
-                        Text("지도 표시")
-                        VStack{
-                            LinearGradient(gradient: Gradient(colors: [Color.background.opacity(1), Color.background.opacity(0)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: UIScreen.main.bounds.height * 1/20)
-                            Spacer()
-                            LinearGradient(gradient: Gradient(colors: [Color.background.opacity(0), Color.background.opacity(1)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: UIScreen.main.bounds.height * 1/20)
-                        }
-                    }
+                VStack {
+                    // 지도 추가 코드
+                    Color.black // 해당부분 제거 후 map 표시 추가
+                        .overlay(
+                            VStack {
+                                LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
+                                    .frame(height: UIScreen.main.bounds.height * 1/20)
+                                Spacer()
+                                LinearGradient(gradient: Gradient(colors: [Color.main.opacity(0), Color.main.opacity(1)]), startPoint: .top, endPoint: .bottom)
+                                    .frame(height: UIScreen.main.bounds.height * 1/20)
+                            }
+                        )
                 }
                 .frame(height: mapViewHeight )
                 .gesture(
                     TapGesture()
                         .onEnded {
                             withAnimation {
-                                mapViewHeight = UIScreen.main.bounds.height * 6/8
-                                listViewHeight = UIScreen.main.bounds.height * 1/8
+                                mapViewHeight = UIScreen.main.bounds.height * 5/7
+                                listViewHeight = UIScreen.main.bounds.height * 1/7
                             }
                         }
                 )
@@ -66,21 +53,19 @@ struct MainView: View {
                                     width: 50,
                                     height: 6
                                 )
-                            //                        Image(systemName: "chevron.compact.up")
-                            //                        Image(systemName: "chevron.compact.down")
                         }
                         Spacer()
                     }
                     .padding(.init(top: 1, leading: 0, bottom: 0, trailing: 0))
-                    .background(Color.background)
+                    .background(Color.main)
                     .foregroundStyle(Color.main)
                     .gesture(
                         DragGesture()
                             .onChanged{ value in
                                 let dragOffset = value.translation.height
                                 let newHeight = mapViewHeight + dragOffset/2
-                                let minHeight: CGFloat = UIScreen.main.bounds.height * 1/8
-                                let maxHeight: CGFloat = UIScreen.main.bounds.height * 6/8
+                                let minHeight: CGFloat = UIScreen.main.bounds.height * 1/7
+                                let maxHeight: CGFloat = UIScreen.main.bounds.height * 5/7
                                 
                                 if newHeight >= minHeight && newHeight <= maxHeight {
                                     mapViewHeight = mapViewHeight + dragOffset/2
@@ -88,18 +73,25 @@ struct MainView: View {
                                 }
                             }
                             .onEnded { value in
+                                let height = UIScreen.main.bounds.height
                                 let dragOffset = value.translation.height
-                                let newHeight = mapViewHeight + dragOffset/2
-                                let minHeight: CGFloat = UIScreen.main.bounds.height * 1/8
-                                let maxHeight: CGFloat = UIScreen.main.bounds.height * 6/8
                                 
-                                if newHeight >= minHeight && newHeight <= maxHeight {
-                                    mapViewHeight = mapViewHeight + dragOffset/2
-                                    listViewHeight = listViewHeight - dragOffset/2
-                                } else {
-                                    
+                                if dragOffset < 0 && mapViewHeight < height*3/7{
+                                    withAnimation(Animation.linear(duration: 0.1)){
+                                        mapViewHeight = height * 1/7
+                                        listViewHeight = height * 5/7
+                                    }
+                                }else if (dragOffset > 0 && mapViewHeight < height*3/7) || (dragOffset < 0 && mapViewHeight > height*3/7)  {
+                                    withAnimation(Animation.linear(duration: 0.1)){
+                                        mapViewHeight = height * 3/7
+                                        listViewHeight = height * 3/7
+                                    }
+                                }else{
+                                    withAnimation(Animation.linear(duration: 0.1)){
+                                        mapViewHeight = height * 5/7
+                                        listViewHeight = height * 1/7
+                                    }
                                 }
-                                
                             }
                     )
                     HStack{
@@ -109,23 +101,20 @@ struct MainView: View {
                         Spacer()
                     }
                     ZStack{
-                        //NavigationStack{
-                            List{
-                                ForEach(1...5, id: \.self){_ in
-                                    NavigationLink{
-                                        //상세보기 View
-                                    } label: {
-                                        MateList2()
-                                    }
-                                    .listRowBackground(Color.background)
+                        List{
+                            ForEach(1...5, id: \.self){_ in
+                                NavigationLink{
+                                    //상세보기 View
+                                } label: {
+                                    MateList()
                                 }
+                                .listRowBackground(Color.main)
                             }
-                            .background(Color.background)
-                            .listStyle(PlainListStyle())
-                        //}
-                        //.background(Color.background)
+                        }
+                        .background(Color.main)
+                        .listStyle(PlainListStyle())
                         VStack{
-                            LinearGradient(gradient: Gradient(colors: [Color.background.opacity(1), Color.background.opacity(0)]), startPoint: .top, endPoint: .bottom)
+                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
                                 .frame(height: UIScreen.main.bounds.height * 1/40)
                             Spacer()
                         }
@@ -136,8 +125,8 @@ struct MainView: View {
                     TapGesture()
                         .onEnded {
                             withAnimation {
-                                listViewHeight = UIScreen.main.bounds.height * 6/8
-                                mapViewHeight = UIScreen.main.bounds.height * 1/8
+                                listViewHeight = UIScreen.main.bounds.height * 5/7
+                                mapViewHeight = UIScreen.main.bounds.height * 1/7
                             }
                         }
                 )
@@ -146,17 +135,18 @@ struct MainView: View {
             .safeAreaInset(edge: .top, content: {
                 HStack(spacing: 0, content: {
                     Text("Track")
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .foregroundStyle(.mainFont)
                     Text("Us")
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .foregroundStyle(.mainTheme)
+                        .foregroundStyle(.sub)
                     Spacer()
                 })
                 .padding(.init(top: 50, leading: 20, bottom: 0, trailing: 0))
             })
-            .background(Color.background)
+            .background(Color.main)
         }
     }
 }

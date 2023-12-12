@@ -21,7 +21,7 @@ struct TUButton: View {
     
     var body: some View {
         Button(action: action, label: {
-            TUText(style: .bigTitle, text: text)
+            TUText(style: .bigTitle, text: text, color: .main)
                 .frame(maxWidth: .infinity, minHeight: 56)
         })
         .background(.sub)

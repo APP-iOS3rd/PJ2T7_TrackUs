@@ -14,7 +14,7 @@ struct FloatingButton: View {
             Image(systemName: "plus")
                 .font(.system(size: 20))
                 .fontWeight(.bold)
-                .foregroundColor(.white)
+                .foregroundColor(.main)
                 .frame(width: 60, height: 60)
                 .background(.sub)
                 .cornerRadius(20)

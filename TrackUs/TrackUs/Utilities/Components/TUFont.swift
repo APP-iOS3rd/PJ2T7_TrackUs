@@ -36,7 +36,7 @@ extension View {
             color = Color.mainFont
         case .caption:
             font = Font.system(size: 12, weight: .medium)
-            color = Color.mainTheme // 캡션에 대한 컬러 지정
+            color = Color.sub // 캡션에 대한 컬러 지정
         }
 
         return self

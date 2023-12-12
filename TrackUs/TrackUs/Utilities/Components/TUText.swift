@@ -26,7 +26,7 @@ struct TUText: View {
         case caption // 캡션
     }
     
-    init(style: TUTextGuide, text: String, color: Color = .white) {
+    init(style: TUTextGuide, text: String, color: Color = .mainFont) {
         self.style = style
         self.text = text
         self.color = color
