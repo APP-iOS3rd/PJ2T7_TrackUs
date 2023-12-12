@@ -28,7 +28,7 @@ struct TrackPathUIMapView: UIViewRepresentable {
     
     // 델리게이트들을 추가해주는 Coordinator 클래스 UIKit -> SwiftUI로의 데이터 전달
      class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
-
+         
         let view = NMFNaverMapView(frame: .zero)
          @ObservedObject var trackViewModel: TrackViewModel
         // MARK: - init
@@ -40,11 +40,10 @@ struct TrackPathUIMapView: UIViewRepresentable {
             view.mapView.positionMode = .direction
             view.mapView.mapType = .navi
             view.mapView.isNightModeEnabled = true
-
+             
             view.mapView.zoomLevel = 15
             view.mapView.minZoomLevel = 10 // 최소 줌 레벨
             view.mapView.maxZoomLevel = 17 // 최대 줌 레벨
-            
             
             view.showZoomControls = true // 줌 확대, 축소 버튼 활성화
             view.showCompass = false

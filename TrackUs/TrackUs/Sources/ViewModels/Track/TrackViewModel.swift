@@ -27,19 +27,14 @@ class TrackViewModel: ObservableObject {
      현재 설정된 트랙경로의 정보 비웁니다
      */
     func resetTrackPathData() {
-        self.currnetTrackData.trackPaths.points.removeAll()
-        self.currnetTrackData.estimatedDistance = 0
-        self.currnetTrackData.caloriesConsumed = 0
-        self.currnetTrackData.timeTaken = 0
+       print("RESET PATHS")
     }
+    
     /**
-     현재 설정된 트랙경로의 데이터를 되돌리고 다시 계산합니다.
+     최근에 추가된 경로를 제거합니다.
      */
     func revertTrackPathData() {
-        if self.currnetTrackData.trackPaths.points.count >= 2 {
-            
-            
-        }
+        print("REVERT PATHS")
     }
     
     /**

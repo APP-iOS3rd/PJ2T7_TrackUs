@@ -27,7 +27,7 @@ struct AddTrackPathView: View {
         .toolbar{
             ToolbarItem {
                 HStack{
-                    Button(action: {  }, label: {
+                    Button(action: { trackViewModel.revertTrackPathData() }, label: {
                         Text("되돌리기")
                     })
                     
