@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @State private var mapViewHeight = UIScreen.main.bounds.height * 3/8
     @State private var listViewHeight = UIScreen.main.bounds.height * 4/8
-
     
     var body: some View {
         NavigationStack{

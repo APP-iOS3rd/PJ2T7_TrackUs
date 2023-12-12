@@ -9,6 +9,7 @@ import SwiftUI
 
 // 프로필 이미지를 나타내는 구조체
 struct ParticipantImage: View {
+  
     var imageName: String
 
     var body: some View {
