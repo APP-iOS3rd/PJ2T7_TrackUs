@@ -1,13 +1,13 @@
 //
-//  AddTrack.swift
+//  AddTrackView.swift
 //  TrackUs
 //
 //  Created by 박선구 on 12/10/23.
 //
 
 import SwiftUI
-
-struct AddTrack: View {
+import NMapsMap
+struct AddTrackView: View {
     @State var trackName : String = "" // 트랙이름
     @State var limitedMember : Int = 1 // 제한인원
     @State var estimatedTime: Int = 0 // 예상시간(분)
@@ -58,8 +58,7 @@ struct AddTrack: View {
                 // MARK: - 트랙경로 설정하는 화면으로 이동
                 VStack{
                     NavigationLink(destination: {
-                        // 마커 찍는 지도 들어갈 자리
-                        
+                        AddTrackPathView()
                     }, label: {
                         ZStack(alignment: .center){
                             Image("mapImage")
@@ -206,5 +205,5 @@ struct AddTrack: View {
 }
 
 #Preview {
-    AddTrack()
+    AddTrackView()
 }

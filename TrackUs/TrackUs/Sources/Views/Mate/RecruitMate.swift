@@ -27,7 +27,7 @@ struct RecruitMate: View {
                 selectTab(selec: selectedPicker)
             }
             
-            NavigationLink(destination: AddTrack(), label: {
+            NavigationLink(destination: AddTrackView(), label: {
                 Image(systemName: "plus")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
