@@ -11,7 +11,6 @@ struct MyRunning: View {
     
     @StateObject var trackViewModel = TrackViewModel()
     
-    
     private var vGridItems = [GridItem()]
     
     var body: some View {
