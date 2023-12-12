@@ -11,24 +11,11 @@ struct MainView: View {
     
     @State private var mapViewHeight = UIScreen.main.bounds.height * 3/7
     @State private var listViewHeight = UIScreen.main.bounds.height * 3/7
-
+    
+    var body: some View {
+        
         NavigationStack{
             VStack{
-                
-                /* TrackUs 제목용 >> 추후 삭제 => 하단 safeAreaInset에 있음
-                            HStack(spacing: 0, content: {
-                                Text("Track")
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                Text("Us")
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                                    .foregroundStyle(.mainTheme)
-                                Spacer()
-                            })
-                            .padding(.init(top: 50, leading: 20, bottom: 0, trailing: 0))
-                            .frame(height: UIScreen.main.bounds.height * 1/7)
-                */
                 // 지도
                 VStack {
                     // 지도 추가 코드
@@ -43,21 +30,6 @@ struct MainView: View {
                             }
                         )
                 }
-                // 지도 터치 여부 확인 후 삭제
-                /*VStack{
-                    ZStack{
-                        // map 추가 코드
-                        Color.black
-                        Text("지도 표시")
-                        VStack{
-                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: UIScreen.main.bounds.height * 1/20)
-                            Spacer()
-                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(0), Color.main.opacity(1)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: UIScreen.main.bounds.height * 1/20)
-                        }
-                    }
-                }*/
                 .frame(height: mapViewHeight )
                 .gesture(
                     TapGesture()
@@ -129,21 +101,18 @@ struct MainView: View {
                         Spacer()
                     }
                     ZStack{
-                        //NavigationStack{
-                            List{
-                                ForEach(1...5, id: \.self){_ in
-                                    NavigationLink{
-                                        //상세보기 View
-                                    } label: {
-                                        MateList()
-                                    }
-                                    .listRowBackground(Color.main)
+                        List{
+                            ForEach(1...5, id: \.self){_ in
+                                NavigationLink{
+                                    //상세보기 View
+                                } label: {
+                                    MateList()
                                 }
+                                .listRowBackground(Color.main)
                             }
-                            .background(Color.main)
-                            .listStyle(PlainListStyle())
-                        //}
-                        //.background(Color.main)
+                        }
+                        .background(Color.main)
+                        .listStyle(PlainListStyle())
                         VStack{
                             LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
                                 .frame(height: UIScreen.main.bounds.height * 1/40)
