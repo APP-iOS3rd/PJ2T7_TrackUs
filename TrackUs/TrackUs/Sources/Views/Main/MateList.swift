@@ -23,6 +23,7 @@ struct MateList: View {
             Image(systemName: "figure.run")
                 .resizable()
                 .frame(width: 50,height: 50)
+                .foregroundStyle(.mainFont)
             // 모집 내용
             VStack(alignment: .leading,spacing: 8){
                 Text(title)
