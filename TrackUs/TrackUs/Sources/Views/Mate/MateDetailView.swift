@@ -35,7 +35,7 @@ struct MateDetailView: View {
         return formatter.string(from: trackInfo.startDate)
     }
     
-    var formattedTime: String {
+    var formattedTime: String { // 분 계산..
         let seconds = trackInfo.timeTaken
         let minutes = (seconds / 60) % 60
         let hours = seconds / 3600
