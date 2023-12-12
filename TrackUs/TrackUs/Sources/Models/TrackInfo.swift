@@ -11,8 +11,6 @@ import NMapsMap
 struct TrackInfo : Hashable, Identifiable {
     var trackName: String // 트랙이름
     var trackBio: String // 소개
-    var distance: String //트랙거리 (distance추가)
-    var participationTime : String //참여시간 (participationTime추가)
     var startDate: Date // 시작날짜 (자료형수정)
     var estimatedDistance: Double // 예상거리
     var limitedMember: Int // 제한인원
