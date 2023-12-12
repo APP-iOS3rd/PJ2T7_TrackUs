@@ -10,24 +10,45 @@ import SwiftUI
 // 프로필 이미지를 나타내는 구조체
 struct ParticipantImage: View {
   
-    var imageName: String
+    var participationsImage: String
 
     var body: some View {
-        Image(imageName)
+        Image(participationsImage)
             .resizable()
             .frame(width: 50, height: 50)
             .clipShape(Circle())
     }
 }
 
-// 커뮤니티 상세화면
+// 메이트모집 상세화면
 struct MateDetailView: View {
+    let trackInfo: TrackInfo
+
+    @StateObject var trackViewModel = TrackViewModel()
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
+    //var trackInfo: TrackInfo
+
+    var formattedDate: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY.MM.dd"
+        return formatter.string(from: trackInfo.startDate)
+    }
+    
+    var formattedTime: String { // 분 계산..
+        let seconds = trackInfo.timeTaken
+        let minutes = (seconds / 60) % 60
+        let hours = seconds / 3600
+        return String(format: "%02d", minutes)
+    }
+    
+    var formattedDateTime: String {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: trackInfo.startDate)
+    }
 
     var body: some View {
-//        Color.main
-        
         ScrollView {
             VStack(spacing: 10) {
                 // MARK: - 소요시간, 칼로리, 거리
@@ -37,9 +58,17 @@ struct MateDetailView: View {
                     TUText(style: .smallTitle, text: "소모칼로리")
                 }
                 HStack(spacing: 70) {
-                    TUText(style: .mediumTitle, text: "3.3km")
-                    TUText(style: .mediumTitle, text: "14min")
-                    TUText(style: .mediumTitle, text: "160kcal")
+                    if let firstTrack = trackViewModel.trackDatas.first {
+                        TUText(style: .mediumTitle, text: "\(trackInfo.estimatedDistance)km")
+//                        TUText(style: .mediumTitle, text: "\(trackInfo.timeTaken)min")
+                        TUText(style: .mediumTitle, text: "\(formattedTime)min")
+                        TUText(style: .mediumTitle, text: "\(trackInfo.caloriesConsumed)kcal")
+                    } else {
+                        // 예외 처리: 트랙 정보가 없을 경우 기본값 또는 에러 메시지 표시
+                        TUText(style: .mediumTitle, text: "N/A")
+                        TUText(style: .mediumTitle, text: "N/A")
+                        TUText(style: .mediumTitle, text: "N/A")
+                    }
                 }
                 .padding(.horizontal, 10)
                 
@@ -53,14 +82,14 @@ struct MateDetailView: View {
                 // MARK: - 내용
                 VStack(spacing: 20) {
                     // 내용
-                    TUText(style: .body, text: "심장 터질 정도로 달릴 러닝 브로 구함!🫁🏃🏻‍♀️🏃🏻")
+                    TUText(style: .body, text: trackInfo.trackName)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     HStack {
                         Image(systemName: "clock")
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.white)
-                        TUText(style: .body, text: "12월 06일 수, 19:00")
+                        TUText(style: .body, text: formattedDate)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     HStack {
@@ -68,27 +97,39 @@ struct MateDetailView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.white)
-                        TUText(style: .body, text: "서울숲카페거리 성수동12동")
+                        TUText(style: .body, text: formattedDateTime)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
+
                     HStack {
-                        Image(systemName: "clock")
+                        Image(systemName: "pin")
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.white)
-                        TUText(style: .body, text: "1.59km")
+                        TUText(style: .body, text: "\(trackInfo.trackPaths)")
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
+
                     HStack {
-                        Image(systemName: "clock")
+                        Image(systemName: "flag")
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundColor(.white)
-                        TUText(style: .body, text: "3/6명")
+                        TUText(style: .body, text: "\(trackInfo.estimatedDistance)km")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+
+                    HStack {
+                        Image(systemName: "person")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.white)
+                        TUText(style: .body, text: "\(trackInfo.participations.count)/\(trackInfo.limitedMember)명")
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 .padding(.horizontal, 20)
+                
                 
                 // MARK: - 소개, 참여자
                 HStack(spacing: 150) {
@@ -118,16 +159,17 @@ struct MateDetailView: View {
                     // 참여자에 해당하는 내용
                     VStack(spacing: 30) {
                         HStack {
-                            ParticipantImage(imageName: "image1")
-                            ParticipantImage(imageName: "image1")
-                            ParticipantImage(imageName: "image1")
-                            ParticipantImage(imageName: "image1")
+                            ParticipantImage(participationsImage: "image1")
+                            ParticipantImage(participationsImage: "image1")
+                            ParticipantImage(participationsImage: "image1")
+                            ParticipantImage(participationsImage: "image1")
                         }
                     }
                     .padding(.top, 30)
                 } else {
                     // 소개에 해당하는 내용
-                    TUText(style: .body, text: "우리는 누구?\n- 중급부터 고급자까지 환영합니다!👐🏻\n-(초급자분들은 힘드실 수 있어요😂)\n\n우리가 찾는 메이트:\n- 19시 이후로 가능한 사람\n- 서로에게 도전과 지지를 줄 수 있는 사람\n- 약속시간을 잘 지키는 사람")
+                    TUText(style: .body, text: trackInfo.trackBio)
+
                 }
             }
             .padding(.horizontal, 20)
@@ -152,6 +194,6 @@ struct MateDetailView: View {
         }
     }
 }
-#Preview {
-    MateDetailView()
-}
+//#Preview {
+//    MateDetailView()
+//}

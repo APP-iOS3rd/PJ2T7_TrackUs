@@ -37,7 +37,7 @@ struct RecruitmentCell: View {
     let trackInfo: TrackInfo
     
     var body: some View {
-        NavigationLink(destination: MateDetailView(), label: {
+        NavigationLink(destination: MateDetailView(trackInfo: trackInfo)) {
         VStack{
             HStack(spacing: 10) {
                 
@@ -56,27 +56,28 @@ struct RecruitmentCell: View {
                         .lineLimit(1)
                         .truncationMode(.tail)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(.mainFont)
-                    VStack(alignment: .leading,spacing: 2){
-                        HStack{
-                            Image(systemName: "arrow.triangle.turn.up.right.diamond")
-                                .foregroundStyle(.mainFont)
-                            //                        Text("\(trackInfo.estimatedDistance)")
-                            Text(String(format: "%.1f km", trackInfo.estimatedDistance))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        HStack{
-                            Image(systemName: "calendar")
-                                .foregroundStyle(.mainFont)
-                            Text("\(formattedDate)")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        HStack{
-                            Image(systemName: "clock")
-                                .foregroundStyle(.mainFont)
-                            Text("\(formattedTime)")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
+                        .foregroundStyle(.white)
+                    HStack{
+                        Image(systemName: "figure.track.and.field")
+//                        Text("\(trackInfo.estimatedDistance)")
+                        Text(String(format: "%.1f km", trackInfo.estimatedDistance))
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(.sub)
+                    }
+                    HStack{
+                        Image(systemName: "calendar")
+                        Text("\(formattedDate)")
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(.sub)
+                    }
+                    HStack{
+                        Image(systemName: "clock")
+                        Text("\(formattedDateTime)")
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(.sub)
                     }
                     .customTextStyle(style: .caption)
                 }
@@ -92,20 +93,26 @@ struct RecruitmentCell: View {
             
         }
         .background(Color.main)
-        })
+        }
     }
     
     var formattedDate: String {
         let formatter  = DateFormatter()
-        formatter.dateFormat = "YYYY/MM/dd"
+        formatter.dateFormat = "YYYY.MM.dd"
         return formatter.string(from: trackInfo.startDate)
     }
     
-    var formattedTime: String {
-        let seconds = trackInfo.timeTaken
-        let minutes = (seconds / 60) % 60
-        let hours = seconds / 3600
-        return String(format: "%02d:%02d", hours, minutes)
+//    var formattedTime: String {
+//        let seconds = trackInfo.timeTaken
+//        let minutes = (seconds / 60) % 60
+//        let hours = seconds / 3600
+//        return String(format: "%02d:%02d", hours, minutes)
+//    }
+    
+    var formattedDateTime: String {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: trackInfo.startDate)
     }
 }
 

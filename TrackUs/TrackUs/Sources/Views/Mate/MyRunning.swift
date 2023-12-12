@@ -22,7 +22,6 @@ struct MyRunning: View {
                     ForEach(trackViewModel.trackDatas, id: \.self) { item in
 //                        MyRunningCell(title: "\(trackInfo.trackName)km", date: "\(trackInfo.startDate)", time: "\(trackInfo.timeTaken)")
                         MyRunningCell(trackInfo: item)
-                            
                     }
                 }
 //            })
@@ -37,7 +36,7 @@ struct MyRunningCell: View {
     let trackInfo: TrackInfo
     
     var body: some View {
-        NavigationLink(destination: MateDetailView(), label: {
+        NavigationLink(destination: MateDetailView(trackInfo: trackInfo)) {
         VStack{
             HStack(spacing: 10) {
                 
@@ -74,7 +73,7 @@ struct MyRunningCell: View {
                     }
                     HStack{
                         Image(systemName: "clock")
-                        Text("\(formattedTime)")
+                        Text("\(formattedDateTime)")
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
@@ -92,20 +91,26 @@ struct MyRunningCell: View {
             
         }
         .background(Color.main)
-        })
+        }
     }
     
     var formattedDate: String {
         let formatter  = DateFormatter()
-        formatter.dateFormat = "YYYY/MM/dd"
+        formatter.dateFormat = "YYYY.MM.dd"
         return formatter.string(from: trackInfo.startDate)
     }
     
-    var formattedTime: String {
-        let seconds = trackInfo.timeTaken
-        let minutes = (seconds / 60) % 60
-        let hours = seconds / 3600
-        return String(format: "%02d:%02d", hours, minutes)
+//    var formattedTime: String {
+//        let seconds = trackInfo.timeTaken
+//        let minutes = (seconds / 60) % 60
+//        let hours = seconds / 3600
+//        return String(format: "%02d:%02d", hours, minutes)
+//    }
+    
+    var formattedDateTime: String {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: trackInfo.startDate)
     }
 }
 
