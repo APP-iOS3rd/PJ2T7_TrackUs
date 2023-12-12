@@ -13,14 +13,14 @@ struct MyRunning: View {
     
     var body: some View {
             ScrollView{
-                NavigationLink(destination: MateDetailView(), label: {
+//                NavigationLink(destination: MateDetailView(), label: {
                 LazyVGrid(columns: vGridItems, spacing: 0) {
                     ForEach((1...5), id: \.self) { item in
                         MyRunningCell(title: "3.3km", date: "12/02", time: "11시 50 - 12시")
                             
                     }
                 }
-            })
+//            })
             }
             .foregroundStyle(.white)
             .background(Color.main)
@@ -34,6 +34,7 @@ struct MyRunningCell: View {
     let time: String
     
     var body: some View {
+        NavigationLink(destination: MateDetailView(), label: {
         VStack{
             HStack(spacing: 10) {
                 
@@ -87,6 +88,7 @@ struct MyRunningCell: View {
             
         }
         .background(Color.main)
+        })
     }
 }
 
