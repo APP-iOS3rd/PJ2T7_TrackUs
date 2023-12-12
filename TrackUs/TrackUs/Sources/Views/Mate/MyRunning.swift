@@ -22,7 +22,6 @@ struct MyRunning: View {
                     ForEach(trackViewModel.trackDatas, id: \.self) { item in
 //                        MyRunningCell(title: "\(trackInfo.trackName)km", date: "\(trackInfo.startDate)", time: "\(trackInfo.timeTaken)")
                         MyRunningCell(trackInfo: item)
-                            
                     }
                 }
 //            })

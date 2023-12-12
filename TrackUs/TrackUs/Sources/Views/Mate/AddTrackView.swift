@@ -15,37 +15,9 @@ struct AddTrackView: View {
     var body: some View {
         VStack(spacing: 20) {
             // MARK: - 입력된 정보로 예상거리, 소요시간, 소모칼로리를 보여줌
-            HStack{
-                VStack{
-                    Text("예상거리")
-                        .font(.footnote)
-                    Text("\(trackViewModel.currnetTrackData.estimatedDistance)")
-                        .italic()
-                        .fontWeight(.black)
-                }
-                
-                Spacer()
-                
-                VStack{
-                    Text("소요시간")
-                        .font(.footnote)
-                    Text("\(trackViewModel.currnetTrackData.timeTaken)min")
-                        .italic()
-                        .fontWeight(.black)
-                }
-                
-                Spacer()
-                
-                VStack{
-                    Text("소모칼로리")
-                        .font(.footnote)
-                    Text("\(trackViewModel.currnetTrackData.caloriesConsumed)kcal")
-                        .italic()
-                        .fontWeight(.black)
-                }
-            }
-            .foregroundStyle(.white)
-            .padding(.horizontal, 20)
+            TUExerciseIndicator(estimatedDistance: $trackViewModel.currnetTrackData.estimatedDistance, timeTaken: $trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: $trackViewModel.currnetTrackData.caloriesConsumed)
+                .foregroundStyle(.white)
+                .padding(.horizontal, 20)
             
             ScrollView(showsIndicators: false){
                 // MARK: - 트랙경로 설정하는 화면으로 이동
@@ -101,7 +73,7 @@ struct AddTrackView: View {
                         Text("예상 소요 시간(분)")
                         Spacer()
                         Button(action: {
-//                            minusTimeButtonTapped()
+                            //                            minusTimeButtonTapped()
                         }, label: {
                             Image(systemName: "minus.circle.fill")
                                 .resizable()
@@ -114,7 +86,7 @@ struct AddTrackView: View {
                             .fontWeight(.bold)
                         
                         Button(action: {
-//                            plusTimeButtonTapped()
+                            //                            plusTimeButtonTapped()
                         }, label: {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
@@ -130,7 +102,7 @@ struct AddTrackView: View {
                         Spacer()
                         
                         Button(action: {
-//                            minusMemberButtonTapped()
+                            //                            minusMemberButtonTapped()
                         }, label: {
                             Image(systemName: "minus.circle.fill")
                                 .resizable()
@@ -143,7 +115,7 @@ struct AddTrackView: View {
                             .fontWeight(.bold)
                         
                         Button(action: {
-//                            plusMemberButtonTapped()
+                            //                            plusMemberButtonTapped()
                         }, label: {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
@@ -166,37 +138,37 @@ struct AddTrackView: View {
             TUButton(text: "코스등록") {
                 print(trackViewModel.currnetTrackData.trackPaths.points.count)
             }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 8)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 8)
             
         }
-//        .environmentObject(TrackViewModel())
+        //        .environmentObject(TrackViewModel())
         .onTapGesture {hideKeyboard()}
         .background(Color.main)
     }
     
     // MARK: - Methods
-//    func plusTimeButtonTapped() {
-//        estimatedTime += 1
-//    }
-//    
-//    func minusTimeButtonTapped() {
-//        if estimatedTime > 0 {
-//            estimatedTime -= 1
-//        }
-//    }
-//    
-//    func plusMemberButtonTapped() {
-//        if limitedMember < 10 {
-//            limitedMember += 1
-//        }
-//    }
-//    
-//    func minusMemberButtonTapped() {
-//        if limitedMember > 1 {
-//            limitedMember -= 1
-//        }
-//    }
+    //    func plusTimeButtonTapped() {
+    //        estimatedTime += 1
+    //    }
+    //
+    //    func minusTimeButtonTapped() {
+    //        if estimatedTime > 0 {
+    //            estimatedTime -= 1
+    //        }
+    //    }
+    //
+    //    func plusMemberButtonTapped() {
+    //        if limitedMember < 10 {
+    //            limitedMember += 1
+    //        }
+    //    }
+    //
+    //    func minusMemberButtonTapped() {
+    //        if limitedMember > 1 {
+    //            limitedMember -= 1
+    //        }
+    //    }
     
 }
 
