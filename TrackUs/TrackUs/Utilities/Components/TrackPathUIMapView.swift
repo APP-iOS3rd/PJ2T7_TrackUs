@@ -28,11 +28,12 @@ struct TrackPathUIMapView: UIViewRepresentable {
     
     // 델리게이트들을 추가해주는 Coordinator 클래스 UIKit -> SwiftUI로의 데이터 전달
      class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
-//        static let shared = Coordinator()
+
         let view = NMFNaverMapView(frame: .zero)
          @ObservedObject var trackViewModel: TrackViewModel
         // MARK: - init
          init(trackViewModel: TrackViewModel) {
+             
             self.trackViewModel = trackViewModel
             super.init()
 
@@ -51,13 +52,26 @@ struct TrackPathUIMapView: UIViewRepresentable {
             
             view.mapView.addCameraDelegate(delegate: self)
             view.mapView.touchDelegate = self
+             
+             renderTrackPath()
         }
+         
+         func renderTrackPath() {
+             if trackViewModel.currnetTrackData.trackPaths.points.count >= 2 {
+                 trackViewModel.currnetTrackData.trackPaths.width = 10
+                 trackViewModel.currnetTrackData.trackPaths.color = UIColor.sub
+                 trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
+             }
+         }
         
         // MARK: - methods
         // 맵을 클릭하면 위도, 경도를 찍어준다.
         func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
+            trackViewModel.currnetTrackData.trackPaths.width = 10
+            trackViewModel.currnetTrackData.trackPaths.color = UIColor.sub
             trackViewModel.currnetTrackData.trackPaths.points.append(latlng)
             trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
+            trackViewModel.caculateWorkoutMetrics()
         }
     }
     
