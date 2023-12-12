@@ -9,14 +9,24 @@ import SwiftUI
 
 // 예상거리, 칼로리, 운동정보를 표시해주는 컴포넌트
 struct TUExerciseIndicator: View {
+    @Binding var estimatedDistance: Double
+    @Binding var timeTaken: Int
+    @Binding var caloriesConsumed: Int
+    
     var body: some View {
         HStack{
             VStack{
                 Text("예상거리")
                     .font(.footnote)
-                Text("\(String(format: "%.2f",0))km")
-                    .italic()
-                    .fontWeight(.black)
+                if estimatedDistance < 1000 {
+                    Text(String(format: "%.0f m", estimatedDistance))
+                        .italic()
+                        .fontWeight(.black)
+                } else {
+                    Text(String(format: "%.1f km", estimatedDistance / 1000))
+                        .italic()
+                        .fontWeight(.black)
+                }
             }
             
             Spacer()
@@ -24,7 +34,7 @@ struct TUExerciseIndicator: View {
             VStack{
                 Text("소요시간")
                     .font(.footnote)
-                Text("\(0)min")
+                Text("\(timeTaken)min")
                     .italic()
                     .fontWeight(.black)
             }
@@ -34,7 +44,7 @@ struct TUExerciseIndicator: View {
             VStack{
                 Text("소모칼로리")
                     .font(.footnote)
-                Text("\(0)kcal")
+                Text("\(caloriesConsumed)kcal")
                     .italic()
                     .fontWeight(.black)
             }
@@ -42,10 +52,10 @@ struct TUExerciseIndicator: View {
         .foregroundStyle(.white)
         .padding(20)
         .background(.main)
-      
+        
     }
 }
 
-#Preview {
-    TUExerciseIndicator()
-}
+//#Preview {
+//    TUExerciseIndicator()
+//}
