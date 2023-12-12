@@ -8,7 +8,10 @@
 import Foundation
 import NMapsMap
 
-class TrackViewModel: ObservableObject { 
+class TrackViewModel: ObservableObject {
+        // 트랙추가에 입력되는 정보
+        // 필드가 많고 계산로직이 필요하여 뷰모델에서 관리하는 방식으로 변경
+        @Published var currentTrackPaths = NMFArrowheadPath()
         @Published var trackDatas: [TrackInfo] = [
             TrackInfo(trackName: "트랙네임1", trackBio: "소개글1", startDate: Date(), estimatedDistance: 3.3, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1200, author: UUID(), caloriesConsumed:1500, trackPaths: []),
             TrackInfo(trackName: "트랙네임2", trackBio: "소개글3", startDate: Date(), estimatedDistance: 2.3, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1400, author: UUID(), caloriesConsumed:1300, trackPaths: []),
@@ -19,4 +22,5 @@ class TrackViewModel: ObservableObject {
 
         static let shared = TrackViewModel()
         private init() {}
+    
 }

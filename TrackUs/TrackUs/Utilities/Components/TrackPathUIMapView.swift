@@ -1,0 +1,65 @@
+//
+//  TrackPathUIMapView.swift
+//  TrackUs
+//
+//  Created by SeokKi Kwon on 2023/12/12.
+//
+
+import SwiftUI
+import NMapsMap
+
+// UIViewRepresentable을 이용하여 UIKit 뷰를 SwiftUI와 브릿징
+struct TrackPathUIMapView: UIViewRepresentable {
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator.init()
+    }
+    
+    func makeUIView(context: Context) -> NMFNaverMapView {
+        context.coordinator.view
+    }
+    
+    func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
+    }
+    
+    func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
+     
+   }
+    
+    // 델리게이트들을 추가해주는 Coordinator 클래스 UIKit -> SwiftUI로의 데이터 전달
+    final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
+        static let shared = Coordinator()
+        let view = NMFNaverMapView(frame: .zero)
+        let trackViewModel = TrackViewModel.shared
+        
+        // MARK: - init
+        override init() {
+            super.init()
+            
+            view.mapView.positionMode = .direction
+            view.mapView.mapType = .navi
+            view.mapView.isNightModeEnabled = true
+
+            view.mapView.zoomLevel = 15
+            view.mapView.minZoomLevel = 10 // 최소 줌 레벨
+            view.mapView.maxZoomLevel = 17 // 최대 줌 레벨
+            
+            
+            view.showZoomControls = true // 줌 확대, 축소 버튼 활성화
+            view.showCompass = false
+            view.showScaleBar = false
+            
+            view.mapView.addCameraDelegate(delegate: self)
+            view.mapView.touchDelegate = self
+        }
+        
+        // MARK: - methods
+        // 맵을 클릭하면 위도, 경도를 찍어준다.
+        func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
+            trackViewModel.currentTrackPaths.points.append(latlng)
+            trackViewModel.currentTrackPaths.mapView = view.mapView
+        }
+    }
+    
+}
+

@@ -9,22 +9,15 @@ import SwiftUI
 
 struct CalendarHomeView: View {
     @State var currentDate: Date = Date()
-    
     var body: some View {
-        
         ScrollView(.vertical, showsIndicators: false) {
-            
             VStack(spacing: 20) {
-                
-                
-//                CustomDatePicker(currentDate: $currentDate)
                 CustomDatePicker(currentDate: $currentDate, trackViewModel: TrackViewModel.shared)
             }
             .padding(.vertical)
         }
         .foregroundStyle(.white)
         .background(Color.main)
-        
     }
 }
 
