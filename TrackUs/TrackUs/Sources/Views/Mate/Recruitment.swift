@@ -34,6 +34,7 @@ struct RecruitmentCell: View {
     let time: String
     
     var body: some View {
+        NavigationLink(destination: MateDetailView(), label: {
         VStack{
             HStack(spacing: 10) {
                 
@@ -87,6 +88,7 @@ struct RecruitmentCell: View {
             
         }
         .background(Color.main)
+        })
     }
 }
 

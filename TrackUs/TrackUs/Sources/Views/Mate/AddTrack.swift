@@ -56,14 +56,31 @@ struct AddTrack: View {
                 }
                 .foregroundStyle(.white)
                 .padding(.horizontal, 20)
-                ScrollView(showsIndicators: false){
+                
+                VStack{
+                    ScrollView(showsIndicators: false){
+                        
+                        NavigationLink(destination: {
+                            
+                        }, label: {
+                            ZStack(alignment: .center){
+                                Image("mapImage")
+                                    .frame(width: .infinity, height: 80)
+                                    .cornerRadius(10)
+                                Text("코스를 입력해 주세요")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.black)
+                            }
+                        })
+                    }
                     
-                    Rectangle() // 지도api 자리, 핀 마커 기능
-                        .frame(width: .infinity, height: 270)
+//                    Rectangle() // 지도api 자리, 핀 마커 기능
+//                        .frame(width: .infinity, height: 80)
+//                        .cornerRadius(10)
                     
                     ZStack(alignment: .topLeading){
                         TextEditor(text: $trackName)
-                            .frame(maxWidth: .infinity, minHeight: 50)
+                            .frame(maxWidth: .infinity, minHeight: 70)
                             .scrollContentBackground(.hidden)
                             .background(Color.main)
                         
@@ -82,7 +99,7 @@ struct AddTrack: View {
                     
                     ZStack(alignment: .topLeading){
                         TextEditor(text: $tracktext)
-                            .frame(maxWidth: .infinity, minHeight: 100)
+                            .frame(maxWidth: .infinity, minHeight: 200)
                             .scrollContentBackground(.hidden)
                             .background(Color.main)
                         
