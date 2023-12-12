@@ -10,32 +10,32 @@ import NMapsMap
 
 // UIViewRepresentable을 이용하여 UIKit 뷰를 SwiftUI와 브릿징
 struct TrackPathUIMapView: UIViewRepresentable {
-    
+    @ObservedObject var trackViewModel: TrackViewModel
     func makeCoordinator() -> Coordinator {
-        Coordinator.init()
+        Coordinator(trackViewModel: trackViewModel)
     }
-    
+
     func makeUIView(context: Context) -> NMFNaverMapView {
         context.coordinator.view
     }
-    
+
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
     }
-    
+
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
      
    }
     
     // 델리게이트들을 추가해주는 Coordinator 클래스 UIKit -> SwiftUI로의 데이터 전달
-    final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
-        static let shared = Coordinator()
+     class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
+//        static let shared = Coordinator()
         let view = NMFNaverMapView(frame: .zero)
-        let trackViewModel = TrackViewModel.shared
-        
+         @ObservedObject var trackViewModel: TrackViewModel
         // MARK: - init
-        override init() {
+         init(trackViewModel: TrackViewModel) {
+            self.trackViewModel = trackViewModel
             super.init()
-            
+
             view.mapView.positionMode = .direction
             view.mapView.mapType = .navi
             view.mapView.isNightModeEnabled = true
@@ -56,8 +56,8 @@ struct TrackPathUIMapView: UIViewRepresentable {
         // MARK: - methods
         // 맵을 클릭하면 위도, 경도를 찍어준다.
         func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
-            trackViewModel.currentTrackPaths.points.append(latlng)
-            trackViewModel.currentTrackPaths.mapView = view.mapView
+            trackViewModel.currnetTrackData.trackPaths.points.append(latlng)
+            trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
         }
     }
     

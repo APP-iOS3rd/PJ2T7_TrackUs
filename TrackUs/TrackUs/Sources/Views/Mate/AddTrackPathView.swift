@@ -10,9 +10,10 @@ import NMapsMap
 
 // 트랙경로를 추가하는 화면입니다
 struct AddTrackPathView: View {
+    @ObservedObject var trackViewModel: TrackViewModel
     var body: some View {
         ZStack(alignment: .bottom) {
-            TrackPathUIMapView()
+            TrackPathUIMapView(trackViewModel: trackViewModel)
         }
         .edgesIgnoringSafeArea(.bottom)
         .overlay(TUExerciseIndicator(), alignment: .top)
@@ -23,6 +24,6 @@ struct AddTrackPathView: View {
     }
 }
 
-#Preview {
-    AddTrackPathView()
-}
+//#Preview {
+//    AddTrackPathView()
+//}

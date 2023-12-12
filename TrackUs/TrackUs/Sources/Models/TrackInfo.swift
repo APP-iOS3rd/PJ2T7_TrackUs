@@ -18,7 +18,7 @@ struct TrackInfo : Hashable, Identifiable {
     var timeTaken: Int // 소요시간
     var author: UUID // 작성
     var caloriesConsumed: Int // 소모칼로리
-    var trackPaths: [NMFMarker]
+    var trackPaths: NMFArrowheadPath
     
     var id: UUID {
         return UUID()
