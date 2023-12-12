@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct Recruitment: View {
-    @StateObject private var trackViewModel = TrackViewModel.shared
+    
+    @StateObject var trackViewModel = TrackViewModel.shared
+    
+    
     private var vGridItems = [GridItem()]
     
     var body: some View {
             ScrollView{
-                NavigationLink(destination: MateDetailView(), label: {
+//                NavigationLink(destination: MateDetailView(), label: {
                 LazyVGrid(columns: vGridItems, spacing: 0) {
+//                    ForEach((0..<trackViewModel.trackDatas.count), id: \.self) { item in
                     ForEach(trackViewModel.trackDatas, id: \.self) { item in
-                        RecruitmentCell(title: item.trackName, distance: item.distance, date: item.startDate, time: item.participationTime)
+//                        MyRunningCell(title: "\(trackInfo.trackName)km", date: "\(trackInfo.startDate)", time: "\(trackInfo.timeTaken)")
+                        RecruitmentCell(trackInfo: item)
+                            
                     }
                 }
-            })
+//            })
             }
             .foregroundStyle(.white)
             .background(Color.main)
@@ -28,10 +34,7 @@ struct Recruitment: View {
 
 struct RecruitmentCell: View {
     
-    let title: String
-    let distance: String
-    let date: String
-    let time: String
+    let trackInfo: TrackInfo
     
     var body: some View {
         NavigationLink(destination: MateDetailView(), label: {
@@ -46,8 +49,8 @@ struct RecruitmentCell: View {
                 
                 Spacer()
                 
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(title)
+                VStack(alignment: .leading) {
+                    Text("\(trackInfo.trackName)")
                         .font(.headline)
                         .bold()
                         .lineLimit(1)
@@ -56,21 +59,22 @@ struct RecruitmentCell: View {
                         .foregroundStyle(.white)
                     HStack{
                         Image(systemName: "figure.track.and.field")
-                        Text("\(distance)")
+//                        Text("\(trackInfo.estimatedDistance)")
+                        Text(String(format: "%.1f km", trackInfo.estimatedDistance))
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
                     }
                     HStack{
                         Image(systemName: "calendar")
-                        Text("\(date)")
+                        Text("\(formattedDate)")
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
                     }
                     HStack{
                         Image(systemName: "clock")
-                        Text("\(time)")
+                        Text("\(formattedTime)")
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
@@ -89,6 +93,19 @@ struct RecruitmentCell: View {
         }
         .background(Color.main)
         })
+    }
+    
+    var formattedDate: String {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "YYYY/MM/dd"
+        return formatter.string(from: trackInfo.startDate)
+    }
+    
+    var formattedTime: String {
+        let seconds = trackInfo.timeTaken
+        let minutes = (seconds / 60) % 60
+        let hours = seconds / 3600
+        return String(format: "%02d:%02d", hours, minutes)
     }
 }
 
