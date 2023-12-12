@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Recruitment: View {
     
-    @StateObject var trackViewModel = TrackViewModel.shared
+    @StateObject var trackViewModel = TrackViewModel()
     
     
     private var vGridItems = [GridItem()]

@@ -37,7 +37,7 @@ struct MyPageView: View {
                             .foregroundStyle(.white)
                         
                         NavigationLink(destination: CalendarHomeView() , label: {
-                            SmallDatePicker(currentDate: $currentDate, trackViewModel: TrackViewModel.shared) //캘린더
+                            SmallDatePicker(currentDate: $currentDate, trackViewModel: TrackViewModel()) //캘린더
                                 .foregroundStyle(.white)
                         })
                     }

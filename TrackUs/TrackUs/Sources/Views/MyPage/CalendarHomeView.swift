@@ -12,7 +12,7 @@ struct CalendarHomeView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 20) {
-                CustomDatePicker(currentDate: $currentDate, trackViewModel: TrackViewModel.shared)
+                CustomDatePicker(currentDate: $currentDate, trackViewModel: TrackViewModel())
             }
             .padding(.vertical)
         }

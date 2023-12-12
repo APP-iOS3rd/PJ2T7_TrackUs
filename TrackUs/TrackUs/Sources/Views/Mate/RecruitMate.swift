@@ -13,7 +13,7 @@ enum mateTab: String, CaseIterable {
 }
 
 struct RecruitMate: View {
-    @StateObject private var trackViewModel = TrackViewModel.shared
+    @StateObject private var trackViewModel = TrackViewModel()
     @State private var selectedPicker: mateTab = .recruitment
     @State private var action: Int? = 0
     @Namespace private var animation
