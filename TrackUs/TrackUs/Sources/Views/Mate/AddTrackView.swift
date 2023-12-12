@@ -15,7 +15,7 @@ struct AddTrackView: View {
     var body: some View {
         VStack(spacing: 20) {
             // MARK: - 입력된 정보로 예상거리, 소요시간, 소모칼로리를 보여줌
-            TUExerciseIndicator(estimatedDistance: $trackViewModel.currnetTrackData.estimatedDistance, timeTaken: $trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: $trackViewModel.currnetTrackData.caloriesConsumed)
+            TUExerciseIndicator(estimatedDistance: trackViewModel.currnetTrackData.estimatedDistance, timeTaken: trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: trackViewModel.currnetTrackData.caloriesConsumed)
                 .foregroundStyle(.white)
                 .padding(.horizontal, 20)
             

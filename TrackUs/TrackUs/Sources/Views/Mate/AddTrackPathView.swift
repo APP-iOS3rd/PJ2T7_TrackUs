@@ -19,7 +19,7 @@ struct AddTrackPathView: View {
             TrackPathUIMapView(trackViewModel: trackViewModel)
         }
         .edgesIgnoringSafeArea(.bottom)
-        .overlay(TUExerciseIndicator(estimatedDistance: $trackViewModel.currnetTrackData.estimatedDistance, timeTaken: $trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: $trackViewModel.currnetTrackData.caloriesConsumed), alignment: .top)
+        .overlay(TUExerciseIndicator(estimatedDistance: trackViewModel.currnetTrackData.estimatedDistance, timeTaken: trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: trackViewModel.currnetTrackData.caloriesConsumed), alignment: .top)
         .overlay(TUButton(text: "트랙추가", action: {
             // 트랙추가 하는경우 데이터 유지 화면이동
             self.mode.wrappedValue.dismiss()
