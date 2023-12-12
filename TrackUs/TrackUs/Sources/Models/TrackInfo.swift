@@ -8,7 +8,7 @@
 import Foundation
 import NMapsMap
 
-struct TrackInfo {
+struct TrackInfo : Hashable, Identifiable {
     var trackName: String // 트랙이름
     var trackBio: String // 소개
     var startDate: Date // 시작날짜
@@ -18,6 +18,10 @@ struct TrackInfo {
     var timeTaken: Int // 소요시간
     var author: UUID // 작성
     var trackPaths: [NMFMarker]
+    
+    var id: UUID {
+        return UUID()
+    }
 }
 
 

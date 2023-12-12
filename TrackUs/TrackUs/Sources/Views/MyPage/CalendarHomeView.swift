@@ -17,7 +17,8 @@ struct CalendarHomeView: View {
             VStack(spacing: 20) {
                 
                 
-                CustomDatePicker(currentDate: $currentDate)
+//                CustomDatePicker(currentDate: $currentDate)
+                CustomDatePicker(currentDate: $currentDate, trackViewModel: TrackViewModel.shared)
             }
             .padding(.vertical)
         }
