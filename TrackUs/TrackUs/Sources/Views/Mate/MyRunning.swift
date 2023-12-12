@@ -9,14 +9,19 @@ import SwiftUI
 
 struct MyRunning: View {
     
+    @StateObject var trackViewModel = TrackViewModel.shared
+    
+    
     private var vGridItems = [GridItem()]
     
     var body: some View {
             ScrollView{
 //                NavigationLink(destination: MateDetailView(), label: {
                 LazyVGrid(columns: vGridItems, spacing: 0) {
-                    ForEach((1...5), id: \.self) { item in
-                        MyRunningCell(title: "3.3km", date: "12/02", time: "11시 50 - 12시")
+//                    ForEach((0..<trackViewModel.trackDatas.count), id: \.self) { item in
+                    ForEach(trackViewModel.trackDatas, id: \.self) { item in
+//                        MyRunningCell(title: "\(trackInfo.trackName)km", date: "\(trackInfo.startDate)", time: "\(trackInfo.timeTaken)")
+                        MyRunningCell(trackInfo: item)
                             
                     }
                 }
@@ -29,9 +34,7 @@ struct MyRunning: View {
 
 struct MyRunningCell: View {
     
-    let title: String
-    let date: String
-    let time: String
+    let trackInfo: TrackInfo
     
     var body: some View {
         NavigationLink(destination: MateDetailView(), label: {
@@ -47,7 +50,7 @@ struct MyRunningCell: View {
                 Spacer()
                 
                 VStack(alignment: .leading) {
-                    Text("심장 터질 정도로 달릴 러닝 브로...")
+                    Text("\(trackInfo.trackName)")
                         .font(.headline)
                         .bold()
                         .lineLimit(1)
@@ -56,21 +59,22 @@ struct MyRunningCell: View {
                         .foregroundStyle(.white)
                     HStack{
                         Image(systemName: "figure.track.and.field")
-                        Text("\(title)")
+//                        Text("\(trackInfo.estimatedDistance)")
+                        Text(String(format: "%.1f km", trackInfo.estimatedDistance))
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
                     }
                     HStack{
                         Image(systemName: "calendar")
-                        Text("\(date)")
+                        Text("\(formattedDate)")
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
                     }
                     HStack{
                         Image(systemName: "clock")
-                        Text("\(time)")
+                        Text("\(formattedTime)")
                             .font(.subheadline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(.sub)
@@ -90,9 +94,22 @@ struct MyRunningCell: View {
         .background(Color.main)
         })
     }
+    
+    var formattedDate: String {
+        let formatter  = DateFormatter()
+        formatter.dateFormat = "YYYY/MM/dd"
+        return formatter.string(from: trackInfo.startDate)
+    }
+    
+    var formattedTime: String {
+        let seconds = trackInfo.timeTaken
+        let minutes = (seconds / 60) % 60
+        let hours = seconds / 3600
+        return String(format: "%02d:%02d", hours, minutes)
+    }
 }
 
 
-#Preview {
-    MyRunning()
-}
+//#Preview {
+//    MyRunning()
+//}
