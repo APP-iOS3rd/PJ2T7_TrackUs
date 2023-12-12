@@ -16,7 +16,7 @@ struct MapView: View {
         ZStack {
             VStack {
                 MapViewModel()
-                    .ignoresSafeArea(.all)
+                    //.ignoresSafeArea(.all)
             }
         }
         .onAppear {
@@ -24,6 +24,7 @@ struct MapView: View {
         }
     }
 }
+
 
 #Preview {
     MapView()

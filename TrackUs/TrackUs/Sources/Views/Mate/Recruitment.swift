@@ -27,7 +27,7 @@ struct Recruitment: View {
                 }
 //            })
             }
-            .foregroundStyle(.white)
+            .foregroundStyle(.mainFont)
             .background(Color.main)
     }
 }
@@ -45,50 +45,50 @@ struct RecruitmentCell: View {
                 
                 Image(systemName: "figure.run")
                     .resizable()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 40,height: 40)
+                    .foregroundStyle(.mainFont)
                 
                 Spacer()
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text("\(trackInfo.trackName)")
-                        .font(.headline)
-                        .bold()
+                        .customTextStyle(style: .title)
                         .lineLimit(1)
                         .truncationMode(.tail)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(.white)
-                    HStack{
-                        Image(systemName: "figure.track.and.field")
-//                        Text("\(trackInfo.estimatedDistance)")
-                        Text(String(format: "%.1f km", trackInfo.estimatedDistance))
-                            .font(.subheadline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundStyle(.sub)
+                        .foregroundStyle(.mainFont)
+                    VStack(alignment: .leading,spacing: 2){
+                        HStack{
+                            Image(systemName: "arrow.triangle.turn.up.right.diamond")
+                                .foregroundStyle(.mainFont)
+                            //                        Text("\(trackInfo.estimatedDistance)")
+                            Text(String(format: "%.1f km", trackInfo.estimatedDistance))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        HStack{
+                            Image(systemName: "calendar")
+                                .foregroundStyle(.mainFont)
+                            Text("\(formattedDate)")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        HStack{
+                            Image(systemName: "clock")
+                                .foregroundStyle(.mainFont)
+                            Text("\(formattedTime)")
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
                     }
-                    HStack{
-                        Image(systemName: "calendar")
-                        Text("\(formattedDate)")
-                            .font(.subheadline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundStyle(.sub)
-                    }
-                    HStack{
-                        Image(systemName: "clock")
-                        Text("\(formattedTime)")
-                            .font(.subheadline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundStyle(.sub)
-                    }
+                    .customTextStyle(style: .caption)
                 }
                 
                 Image(systemName: "chevron.forward")
             }
             
-            .padding(15)
+            .padding(.init(top: 10, leading: 20, bottom: 10, trailing: 20))
             
             Text("")
                 .frame(minWidth: 10, maxWidth: .infinity, minHeight: 1, maxHeight: 1)
-                .background(Color.sub)
+                .background(Color.sub.opacity(0.1))
             
         }
         .background(Color.main)
