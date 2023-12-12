@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyRunning: View {
     
-    @StateObject var trackViewModel = TrackViewModel()
+    @EnvironmentObject var trackViewModel: TrackViewModel
     
     private var vGridItems = [GridItem()]
     

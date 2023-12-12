@@ -9,7 +9,7 @@ import SwiftUI
 import NMapsMap
 struct AddTrackView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @StateObject var trackViewModel = TrackViewModel()
+    @EnvironmentObject var trackViewModel: TrackViewModel
     let titlePlaceholder : String = "트랙 이름을 입력해 주세요"
     let textPlaceholder : String = "소개 글을 입력해 주세요"
     
@@ -24,7 +24,7 @@ struct AddTrackView: View {
                 // MARK: - 트랙경로 설정하는 화면으로 이동
                 VStack{
                     NavigationLink(destination: {
-                        AddTrackPathView(trackViewModel: trackViewModel)
+                        AddTrackPathView()
                     }, label: {
                         ZStack(alignment: .center){
                             Image("mapImage")

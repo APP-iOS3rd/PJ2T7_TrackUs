@@ -13,15 +13,15 @@ enum mateTab: String, CaseIterable {
 }
 
 struct RecruitMate: View {
-    @StateObject private var trackViewModel = TrackViewModel()
+    @EnvironmentObject private var trackViewModel: TrackViewModel
     @State private var selectedPicker: mateTab = .recruitment
     @State private var action: Int? = 0
     @Namespace private var animation
     
     var body: some View {
-        //        NavigationStack{
+      
         ZStack(alignment: .bottomTrailing){
-//            Color.main.edgesIgnoringSafeArea(.all)
+
             VStack {
                 animate()
                 selectTab(selec: selectedPicker)

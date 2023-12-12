@@ -12,6 +12,7 @@ struct TrackUsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(TrackViewModel())
         }
     }
 }

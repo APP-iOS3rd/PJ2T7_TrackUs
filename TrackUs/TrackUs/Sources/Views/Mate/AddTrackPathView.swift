@@ -12,11 +12,11 @@ import NMapsMap
 struct AddTrackPathView: View {
     @State private var showingAlert = false
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @ObservedObject var trackViewModel: TrackViewModel
+    @EnvironmentObject var trackViewModel: TrackViewModel
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            TrackPathUIMapView(trackViewModel: trackViewModel)
+            TrackPathUIMapView()
         }
         .edgesIgnoringSafeArea(.bottom)
         .overlay(TUExerciseIndicator(estimatedDistance: trackViewModel.currnetTrackData.estimatedDistance, timeTaken: trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: trackViewModel.currnetTrackData.caloriesConsumed), alignment: .top)

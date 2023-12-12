@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State var tabBarIndex: Int = 0
     
     var body: some View {
@@ -31,6 +30,7 @@ struct ContentView: View {
                         Image(systemName: "doc.plaintext")
                         Text("메이트 모집")
                     }.tag(1)
+                   
                 
                 CommunityView()
                     .onTapGesture {

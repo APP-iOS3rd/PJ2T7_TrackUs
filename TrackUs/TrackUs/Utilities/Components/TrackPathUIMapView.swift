@@ -10,37 +10,37 @@ import NMapsMap
 
 // UIViewRepresentable을 이용하여 UIKit 뷰를 SwiftUI와 브릿징
 struct TrackPathUIMapView: UIViewRepresentable {
-    @ObservedObject var trackViewModel: TrackViewModel
+    @EnvironmentObject var trackViewModel: TrackViewModel
     func makeCoordinator() -> Coordinator {
         Coordinator(trackViewModel: trackViewModel)
     }
-
+    
     func makeUIView(context: Context) -> NMFNaverMapView {
         context.coordinator.view
     }
-
+    
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
     }
-
+    
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
-     
-   }
+        
+    }
     
     // 델리게이트들을 추가해주는 Coordinator 클래스 UIKit -> SwiftUI로의 데이터 전달
-     class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
-         
+    class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
+        
         let view = NMFNaverMapView(frame: .zero)
-         @ObservedObject var trackViewModel: TrackViewModel
+        @ObservedObject var trackViewModel: TrackViewModel
         // MARK: - init
-         init(trackViewModel: TrackViewModel) {
-             
+        init(trackViewModel: TrackViewModel) {
+            
             self.trackViewModel = trackViewModel
             super.init()
-
+            
             view.mapView.positionMode = .direction
             view.mapView.mapType = .navi
             view.mapView.isNightModeEnabled = true
-             
+            
             view.mapView.zoomLevel = 15
             view.mapView.minZoomLevel = 10 // 최소 줌 레벨
             view.mapView.maxZoomLevel = 17 // 최대 줌 레벨
@@ -51,17 +51,17 @@ struct TrackPathUIMapView: UIViewRepresentable {
             
             view.mapView.addCameraDelegate(delegate: self)
             view.mapView.touchDelegate = self
-             
-             renderTrackPath()
+            
+            renderTrackPath()
         }
-         
-         func renderTrackPath() {
-             if trackViewModel.currnetTrackData.trackPaths.points.count >= 2 {
-                 trackViewModel.currnetTrackData.trackPaths.width = 10
-                 trackViewModel.currnetTrackData.trackPaths.color = UIColor.sub
-                 trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
-             }
-         }
+        
+        func renderTrackPath() {
+            if trackViewModel.currnetTrackData.trackPaths.points.count >= 2 {
+                trackViewModel.currnetTrackData.trackPaths.width = 10
+                trackViewModel.currnetTrackData.trackPaths.color = UIColor.sub
+                trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
+            }
+        }
         
         // MARK: - methods
         // 맵을 클릭하면 위도, 경도를 찍어준다.
