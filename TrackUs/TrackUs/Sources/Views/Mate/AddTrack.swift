@@ -57,15 +57,15 @@ struct AddTrack: View {
                 .foregroundStyle(.white)
                 .padding(.horizontal, 20)
                 
+                ScrollView(showsIndicators: false){
                 VStack{
-                    ScrollView(showsIndicators: false){
-                        
                         NavigationLink(destination: {
-                            
+                            // 마커 찍는 지도 들어갈 자리
                         }, label: {
                             ZStack(alignment: .center){
                                 Image("mapImage")
-                                    .frame(width: .infinity, height: 80)
+//                                    .frame(width: .infinity, height: 80)
+                                    .frame(minWidth: 300, maxWidth: .infinity,minHeight: 80,maxHeight: 80)
                                     .cornerRadius(10)
                                 Text("코스를 입력해 주세요")
                                     .fontWeight(.bold)
@@ -73,10 +73,6 @@ struct AddTrack: View {
                             }
                         })
                     }
-                    
-//                    Rectangle() // 지도api 자리, 핀 마커 기능
-//                        .frame(width: .infinity, height: 80)
-//                        .cornerRadius(10)
                     
                     ZStack(alignment: .topLeading){
                         TextEditor(text: $trackName)
