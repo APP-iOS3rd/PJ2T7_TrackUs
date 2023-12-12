@@ -23,7 +23,7 @@ struct AddTrack: View {
     let textPlaceholder : String = "소개 글을 입력해 주세요"
     
     var body: some View {
-        NavigationStack{
+//        NavigationStack{
             VStack{
                 HStack{
                     VStack{
@@ -184,12 +184,12 @@ struct AddTrack: View {
                             .cornerRadius(100)
                     })
                 }
-                .navigationTitle("코스 등록하기")
-                .navigationBarTitleDisplayMode(.inline)
+//                .navigationTitle("코스 등록하기")
+//                .navigationBarTitleDisplayMode(.inline)
             }
             .padding(.horizontal, 20)
             .background(Color.main)
-        }
+        
     }
     
     func plus() {
