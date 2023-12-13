@@ -176,18 +176,6 @@ func calculateCoordinatesDistance(lat1: Double, lon1: Double, lat2: Double, lon2
     return distance
 }
 
-// 위도, 경도를 입력받아 한글 주소로 변환
-func convertCLLocationToAddress(location: CLLocation, completion: @escaping (String) -> Void) {
-    let geocoder = CLGeocoder()
-    geocoder.reverseGeocodeLocation(location) { placemarks, error in
-        if error != nil {
-            return
-        }
-        
-        guard let placemark = placemarks?.first else { return }
-        completion("\(placemark.locality!) \(placemark.name!)")
-    }
-    
-}
+
 
 

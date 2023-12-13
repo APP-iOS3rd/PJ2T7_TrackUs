@@ -7,12 +7,12 @@
 
 import SwiftUI
 import MapKit
-// 프로필 이미지를 나타내는 구조체
 
+// 프로필 이미지를 나타내는 구조체
 struct ParticipantImage: View {
-    
+  
     var participationsImage: String
-    
+
     var body: some View {
         Image(participationsImage)
             .resizable()
@@ -23,12 +23,12 @@ struct ParticipantImage: View {
 
 // 메이트모집 상세화면
 struct MateDetailView: View {
-    let locationService = LocationViewModel()
     let trackInfo: TrackInfo
-    @StateObject var locationViewModel = LocationViewModel()
+
     @StateObject var trackViewModel = TrackViewModel()
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
+    @State private var convertedAddress = ""
     //var trackInfo: TrackInfo
 
 
@@ -41,8 +41,7 @@ struct MateDetailView: View {
                     
                     // MARK: - 지도
                     // 이미지
-                    Image("photo-add")
-                        .resizable()
+                    Rectangle()
                         .background(.gray)
                         .frame(height: 185)
                     
@@ -73,7 +72,7 @@ struct MateDetailView: View {
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.white)
-                            TUText(style: .body, text: "\(trackInfo.trackPaths)")
+                            TUText(style: .body, text: convertedAddress)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         
@@ -120,10 +119,6 @@ struct MateDetailView: View {
                         .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
                         
                     }
-                    .padding(.top, 30)
-                } else {
-                    // 소개에 해당하는 내용
-                    TUText(style: .body, text: trackInfo.trackBio)
                     
                     // MARK: - 추가된 내용
                     if !showGreeting {
@@ -165,10 +160,14 @@ struct MateDetailView: View {
             .padding(.bottom, 8)
             .animation(.default) // 애니메이션 적용
         }
+        .onAppear {
+            convertCLLocationToAddress(location: CLLocation(latitude: trackInfo.trackPaths.points[0].lat, longitude: trackInfo.trackPaths.points[0].lng)) { address in
+                self.convertedAddress = address
+            }
+        }
         .padding(.horizontal, 20)
         .background(Color.main)
     }
-    
 }
 
 //#Preview {
