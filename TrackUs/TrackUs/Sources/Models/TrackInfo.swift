@@ -19,7 +19,7 @@ struct TrackInfo : Hashable, Identifiable {
     var author: UUID // 작성
     var caloriesConsumed: Int // 소모칼로리
     var trackPaths: NMFArrowheadPath // 트랙경로
-    
+ 
     var id: UUID {
         return UUID()
     }
