@@ -9,8 +9,7 @@ import SwiftUI
 
 struct MyRunning: View {
     
-    @StateObject var trackViewModel = TrackViewModel()
-    
+    @EnvironmentObject var trackViewModel: TrackViewModel
     
     private var vGridItems = [GridItem()]
     
@@ -59,10 +58,17 @@ struct MyRunningCell: View {
                     HStack{
                         Image(systemName: "figure.track.and.field")
 //                        Text("\(trackInfo.estimatedDistance)")
-                        Text(String(format: "%.1f km", trackInfo.estimatedDistance))
-                            .font(.subheadline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .foregroundStyle(.sub)
+                        if trackInfo.estimatedDistance < 1000 {
+                            Text(String(format: "%.0f m", trackInfo.estimatedDistance))
+                                .font(.subheadline)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .foregroundStyle(.sub)
+                        } else {
+                            Text(String(format: "%.1f km", trackInfo.estimatedDistance / 1000))
+                                .font(.subheadline)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .foregroundStyle(.sub)
+                        }
                     }
                     HStack{
                         Image(systemName: "calendar")
