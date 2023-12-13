@@ -29,7 +29,6 @@ struct MateDetailView: View {
     @State private var convertedAddress = ""
     //var trackInfo: TrackInfo
 
-
     var body: some View {
         VStack {
             //                 MARK: - 소요시간, 칼로리, 거리
@@ -173,3 +172,4 @@ struct MateDetailView: View {
 //#Preview {
 //    MateDetailView()
 //}
+

@@ -8,7 +8,7 @@
 import SwiftUI
 import NMapsMap
 /**
-   트랙경로를 보여주고 데이터를 저장하는 맵뷰
+ 트랙경로를 보여주고 데이터를 저장하는 맵뷰
  */
 // UIViewRepresentable을 이용하여 UIKit 뷰를 SwiftUI와 브릿징
 struct RouteDrawingMapView: UIViewRepresentable {
@@ -74,6 +74,21 @@ struct RouteDrawingMapView: UIViewRepresentable {
             trackViewModel.currnetTrackData.trackPaths.points.append(latlng)
             trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
             trackViewModel.caculateWorkoutMetrics()
+            print(1)
+            var marker: NMFMarker
+            var markerSize: CGFloat = 20
+            if trackViewModel.currnetTrackData.trackPaths.points.count == 1 {
+                marker = NMFMarker(position: NMGLatLng(lat: trackViewModel.currnetTrackData.trackPaths.points[0].lat, lng: trackViewModel.currnetTrackData.trackPaths.points[0].lng))
+                
+                marker.iconImage = NMFOverlayImage(name: "branch")
+                marker.width = markerSize
+                marker.height = markerSize
+                marker.mapView = view.mapView
+            } else {
+                
+            }
+            
+            
         }
     }
     
