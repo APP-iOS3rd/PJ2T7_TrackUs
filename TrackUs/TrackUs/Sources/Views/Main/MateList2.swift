@@ -16,7 +16,6 @@ struct MateList2: View {
     let date = "2023.12.08"
     let time = "10:00" // 나중에 타입 변경
     
-    
     var body: some View {
         HStack(spacing: 12){
             // 마크
