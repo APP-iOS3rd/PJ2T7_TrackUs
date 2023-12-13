@@ -11,31 +11,73 @@ import NMapsMap
 class TrackViewModel: ObservableObject {
     // 트랙추가에 입력되는 정보
     // 필드가 많고 계산로직이 필요하여 뷰모델에서 관리하는 방식으로 변경
+    let mapPoints = [
+        [
+            NMGLatLng(lat: 37.360588143749716, lng: 127.10927920086243),
+            NMGLatLng(lat: 37.35997393335383, lng: 127.11090376958516),
+            NMGLatLng(lat:  37.35899984718702, lng: 127.11194081070394),
+        ],
+        [
+            NMGLatLng(lat: 37.36254038357527, lng: 127.10255420691483),
+            NMGLatLng(lat: 37.363802947505384, lng: 127.10124646072798),
+            NMGLatLng(lat:  37.36340836940597, lng: 127.09903339886807),
+            NMGLatLng(lat:  37.36330196712128, lng: 127.0969561913323),
+        ],
+        [
+            NMGLatLng(lat: 37.359028776133805, lng: 127.09975006134782),
+            NMGLatLng(lat: 37.359138352407456, lng: 127.09801188705698),
+            NMGLatLng(lat:  37.35948169080621, lng: 127.09686097393336),
+            NMGLatLng(lat: 37.358851433157746
+                      , lng: 127.0962957767195),
+            NMGLatLng(lat: 37.35814813474165, lng: 127.09690441072416),
+            NMGLatLng(lat:  37.358271761561305, lng: 127.09992966201068),
+        ],
+    ]
+    
     @Published var currnetTrackData: TrackInfo = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath())
     
     @Published var trackDatas: [TrackInfo] = [
-        TrackInfo(trackName: "트랙네임1", trackBio: "소개글1", startDate: Date(), estimatedDistance: 1222, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1200, author: UUID(), caloriesConsumed:1500, trackPaths: NMFArrowheadPath()),
-        TrackInfo(trackName: "트랙네임2", trackBio: "소개글3", startDate: Date(), estimatedDistance: 1400, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1400, author: UUID(), caloriesConsumed:1300, trackPaths: NMFArrowheadPath()),
-        TrackInfo(trackName: "트랙네임3", trackBio: "소개글3", startDate: Date(), estimatedDistance: 552, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 600, author: UUID(), caloriesConsumed:500, trackPaths: NMFArrowheadPath()),
-        TrackInfo(trackName: "트랙네임4", trackBio: "소개글4", startDate: Date(), estimatedDistance: 2333, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1700, author: UUID(), caloriesConsumed:1000,trackPaths: NMFArrowheadPath()),
-        TrackInfo(trackName: "트랙네임5", trackBio: "소개글5", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1100, author: UUID(), caloriesConsumed:1200,trackPaths: NMFArrowheadPath()),
+        //        TrackInfo(trackName: "트랙네임1", trackBio: "소개글1", startDate: Date(), estimatedDistance: 1222, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1200, author: UUID(), caloriesConsumed:1500, trackPaths: NMFArrowheadPath()),
+        //        TrackInfo(trackName: "트랙네임2", trackBio: "소개글3", startDate: Date(), estimatedDistance: 1400, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1400, author: UUID(), caloriesConsumed:1300, trackPaths: NMFArrowheadPath()),
+        //        TrackInfo(trackName: "트랙네임3", trackBio: "소개글3", startDate: Date(), estimatedDistance: 552, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 600, author: UUID(), caloriesConsumed:500, trackPaths: NMFArrowheadPath()),
+        //        TrackInfo(trackName: "트랙네임4", trackBio: "소개글4", startDate: Date(), estimatedDistance: 2333, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1700, author: UUID(), caloriesConsumed:1000,trackPaths: NMFArrowheadPath()),
+        //        TrackInfo(trackName: "트랙네임5", trackBio: "소개글5", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1100, author: UUID(), caloriesConsumed:1200,trackPaths: NMFArrowheadPath()),
     ]
     
     let R = 6371000.0
     
+    init() { setTrackDatas() }
+    
+    // 미리 지정한 데이터를 가져오기
+    func setTrackDatas() {
+        for (idx, mapPoint) in mapPoints.enumerated() {
+            let pointList = mapPoint
+            let mapPaths = NMFArrowheadPath(pointList)
+            
+            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [], timeTaken: 2300, author: UUID(), caloriesConsumed: 190, trackPaths: mapPaths!))
+        }
+    }
+    
     /**
-    트랙정보를 리스트에 추가합니다
+     트랙정보를 리스트에 추가합니다
      */
     func addTrackData(trackData: TrackInfo) {
+        // 트랙경로의 첫번째 위도, 경도를 이용하여 한글 주소를 먼저 지정
         self.trackDatas.append(trackData)
+        resetTrackData()
+    }
+    
+    /**
+        현재 form에 입력된 트랙정보를 초기화합니다
+     */
+    func resetTrackData() {
         self.currnetTrackData = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath())
-        print(self.trackDatas)
     }
     /**
      현재 설정된 트랙경로의 정보 비웁니다
      */
     func resetTrackPathData() {
-       print("RESET PATHS")
+        print("RESET PATHS")
         print(self.currnetTrackData.trackPaths.points.count)
         self.currnetTrackData.trackPaths.points.removeAll()
         self.currnetTrackData.trackPaths.mapView = nil
@@ -63,7 +105,7 @@ class TrackViewModel: ObservableObject {
     }
     
     /**
-    경로의 데이터를 반복문을 돌면서 운동정보를 다시 계산합니다.
+     경로의 데이터를 반복문을 돌면서 운동정보를 다시 계산합니다.
      */
     func calculateWorkoutStats() {
         self.currnetTrackData.estimatedDistance = 0
@@ -93,6 +135,7 @@ class TrackViewModel: ObservableObject {
             self.currnetTrackData.timeTaken = calculateAverageTimeInMinute(distanceInMeters: self.currnetTrackData.estimatedDistance, averageSpeed: 2.0)
         }
     }
+    
 }
 
 // MARK: - 서브함수
@@ -115,7 +158,7 @@ func calculateAverageTimeInMinute(distanceInMeters: Double, averageSpeed: Double
     // 평균 시속으로 거리를 이동하는 데 필요한 시간 계산
     let timeInSeconds = distanceInMeters / averageSpeed
     
-    return Int(timeInSeconds) / 60
+    return Int(timeInSeconds)
 }
 
 // 2개의 위도, 경도를 받아서 거리를 계산
@@ -133,5 +176,18 @@ func calculateCoordinatesDistance(lat1: Double, lon1: Double, lat2: Double, lon2
     return distance
 }
 
+// 위도, 경도를 입력받아 한글 주소로 변환
+func convertCLLocationToAddress(location: CLLocation, completion: @escaping (String) -> Void) {
+    let geocoder = CLGeocoder()
+    geocoder.reverseGeocodeLocation(location) { placemarks, error in
+        if error != nil {
+            return
+        }
+        
+        guard let placemark = placemarks?.first else { return }
+        completion("\(placemark.locality!) \(placemark.name!)")
+    }
+    
+}
 
 

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct RecruitmentList: View {
-    
     @EnvironmentObject var trackViewModel: TrackViewModel
-    
     
     private var vGridItems = [GridItem()]
     
@@ -35,7 +33,7 @@ struct RecruitmentCell: View {
         NavigationLink(destination: MateDetailView(trackInfo: trackInfo)) {
         VStack{
             HStack(spacing: 10) {
-                
+                // MARK: - 아이콘
                 Spacer()
                 
                 Image(systemName: "figure.run")
@@ -44,25 +42,34 @@ struct RecruitmentCell: View {
                     .foregroundStyle(.mainFont)
                 
                 Spacer()
-                
+                // MARK: - 컨텐츠
                 VStack(alignment: .leading, spacing: 4) {
+                    // 트랙이름
                     Text("\(trackInfo.trackName)")
                         .customTextStyle(style: .title)
                         .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     VStack(spacing: 2){
                         HStack{
+                            // 거리
                             Image(systemName: "arrow.triangle.turn.up.right.diamond")
                                 .foregroundStyle(.mainFont)
-                            Text(String(format: "%.1f km", trackInfo.estimatedDistance))
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            if trackInfo.estimatedDistance > 1000 {
+                                Text(String(format: "%.1f km", trackInfo.estimatedDistance / 1000))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            } else {
+                                Text("\(Int(trackInfo.estimatedDistance)) m")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
                         }
+                        // 선구님 여기요
                         HStack{
                             Image(systemName: "calendar")
                                 .foregroundStyle(.mainFont)
                             Text("\(Functions().formatDate(date: trackInfo.startDate))")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
+                        // 선구님 여기요
                         HStack{
                             Image(systemName: "clock")
                                 .foregroundStyle(.mainFont)

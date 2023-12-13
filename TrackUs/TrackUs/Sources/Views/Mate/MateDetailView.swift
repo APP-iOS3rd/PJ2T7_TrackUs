@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
-
+import MapKit
 // 프로필 이미지를 나타내는 구조체
-struct ParticipantImage: View {
-  
-    var participationsImage: String
 
+struct ParticipantImage: View {
+    
+    var participationsImage: String
+    
     var body: some View {
         Image(participationsImage)
             .resizable()
@@ -22,8 +23,9 @@ struct ParticipantImage: View {
 
 // 메이트모집 상세화면
 struct MateDetailView: View {
+    let locationService = LocationViewModel()
     let trackInfo: TrackInfo
-
+    @StateObject var locationViewModel = LocationViewModel()
     @StateObject var trackViewModel = TrackViewModel()
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
@@ -118,6 +120,10 @@ struct MateDetailView: View {
                         .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
                         
                     }
+                    .padding(.top, 30)
+                } else {
+                    // 소개에 해당하는 내용
+                    TUText(style: .body, text: trackInfo.trackBio)
                     
                     // MARK: - 추가된 내용
                     if !showGreeting {
@@ -162,6 +168,7 @@ struct MateDetailView: View {
         .padding(.horizontal, 20)
         .background(Color.main)
     }
+    
 }
 
 //#Preview {
