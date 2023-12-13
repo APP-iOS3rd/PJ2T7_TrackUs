@@ -62,7 +62,7 @@ struct RecruitMate: View {
                             .matchedGeometryEffect(id: "Recruitment", in: animation)
                     }
                 }
-//                .padding()
+
                 .onTapGesture {
                     withAnimation(.easeInOut) {
                         self.selectedPicker = item

@@ -124,16 +124,6 @@ struct MapList: View {
                 )
                 ZStack{
                     RecruitmentList()
-//                    List{
-//                        ForEach(1...5, id: \.self){_ in
-//                            NavigationLink{
-//                                //상세보기 View
-//                            } label: {
-//                                MateList()
-//                            }
-//                            .listRowBackground(Color.main)
-//                        }
-//                    }
                     .background(Color.main)
                     .listStyle(PlainListStyle())
                     VStack{

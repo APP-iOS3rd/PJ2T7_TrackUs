@@ -9,22 +9,18 @@ import SwiftUI
 
 struct RecruitmentList: View {
     
-    @StateObject var trackViewModel = TrackViewModel()
+    @EnvironmentObject var trackViewModel: TrackViewModel
     
     
     private var vGridItems = [GridItem()]
     
     var body: some View {
             ScrollView{
-//                NavigationLink(destination: MateDetailView(), label: {
                 LazyVGrid(columns: vGridItems, spacing: 0) {
-//                    ForEach((0..<trackViewModel.trackDatas.count), id: \.self) { item in
                     ForEach(trackViewModel.trackDatas, id: \.self) { item in
                         RecruitmentCell(trackInfo: item)
-                            
                     }
                 }
-//            })
             }
             .foregroundStyle(.mainFont)
             .background(Color.main)
@@ -96,13 +92,6 @@ struct RecruitmentCell: View {
         return formatter.string(from: trackInfo.startDate)
     }
     
-//    var formattedTime: String {
-//        let seconds = trackInfo.timeTaken
-//        let minutes = (seconds / 60) % 60
-//        let hours = seconds / 3600
-//        return String(format: "%02d:%02d", hours, minutes)
-//    }
-    
     var formattedDateTime: String {
         let formatter  = DateFormatter()
         formatter.dateFormat = "h:mm a"
@@ -110,12 +99,6 @@ struct RecruitmentCell: View {
     }
 }
 
-//struct ListItemModel: Identifiable {
-//    let id = UUID()
-//    let title: String
-//    let date: String
-//    let time: String
-//}
 
 #Preview {
     RecruitmentList()
