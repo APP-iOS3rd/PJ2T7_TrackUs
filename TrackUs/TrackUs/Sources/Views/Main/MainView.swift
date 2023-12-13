@@ -123,7 +123,7 @@ struct MapList: View {
                         }
                 )
                 ZStack{
-                    Recruitment()
+                    RecruitmentList()
 //                    List{
 //                        ForEach(1...5, id: \.self){_ in
 //                            NavigationLink{

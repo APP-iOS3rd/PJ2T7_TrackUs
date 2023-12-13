@@ -48,6 +48,7 @@
 		82962F982B2329DE00C7A54B /* CommunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F972B2329DE00C7A54B /* CommunityCard.swift */; };
 		82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F992B234C2100C7A54B /* CommunityDetailView.swift */; };
 		82DF82C72B26F5C800D1DA12 /* TrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF82C62B26F5C800D1DA12 /* TrackInfo.swift */; };
+		980FD6562B29360900181E03 /* RecruitmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FD6552B29360900181E03 /* RecruitmentList.swift */; };
 		9882F1BA2B2884B700366DE7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882F1B92B2884B700366DE7 /* MapView.swift */; };
 		9882F1BC2B28852600366DE7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882F1BB2B28852600366DE7 /* MapViewModel.swift */; };
 		98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721072B26A3FD00E9C1AA /* TUFont.swift */; };
@@ -100,6 +101,7 @@
 		82962F972B2329DE00C7A54B /* CommunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCard.swift; sourceTree = "<group>"; };
 		82962F992B234C2100C7A54B /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
 		82DF82C62B26F5C800D1DA12 /* TrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackInfo.swift; sourceTree = "<group>"; };
+		980FD6552B29360900181E03 /* RecruitmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentList.swift; sourceTree = "<group>"; };
 		9882F1B92B2884B700366DE7 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9882F1BB2B28852600366DE7 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		98A721072B26A3FD00E9C1AA /* TUFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUFont.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				82962F952B23221900C7A54B /* TUButton.swift */,
 				98A721072B26A3FD00E9C1AA /* TUFont.swift */,
 				8241564F2B28330700DFA923 /* TUExerciseIndicator.swift */,
+				980FD6552B29360900181E03 /* RecruitmentList.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				616C28092B24BE8F0029857B /* KmChart.swift in Sources */,
 				610D59CA2B27EAD1006362AD /* RecruitMate.swift in Sources */,
 				61D617D12B224240008AC1BB /* MainView.swift in Sources */,
+				980FD6562B29360900181E03 /* RecruitmentList.swift in Sources */,
 				9882F1BA2B2884B700366DE7 /* MapView.swift in Sources */,
 				8227B19A2B2385B700C5E4E6 /* View+Border.swift in Sources */,
 				616C280D2B24BE8F0029857B /* SmallDatePicker.swift in Sources */,

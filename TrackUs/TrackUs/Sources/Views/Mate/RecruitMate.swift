@@ -79,9 +79,9 @@ struct selectTab : View {
     var body: some View {
         switch selec {
         case .recruitment:
-            Recruitment() //모집
+            RecruitmentList() //모집
         case .myRunning:
-            MyRunning() //내 러닝 모음
+            RecruitmentList() //내 러닝 모음
         }
     }
 }
