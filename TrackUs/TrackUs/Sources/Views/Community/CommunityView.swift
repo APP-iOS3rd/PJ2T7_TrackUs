@@ -11,10 +11,10 @@ import SwiftUI
 struct CommunityView: View {
     @State private var action: Int? = 0  // 화면이동 테스트를 위해서 임시로 선언
     var body: some View {
-        
+        VStack{
             ZStack(alignment: .bottomTrailing) {
-                Color.main
-                    .edgesIgnoringSafeArea(.all)
+                //                Color.main
+                //                    .edgesIgnoringSafeArea(.all)
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         ForEach(1...40, id: \.self) { _ in
@@ -24,19 +24,21 @@ struct CommunityView: View {
                         }
                     }
                 }
-                .navigationTitle("Community")
-                .navigationBarTitleDisplayMode(.inline)
+                //.navigationTitle("Community")
+                //.navigationBarTitleDisplayMode(.inline)
                 .padding(.horizontal, 20)
                 
                 // 글추가 화면으로 이동
                 NavigationLink(destination: AddPostView(), tag: 1, selection: $action) {
-                   EmptyView()
+                    EmptyView()
                 }
                 FloatingButton(action: {
-                                self.action = 1
+                    self.action = 1
                 })
-                    .padding(20)
+                .padding(20)
+            }
         }
+            .background(.main)
     }
 }
 

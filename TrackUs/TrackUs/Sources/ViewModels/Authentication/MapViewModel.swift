@@ -10,7 +10,7 @@ import UIKit
 import NMapsMap
 
 struct MapViewModel: UIViewRepresentable {
-    
+
     func makeCoordinator() -> Coordinator {
         Coordinator.shared
     }
@@ -32,37 +32,38 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     @Published var coord: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
     @ObservedObject var trackViewModel = TrackViewModel()
+    
     var locationManager: CLLocationManager?
-
-    // Coordinator 클래스 안의 코드
-
-        override init() {
-            super.init()
-            startMarkers()
-            view.mapView.positionMode = .direction
-            view.mapView.isNightModeEnabled = true
-            
-            view.mapView.zoomLevel = 15
-            view.mapView.minZoomLevel = 5 // 최소 줌 레벨
-            view.mapView.maxZoomLevel = 17 // 최대 줌 레벨
-            
-            view.showLocationButton = true
-            view.showZoomControls = true // 줌 확대, 축소 버튼 활성화
-            view.showCompass = true
-            view.showScaleBar = false
-            
-            view.mapView.addCameraDelegate(delegate: self)
-            view.mapView.touchDelegate = self
-        }
     
     // Coordinator 클래스 안의 코드
-        func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool) {
-            // 카메라 이동이 시작되기 전 호출되는 함수
-        }
+    
+    override init() {
+        super.init()
+        renderMarker()
+        view.mapView.positionMode = .direction
+        view.mapView.isNightModeEnabled = true
         
-        func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
-            // 카메라의 위치가 변경되면 호출되는 함수
-        }
+        view.mapView.zoomLevel = 15
+        view.mapView.minZoomLevel = 5 // 최소 줌 레벨
+        view.mapView.maxZoomLevel = 17 // 최대 줌 레벨
+        
+        view.showLocationButton = true
+        view.showZoomControls = true // 줌 확대, 축소 버튼 활성화
+        view.showCompass = true
+        view.showScaleBar = false
+        
+        view.mapView.addCameraDelegate(delegate: self)
+        view.mapView.touchDelegate = self
+    }
+    
+    // Coordinator 클래스 안의 코드
+    func mapView(_ mapView: NMFMapView, cameraWillChangeByReason reason: Int, animated: Bool) {
+        // 카메라 이동이 시작되기 전 호출되는 함수
+    }
+    
+    func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
+        // 카메라의 위치가 변경되면 호출되는 함수
+    }
     
     func checkLocationAuthorization() {
         guard let locationManager = locationManager else { return }
@@ -126,22 +127,44 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         view
     }
     
+    //        func startMarkersForAllTracks() {
+    //            for trackInfo in trackViewModel.trackDatas {
+    //                let trackPaths = trackInfo.trackPaths
+    //                // trackPaths.points에 있는 모든 NMGLatLng를 출력
+    //                for point in trackPaths.points {
+    //                    print("\(trackPaths.points)")
+    //
+    //                    // 마커 추가
+    //                    if let firstPoint = trackViewModel.currnetTrackData.trackPaths.points.first {
+    //                        let marker = NMFMarker()
+    //                        marker.iconImage = NMF_MARKER_IMAGE_PINK
+    //                        marker.position = point
+    //                        marker.mapView = view.mapView
+    //                    }
+    //                }
+    //            }
+    //        }
     
-    
-    
-    
-    
-    func startMarkers() {
-        // trackDatas에 있는 모든 TrackInfo의 trackPaths에 접근
-        for trackInfo in trackViewModel.trackDatas {
-            let trackPaths = trackInfo.trackPaths
-
-            for point in trackPaths.points {
-                if let firstPoint = trackPaths.points.first {
-                    let marker = NMFMarker()
-                    marker.iconImage = NMF_MARKER_IMAGE_PINK
-                    marker.position = firstPoint
-                    marker.mapView = view.mapView
+    func renderMarker() {
+        DispatchQueue.global(qos: .default).async {
+            var markers = [NMFMarker]()
+            for track in self.trackViewModel.trackDatas {
+                let marker = NMFMarker(position: NMGLatLng(lat: track.trackPaths.points[0].lat, lng: track.trackPaths.points[0].lng))
+                // userInfo 속성을 사용하여 터치 이벤트 리스너와 결합하여 사용
+                marker.userInfo = [
+                    "제목": track.trackName
+                ]
+                marker.width = CGFloat(NMF_MARKER_SIZE_AUTO)
+                marker.height = CGFloat(NMF_MARKER_SIZE_AUTO)
+                markers.append(marker)
+            }
+            DispatchQueue.main.async { [weak self] in
+                for marker in markers {
+                    marker.mapView = self?.view.mapView
+                    marker.touchHandler = { (overlay) -> Bool in
+                        
+                            return true
+                    }
                 }
             }
         }

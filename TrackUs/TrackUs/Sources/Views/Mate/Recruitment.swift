@@ -60,7 +60,7 @@ struct Recruitment: View {
 //                }
 ////            })
 //            }
-//            .foregroundStyle(.mainFont)
+//            .foregroundStyle(.white)
 //            .background(Color.main)
 //    }
 //}
@@ -78,47 +78,58 @@ struct Recruitment: View {
 //                
 //                Image(systemName: "figure.run")
 //                    .resizable()
-//                    .frame(width: 40,height: 40)
-//                    .foregroundStyle(.mainFont)
+//                    .frame(width: 30, height: 30)
 //                
 //                Spacer()
 //                
-//                VStack(alignment: .leading, spacing: 4) {
+//                VStack(alignment: .leading) {
 //                    Text("\(trackInfo.trackName)")
-//                        .customTextStyle(style: .title)
+//                        .font(.headline)
+//                        .bold()
 //                        .lineLimit(1)
+//                        .truncationMode(.tail)
 //                        .frame(maxWidth: .infinity, alignment: .leading)
-//                    VStack(spacing: 2){
-//                        HStack{
-//                            Image(systemName: "arrow.triangle.turn.up.right.diamond")
-//                                .foregroundStyle(.mainFont)
-//                            Text(String(format: "%.1f km", trackInfo.estimatedDistance))
+//                        .foregroundStyle(.white)
+//                    HStack{
+//                        Image(systemName: "figure.track.and.field")
+////                        Text("\(trackInfo.estimatedDistance)")
+//                        if trackInfo.estimatedDistance < 1000 {
+//                            Text(String(format: "%.0f m", trackInfo.estimatedDistance))
+//                                .font(.subheadline)
 //                                .frame(maxWidth: .infinity, alignment: .leading)
-//                        }
-//                        HStack{
-//                            Image(systemName: "calendar")
-//                                .foregroundStyle(.mainFont)
-//                            Text("\(formattedDate)")
+//                                .foregroundStyle(.sub)
+//                        } else {
+//                            Text(String(format: "%.1f km", trackInfo.estimatedDistance / 1000))
+//                                .font(.subheadline)
 //                                .frame(maxWidth: .infinity, alignment: .leading)
-//                        }
-//                        HStack{
-//                            Image(systemName: "clock")
-//                                .foregroundStyle(.mainFont)
-//                            Text("\(formattedDateTime)")
-//                                .frame(maxWidth: .infinity, alignment: .leading)
+//                                .foregroundStyle(.sub)
 //                        }
 //                    }
-//                    .customTextStyle(style: .caption)
+//                    HStack{
+//                        Image(systemName: "calendar")
+//                        Text("\(formattedDate)")
+//                            .font(.subheadline)
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                            .foregroundStyle(.sub)
+//                    }
+//                    HStack{
+//                        Image(systemName: "clock")
+//                        Text("\(formattedDateTime)")
+//                            .font(.subheadline)
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                            .foregroundStyle(.sub)
+//                    }
 //                }
 //                
 //                Image(systemName: "chevron.forward")
 //            }
 //            
-//            .padding(.init(top: 10, leading: 20, bottom: 10, trailing: 20))
+//            .padding(15)
 //            
 //            Text("")
 //                .frame(minWidth: 10, maxWidth: .infinity, minHeight: 1, maxHeight: 1)
-//                .background(Color.sub.opacity(0.1))
+//                .background(Color.sub)
+//            
 //        }
 //        .background(Color.main)
 //        }
@@ -130,6 +141,27 @@ struct Recruitment: View {
 //        return formatter.string(from: trackInfo.startDate)
 //    }
 //    
+////    var formattedTime: String {
+////        let seconds = trackInfo.timeTaken
+////        let minutes = (seconds / 60) % 60
+////        let hours = seconds / 3600
+////        return String(format: "%02d:%02d", hours, minutes)
+////    }
+//    
+//    var formattedDateTime: String {
+//        let formatter  = DateFormatter()
+//        formatter.dateFormat = "h:mm a"
+//        return formatter.string(from: trackInfo.startDate)
+//    }
+//}
+
+//struct ListItemModel: Identifiable {
+//    let id = UUID()
+//    let title: String
+//    let date: String
+//    let time: String
+//}
+
 ////    var formattedTime: String {
 ////        let seconds = trackInfo.timeTaken
 ////        let minutes = (seconds / 60) % 60

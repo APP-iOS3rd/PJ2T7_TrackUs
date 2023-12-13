@@ -69,6 +69,7 @@ struct AddPostView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .navigationTitle("작성하기")
     }
 }
 

@@ -22,7 +22,7 @@ struct MyPageView: View {
                         Text("Statistics")
                             .fontWeight(.semibold)
                             .padding(.top, 10)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.mainFont)
                         
                         ChartTabBarView() // 차트
                             .frame(width: .infinity, height: 350)
@@ -34,7 +34,7 @@ struct MyPageView: View {
                         Text("Calendar")
                             .fontWeight(.semibold)
                             .padding(.vertical, 10)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.mainFont)
                         
                         NavigationLink(destination: CalendarHomeView() , label: {
                             SmallDatePicker(currentDate: $currentDate, trackViewModel: TrackViewModel()) //캘린더

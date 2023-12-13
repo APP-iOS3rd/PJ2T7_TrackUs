@@ -31,7 +31,7 @@ struct RecruitMate: View {
                 Image(systemName: "plus")
                     .font(.system(size: 20))
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .foregroundColor(.main)
                     .frame(width: 60, height: 60)
                     .background(.sub)
                     .cornerRadius(20)
@@ -50,10 +50,9 @@ struct RecruitMate: View {
             ForEach(mateTab.allCases, id: \.self) { item in
                 VStack {
                     Text(item.rawValue)
-                        .font(.title3)
-                        .bold()
-                        .frame(maxWidth: .infinity/2, minHeight: 50)
-                        .foregroundStyle(selectedPicker == item ? Color.sub : Color.gray)
+                        .frame(maxWidth: .infinity/2, minHeight: 40)
+                        .foregroundStyle(selectedPicker == item ? Color.sub : Color.disableFont)
+                        .customTextStyle(style:.largeTitle)
                     
                     if selectedPicker == item {
                         Capsule()

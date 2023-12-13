@@ -25,7 +25,7 @@ struct ChartTabBarView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(lineWidth: 2)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(.sub.opacity(0.5))
                 )
         }
     }
@@ -36,10 +36,9 @@ struct ChartTabBarView: View {
             ForEach(chartTab.allCases, id: \.self) { item in
                 VStack {
                     Text(item.rawValue)
-                        .font(.title3)
-                        .bold()
                         .frame(maxWidth: .infinity/2, minHeight: 50)
-                        .foregroundStyle(selectedPicker == item ? Color.sub : Color.gray)
+                        .foregroundStyle(selectedPicker == item ? Color.sub : Color.disableFont)
+                        .customTextStyle(style: .largeTitle)
                     
                     if selectedPicker == item {
                         Capsule()
