@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EBF445E2B294EBA002FAB92 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF445D2B294EBA002FAB92 /* LaunchScreen.swift */; };
 		610D59CA2B27EAD1006362AD /* RecruitMate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D59C42B27EAD1006362AD /* RecruitMate.swift */; };
 		610D59CB2B27EAD1006362AD /* Recruitment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D59C52B27EAD1006362AD /* Recruitment.swift */; };
 		610D59CC2B27EAD1006362AD /* MateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D59C62B27EAD1006362AD /* MateDetailView.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EBF445D2B294EBA002FAB92 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		610D59C42B27EAD1006362AD /* RecruitMate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecruitMate.swift; sourceTree = "<group>"; };
 		610D59C52B27EAD1006362AD /* Recruitment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recruitment.swift; sourceTree = "<group>"; };
 		610D59C62B27EAD1006362AD /* MateDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateDetailView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		61D617D82B224953008AC1BB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2EBF445D2B294EBA002FAB92 /* LaunchScreen.swift */,
 				9882F1B92B2884B700366DE7 /* MapView.swift */,
 				61D617D02B224240008AC1BB /* MainView.swift */,
 				98A721092B26A41400E9C1AA /* MateList.swift */,
@@ -473,6 +476,7 @@
 				827DB11F2B227E0200B298D3 /* UserViewModel.swift in Sources */,
 				61D617C52B223F58008AC1BB /* ContentView.swift in Sources */,
 				8227B1962B237A1000C5E4E6 /* FloatingButton.swift in Sources */,
+				2EBF445E2B294EBA002FAB92 /* LaunchScreen.swift in Sources */,
 				616C280A2B24BE8F0029857B /* MyProfileView.swift in Sources */,
 				98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */,
 				616C28062B24BE8F0029857B /* CustomDatePicker.swift in Sources */,
@@ -649,7 +653,6 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "해당 앱은 플레이스 정보 및 사용자의 현위치 정보를 사용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -684,7 +687,6 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "해당 앱은 플레이스 정보 및 사용자의 현위치 정보를 사용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
