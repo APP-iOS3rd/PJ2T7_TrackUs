@@ -51,26 +51,27 @@ struct MateDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 10) {
-                // MARK: - 소요시간, 칼로리, 거리
-                HStack(spacing: 80) {
-                    TUText(style: .smallTitle, text: "예상거리")
-                    TUText(style: .smallTitle, text: "소요시간")
-                    TUText(style: .smallTitle, text: "소모칼로리")
-                }
-                HStack(spacing: 70) {
-                    if let firstTrack = trackViewModel.trackDatas.first {
-                        TUText(style: .mediumTitle, text: "\(trackInfo.estimatedDistance)km")
-//                        TUText(style: .mediumTitle, text: "\(trackInfo.timeTaken)min")
-                        TUText(style: .mediumTitle, text: "\(formattedTime)min")
-                        TUText(style: .mediumTitle, text: "\(trackInfo.caloriesConsumed)kcal")
-                    } else {
-                        // 예외 처리: 트랙 정보가 없을 경우 기본값 또는 에러 메시지 표시
-                        TUText(style: .mediumTitle, text: "N/A")
-                        TUText(style: .mediumTitle, text: "N/A")
-                        TUText(style: .mediumTitle, text: "N/A")
-                    }
-                }
-                .padding(.horizontal, 10)
+//                 MARK: - 소요시간, 칼로리, 거리
+//                HStack(spacing: 80) {
+//                    TUText(style: .smallTitle, text: "예상거리")
+//                    TUText(style: .smallTitle, text: "소요시간")
+//                    TUText(style: .smallTitle, text: "소모칼로리")
+//                }
+//                HStack(spacing: 70) {
+//                    if let firstTrack = trackViewModel.trackDatas.first {
+//                        TUText(style: .mediumTitle, text: "\(trackInfo.estimatedDistance)km")
+////                        TUText(style: .mediumTitle, text: "\(trackInfo.timeTaken)min")
+//                        TUText(style: .mediumTitle, text: "\(formattedTime)min")
+//                        TUText(style: .mediumTitle, text: "\(trackInfo.caloriesConsumed)kcal")
+//                    } else {
+//                        // 예외 처리: 트랙 정보가 없을 경우 기본값 또는 에러 메시지 표시
+//                        TUText(style: .mediumTitle, text: "N/A")
+//                        TUText(style: .mediumTitle, text: "N/A")
+//                        TUText(style: .mediumTitle, text: "N/A")
+//                    }
+//                }
+//                .padding(.horizontal, 10)
+                TUExerciseIndicator(estimatedDistance: trackInfo.estimatedDistance, timeTaken: trackInfo.timeTaken, caloriesConsumed: trackInfo.caloriesConsumed)
                 
                 // MARK: - 지도
                 // 이미지
@@ -194,6 +195,7 @@ struct MateDetailView: View {
         }
     }
 }
+
 //#Preview {
 //    MateDetailView()
 //}

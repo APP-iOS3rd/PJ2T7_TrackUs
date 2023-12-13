@@ -6,7 +6,5 @@
 	<string>mws6egeo8h</string>
 	<key>Privacy — Location Always and When In Use Usage Description</key>
 	<string>해당 앱은 플레이스 정보 및 사용자의 현위치 정보를 사용하기 위해 권한이 필요합니다.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>해당 앱은 플레이스 정보 및 사용자의 현위치 정보를 사용하기 위해 권한이 필요합니다.</string>
 </dict>
 </plist>

@@ -8,14 +8,15 @@
 import SwiftUI
 import NMapsMap
 struct AddTrackView: View {
-    @StateObject var trackViewModel = TrackViewModel()
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @EnvironmentObject var trackViewModel: TrackViewModel
     let titlePlaceholder : String = "트랙 이름을 입력해 주세요"
     let textPlaceholder : String = "소개 글을 입력해 주세요"
     
     var body: some View {
         VStack(spacing: 20) {
             // MARK: - 입력된 정보로 예상거리, 소요시간, 소모칼로리를 보여줌
-            TUExerciseIndicator(estimatedDistance: $trackViewModel.currnetTrackData.estimatedDistance, timeTaken: $trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: $trackViewModel.currnetTrackData.caloriesConsumed)
+            TUExerciseIndicator(estimatedDistance: trackViewModel.currnetTrackData.estimatedDistance, timeTaken: trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: trackViewModel.currnetTrackData.caloriesConsumed)
                 .foregroundStyle(.white)
                 .padding(.horizontal, 20)
             
@@ -23,12 +24,13 @@ struct AddTrackView: View {
                 // MARK: - 트랙경로 설정하는 화면으로 이동
                 VStack{
                     NavigationLink(destination: {
-                        AddTrackPathView(trackViewModel: trackViewModel)
+                        AddTrackPathView()
                     }, label: {
                         ZStack(alignment: .center){
                             Image("mapImage")
                                 .frame(minWidth: 300, maxWidth: .infinity,minHeight: 80,maxHeight: 80)
                                 .cornerRadius(10)
+                                
                             Text("코스를 입력해 주세요")
                                 .fontWeight(.bold)
                                 .foregroundStyle(.black)
@@ -73,7 +75,7 @@ struct AddTrackView: View {
                         Text("예상 소요 시간(분)")
                         Spacer()
                         Button(action: {
-                            //                            minusTimeButtonTapped()
+                            minusTimeButtonTapped()
                         }, label: {
                             Image(systemName: "minus.circle.fill")
                                 .resizable()
@@ -86,7 +88,7 @@ struct AddTrackView: View {
                             .fontWeight(.bold)
                         
                         Button(action: {
-                            //                            plusTimeButtonTapped()
+                            plusTimeButtonTapped()
                         }, label: {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
@@ -102,7 +104,7 @@ struct AddTrackView: View {
                         Spacer()
                         
                         Button(action: {
-                            //                            minusMemberButtonTapped()
+                            minusMemberButtonTapped()
                         }, label: {
                             Image(systemName: "minus.circle.fill")
                                 .resizable()
@@ -110,12 +112,12 @@ struct AddTrackView: View {
                                 .foregroundStyle(.sub)
                         })
                         
-                        Text("\(trackViewModel.currnetTrackData.participations.count)").foregroundStyle(.white)
+                        Text("\(trackViewModel.currnetTrackData.limitedMember)").foregroundStyle(.white)
                             .frame(width: 25)
                             .fontWeight(.bold)
                         
                         Button(action: {
-                            //                            plusMemberButtonTapped()
+                            plusMemberButtonTapped()
                         }, label: {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
@@ -136,7 +138,8 @@ struct AddTrackView: View {
                 } .padding(.horizontal, 20)
             }
             TUButton(text: "코스등록") {
-                print(trackViewModel.currnetTrackData.trackPaths.points.count)
+                trackViewModel.addTrackData(trackData: trackViewModel.currnetTrackData)
+                mode.wrappedValue.dismiss()
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 8)
@@ -147,28 +150,28 @@ struct AddTrackView: View {
         .background(Color.main)
     }
     
-    // MARK: - Methods
-    //    func plusTimeButtonTapped() {
-    //        estimatedTime += 1
-    //    }
-    //
-    //    func minusTimeButtonTapped() {
-    //        if estimatedTime > 0 {
-    //            estimatedTime -= 1
-    //        }
-    //    }
-    //
-    //    func plusMemberButtonTapped() {
-    //        if limitedMember < 10 {
-    //            limitedMember += 1
-    //        }
-    //    }
-    //
-    //    func minusMemberButtonTapped() {
-    //        if limitedMember > 1 {
-    //            limitedMember -= 1
-    //        }
-    //    }
+    //     MARK: - Button actions
+    func plusTimeButtonTapped() {
+        trackViewModel.currnetTrackData.timeTaken += 1
+    }
+    
+    func minusTimeButtonTapped() {
+        if trackViewModel.currnetTrackData.timeTaken > 0 {
+            trackViewModel.currnetTrackData.timeTaken -= 1
+        }
+    }
+    
+    func plusMemberButtonTapped() {
+        if trackViewModel.currnetTrackData.limitedMember < 10 {
+            trackViewModel.currnetTrackData.limitedMember += 1
+        }
+    }
+    
+    func minusMemberButtonTapped() {
+        if trackViewModel.currnetTrackData.limitedMember > 1 {
+            trackViewModel.currnetTrackData.limitedMember -= 1
+        }
+    }
     
 }
 
