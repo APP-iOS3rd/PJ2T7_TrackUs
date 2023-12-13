@@ -7,6 +7,39 @@
 
 import SwiftUI
 
+struct Recruitment: View {
+    
+    @StateObject var trackViewModel = TrackViewModel()
+    
+    
+    private var vGridItems = [GridItem()]
+    
+    var body: some View {
+            ScrollView{
+                LazyVGrid(columns: vGridItems, spacing: 0) {
+                    ForEach(trackViewModel.trackDatas, id: \.self) { item in
+                        RecruitmentCell(trackInfo: item)
+                            
+                    }
+                }
+
+            }
+            .foregroundStyle(.white)
+            .background(Color.main)
+    }
+}
+
+
+
+//struct ListItemModel: Identifiable {
+//    let id = UUID()
+//    let title: String
+//    let date: String
+//    let time: String
+//}
+
+//import SwiftUI
+//
 //struct Recruitment: View {
 //    
 //    @StateObject var trackViewModel = TrackViewModel()

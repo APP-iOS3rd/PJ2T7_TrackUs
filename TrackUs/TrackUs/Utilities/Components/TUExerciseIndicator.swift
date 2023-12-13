@@ -34,9 +34,16 @@ struct TUExerciseIndicator: View {
             VStack{
                 Text("소요시간")
                     .font(.footnote)
-                Text("\(timeTaken)min")
-                    .italic()
-                    .fontWeight(.black)
+                if timeTaken / 60 >= 60 {
+                    Text("\(timeTaken / 60 / 60) h \(timeTaken % 60) min")
+                        .italic()
+                        .fontWeight(.black)
+                } else {
+                    Text("\(timeTaken / 60) min")
+                        .italic()
+                        .fontWeight(.black)
+                }
+               
             }
             
             Spacer()

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NMapsMap
+
 struct AddTrackView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @EnvironmentObject var trackViewModel: TrackViewModel
@@ -83,7 +84,7 @@ struct AddTrackView: View {
                                 .foregroundStyle(.sub)
                         })
                         
-                        Text("\(trackViewModel.currnetTrackData.timeTaken)")
+                        Text("\(trackViewModel.currnetTrackData.timeTaken / 60)")
                             .frame(width: 25)
                             .fontWeight(.bold)
                         
@@ -145,19 +146,18 @@ struct AddTrackView: View {
             .padding(.bottom, 8)
             
         }
-        //        .environmentObject(TrackViewModel())
         .onTapGesture {hideKeyboard()}
         .background(Color.main)
     }
     
     //     MARK: - Button actions
     func plusTimeButtonTapped() {
-        trackViewModel.currnetTrackData.timeTaken += 1
+        trackViewModel.currnetTrackData.timeTaken += 60
     }
     
     func minusTimeButtonTapped() {
         if trackViewModel.currnetTrackData.timeTaken > 0 {
-            trackViewModel.currnetTrackData.timeTaken -= 1
+            trackViewModel.currnetTrackData.timeTaken -= 60
         }
     }
     
