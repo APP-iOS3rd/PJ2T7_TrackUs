@@ -94,6 +94,7 @@ struct CommunityDetailView: View {
                 hideKeyboard()
             }
             CommentInput()
+                .navigationBarTitle("상세보기")
         }
         .background(.main)
     }

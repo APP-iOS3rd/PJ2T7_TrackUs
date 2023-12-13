@@ -193,6 +193,8 @@ struct MateDetailView: View {
                 showJoinButton = true
             }
         }
+        .navigationTitle("상세보기")
+        
     }
 }
 

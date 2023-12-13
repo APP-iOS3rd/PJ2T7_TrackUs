@@ -14,21 +14,6 @@ struct MainView: View {
         GeometryReader{ geometry in
             MapList(viewHeight: geometry.size.height, mapViewHeight: geometry.size.height/2, listViewHeight: geometry.size.height/2)
         }
-        .safeAreaInset(edge: .top, content: {
-            HStack(spacing: 0, content: {
-                Text("Track")
-                    .fontWeight(.bold)
-                    .font(.title)
-                    .foregroundStyle(.mainFont)
-                Text("Us")
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .foregroundStyle(.sub)
-                Spacer()
-            })
-            .padding(.init(top: 0, leading: 20, bottom: 0, trailing: 0))
-            .background(Color.main)
-        })
         .background(Color.main)
     }
 }

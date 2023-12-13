@@ -16,16 +16,6 @@ struct MyProfile: View {
     
     var body: some View {
         VStack(alignment: .leading){
-            // 앱 타이틀
-            HStack{
-                Text("Track")
-                    .foregroundStyle(.white)
-                Text("Us")
-                    .foregroundStyle(.sub)
-            }
-            .font(.title)
-            .bold()
-            .padding(.bottom, -2)
             
             HStack{
                 
