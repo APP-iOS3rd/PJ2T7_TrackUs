@@ -113,6 +113,12 @@ struct ContentView: View {
                     Spacer()
                 }
             }
+        }.onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3 ){
+                withAnimation{
+                    self.showSplash = false
+                }
+            }
         }
             
     }
