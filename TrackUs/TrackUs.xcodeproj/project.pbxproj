@@ -14,6 +14,7 @@
 		610D59CE2B27EAD1006362AD /* AddTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D59C82B27EAD1006362AD /* AddTrackView.swift */; };
 		610D59CF2B27EAD1006362AD /* MateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D59C92B27EAD1006362AD /* MateView.swift */; };
 		6125B4E42B2946980037D7FB /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B4E32B2946980037D7FB /* Functions.swift */; };
+		6125B4E62B2979190037D7FB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B4E52B2979190037D7FB /* SettingView.swift */; };
 		616C28062B24BE8F0029857B /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FD2B24BE8E0029857B /* CustomDatePicker.swift */; };
 		616C28072B24BE8F0029857B /* CalendarHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FE2B24BE8E0029857B /* CalendarHomeView.swift */; };
 		616C28082B24BE8F0029857B /* RunningChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FF2B24BE8E0029857B /* RunningChartView.swift */; };
@@ -66,6 +67,7 @@
 		610D59C82B27EAD1006362AD /* AddTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrackView.swift; sourceTree = "<group>"; };
 		610D59C92B27EAD1006362AD /* MateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateView.swift; sourceTree = "<group>"; };
 		6125B4E32B2946980037D7FB /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		6125B4E52B2979190037D7FB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		616C27FD2B24BE8E0029857B /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		616C27FE2B24BE8E0029857B /* CalendarHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHomeView.swift; sourceTree = "<group>"; };
 		616C27FF2B24BE8E0029857B /* RunningChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningChartView.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				616C27FF2B24BE8E0029857B /* RunningChartView.swift */,
 				616C28042B24BE8E0029857B /* SmallDatePicker.swift */,
 				616C28052B24BE8E0029857B /* Task.swift */,
+				6125B4E52B2979190037D7FB /* SettingView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				616C280B2B24BE8F0029857B /* ChartTabBarView.swift in Sources */,
 				616C280C2B24BE8F0029857B /* DataValue.swift in Sources */,
 				827DB1142B2274BD00B298D3 /* Color+.swift in Sources */,
+				6125B4E62B2979190037D7FB /* SettingView.swift in Sources */,
 				610D59CB2B27EAD1006362AD /* Recruitment.swift in Sources */,
 				827DB11F2B227E0200B298D3 /* UserViewModel.swift in Sources */,
 				61D617C52B223F58008AC1BB /* ContentView.swift in Sources */,

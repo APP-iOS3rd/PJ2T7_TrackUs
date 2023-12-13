@@ -58,8 +58,7 @@ struct MyProfile: View {
                 
                 Spacer()
                 HStack{
-                    
-                    Button(action: {}, label: {
+                    NavigationLink(destination: SettingView(), label: {
                         Image(systemName: "gearshape")
                             .resizable()
                             .frame(width: 25, height: 25)
