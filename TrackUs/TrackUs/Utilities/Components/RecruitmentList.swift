@@ -60,13 +60,13 @@ struct RecruitmentCell: View {
                         HStack{
                             Image(systemName: "calendar")
                                 .foregroundStyle(.mainFont)
-                            Text("\(formattedDate)")
+                            Text("\(Functions().formatDate(date: trackInfo.startDate))")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         HStack{
                             Image(systemName: "clock")
                                 .foregroundStyle(.mainFont)
-                            Text("\(formattedDateTime)")
+                            Text("\(Functions().formatTime(time: trackInfo.startDate))")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     }
@@ -84,18 +84,6 @@ struct RecruitmentCell: View {
         }
         .background(Color.main)
         }
-    }
-    
-    var formattedDate: String {
-        let formatter  = DateFormatter()
-        formatter.dateFormat = "YYYY.MM.dd"
-        return formatter.string(from: trackInfo.startDate)
-    }
-    
-    var formattedDateTime: String {
-        let formatter  = DateFormatter()
-        formatter.dateFormat = "h:mm a"
-        return formatter.string(from: trackInfo.startDate)
     }
 }
 
