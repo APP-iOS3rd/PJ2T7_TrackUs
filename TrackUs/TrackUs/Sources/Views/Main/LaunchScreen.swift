@@ -10,7 +10,7 @@ import SwiftUI
 struct LaunchScreen: View {
         var body: some View {
             ZStack {
-                Color(hex: "212121")
+                Color(.main)
                     .ignoresSafeArea()
                 
                 Image("launchLogo")

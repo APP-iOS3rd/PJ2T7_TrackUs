@@ -20,13 +20,11 @@ struct ContentView: View {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.mainFont]
         UINavigationBar.appearance().tintColor = .sub
         UINavigationBar.appearance().backItem?.backBarButtonItem?.tintColor = .red
-        UINavigationBarAppearance().buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.green] //1
+        UINavigationBarAppearance().buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.green]
         
         //UINavigationBarAppearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         
-
     }
-    
     
     var body: some View {
         ZStack {
@@ -40,47 +38,47 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                 
                 NavigationView {
-                        TabView(selection: $tabBarIndex) {
-                            MainView()
-                                .onTapGesture {
-                                    tabBarIndex = 0
-                                }
-                                .tabItem {
-                                    Image(systemName: "house")
-                                    Text("홈")
-                                }.tag(0)
-                            
-                            MateView()
-                                .onTapGesture {
-                                    tabBarIndex = 1
-                                }
-                                .tabItem {
-                                    Image(systemName: "doc.plaintext")
-                                    Text("메이트 모집")
-                                }.tag(1)
-                            
-                            
-                            CommunityView()
-                                .onTapGesture {
-                                    tabBarIndex = 2
-                                }
-                                .tabItem {
-                                    Image(systemName: "bubble.left.and.exclamationmark.bubble.right")
-                                    Text("커뮤니티")
-                                }.tag(2)
-                            
-                            MyPageView()
-                                .onTapGesture {
-                                    tabBarIndex = 3
-                                }
-                                .tabItem {
-                                    Image(systemName: "person")
-                                    Text("내 정보")
-                                }.tag(3)
-                        }
-                        .navigationTitle(tabTitle)
-                        .navigationBarTitleDisplayMode(.inline)
-                        .accentColor(.sub)
+                    TabView(selection: $tabBarIndex) {
+                        MainView()
+                            .onTapGesture {
+                                tabBarIndex = 0
+                            }
+                            .tabItem {
+                                Image(systemName: "house")
+                                Text("홈")
+                            }.tag(0)
+                        
+                        MateView()
+                            .onTapGesture {
+                                tabBarIndex = 1
+                            }
+                            .tabItem {
+                                Image(systemName: "doc.plaintext")
+                                Text("메이트 모집")
+                            }.tag(1)
+                        
+                        
+                        CommunityView()
+                            .onTapGesture {
+                                tabBarIndex = 2
+                            }
+                            .tabItem {
+                                Image(systemName: "bubble.left.and.exclamationmark.bubble.right")
+                                Text("커뮤니티")
+                            }.tag(2)
+                        
+                        MyPageView()
+                            .onTapGesture {
+                                tabBarIndex = 3
+                            }
+                            .tabItem {
+                                Image(systemName: "person")
+                                Text("내 정보")
+                            }.tag(3)
+                    }
+                    .navigationTitle(tabTitle)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .accentColor(.sub)
                 }
                 .navigationBarItems(
                     leading:
@@ -98,14 +96,7 @@ struct ContentView: View {
                             })
                         }
                 )
-                // navigatonBar 색상 설정
-//                .toolbarBackground(
-//                    Color.main,
-//                    for: .navigationBar)
-//                .toolbarBackground(.visible, for: .navigationBar)
-                //.navigationTitle(tabTitle)
                 .navigationBarTitleDisplayMode(.inline)
-                //.navigationBarColor(backgroundColor: .red, titleColor: .white)
                 .accentColor(.sub)
                 VStack{
                     LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
@@ -120,7 +111,7 @@ struct ContentView: View {
                 }
             }
         }
-            
+        
     }
     
     var tabTitle: String {

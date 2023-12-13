@@ -7,10 +7,13 @@
 
 import SwiftUI
 import NMapsMap
-
+/**
+   트랙경로를 보여주고 데이터를 저장하는 맵뷰
+ */
 // UIViewRepresentable을 이용하여 UIKit 뷰를 SwiftUI와 브릿징
-struct TrackPathUIMapView: UIViewRepresentable {
+struct RouteDrawingMapView: UIViewRepresentable {
     @EnvironmentObject var trackViewModel: TrackViewModel
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(trackViewModel: trackViewModel)
     }

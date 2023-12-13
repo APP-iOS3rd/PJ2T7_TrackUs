@@ -39,7 +39,7 @@
 		8227B1962B237A1000C5E4E6 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227B1952B237A1000C5E4E6 /* FloatingButton.swift */; };
 		8227B19A2B2385B700C5E4E6 /* View+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8227B1992B2385B700C5E4E6 /* View+Border.swift */; };
 		8241564C2B28305300DFA923 /* AddTrackPathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241564B2B28305300DFA923 /* AddTrackPathView.swift */; };
-		8241564E2B28313000DFA923 /* TrackPathUIMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241564D2B28313000DFA923 /* TrackPathUIMapView.swift */; };
+		8241564E2B28313000DFA923 /* RouteDrawingMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241564D2B28313000DFA923 /* RouteDrawingMapView.swift */; };
 		824156502B28330700DFA923 /* TUExerciseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8241564F2B28330700DFA923 /* TUExerciseIndicator.swift */; };
 		827DB1142B2274BD00B298D3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB1132B2274BD00B298D3 /* Color+.swift */; };
 		827DB1162B2278A200B298D3 /* TUText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827DB1152B2278A200B298D3 /* TUText.swift */; };
@@ -50,6 +50,7 @@
 		82962F962B23221900C7A54B /* TUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F952B23221900C7A54B /* TUButton.swift */; };
 		82962F982B2329DE00C7A54B /* CommunityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F972B2329DE00C7A54B /* CommunityCard.swift */; };
 		82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82962F992B234C2100C7A54B /* CommunityDetailView.swift */; };
+		82DBAE9D2B29DDA00038F43A /* RouteDisplayMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DBAE9C2B29DDA00038F43A /* RouteDisplayMapView.swift */; };
 		82DF82C72B26F5C800D1DA12 /* TrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF82C62B26F5C800D1DA12 /* TrackInfo.swift */; };
 		980FD6562B29360900181E03 /* RecruitmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FD6552B29360900181E03 /* RecruitmentList.swift */; };
 		9882F1BA2B2884B700366DE7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882F1B92B2884B700366DE7 /* MapView.swift */; };
@@ -95,7 +96,7 @@
 		8227B1952B237A1000C5E4E6 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		8227B1992B2385B700C5E4E6 /* View+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Border.swift"; sourceTree = "<group>"; };
 		8241564B2B28305300DFA923 /* AddTrackPathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackPathView.swift; sourceTree = "<group>"; };
-		8241564D2B28313000DFA923 /* TrackPathUIMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPathUIMapView.swift; sourceTree = "<group>"; };
+		8241564D2B28313000DFA923 /* RouteDrawingMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDrawingMapView.swift; sourceTree = "<group>"; };
 		8241564F2B28330700DFA923 /* TUExerciseIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUExerciseIndicator.swift; sourceTree = "<group>"; };
 		827DB1132B2274BD00B298D3 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		827DB1152B2278A200B298D3 /* TUText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUText.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		82962F952B23221900C7A54B /* TUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUButton.swift; sourceTree = "<group>"; };
 		82962F972B2329DE00C7A54B /* CommunityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCard.swift; sourceTree = "<group>"; };
 		82962F992B234C2100C7A54B /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
+		82DBAE9C2B29DDA00038F43A /* RouteDisplayMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDisplayMapView.swift; sourceTree = "<group>"; };
 		82DF82C62B26F5C800D1DA12 /* TrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackInfo.swift; sourceTree = "<group>"; };
 		980FD6552B29360900181E03 /* RecruitmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentList.swift; sourceTree = "<group>"; };
 		9882F1B92B2884B700366DE7 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -295,7 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				8227B1952B237A1000C5E4E6 /* FloatingButton.swift */,
-				8241564D2B28313000DFA923 /* TrackPathUIMapView.swift */,
+				82DBAE9C2B29DDA00038F43A /* RouteDisplayMapView.swift */,
+				8241564D2B28313000DFA923 /* RouteDrawingMapView.swift */,
 				827DB1152B2278A200B298D3 /* TUText.swift */,
 				82962F952B23221900C7A54B /* TUButton.swift */,
 				98A721072B26A3FD00E9C1AA /* TUFont.swift */,
@@ -484,6 +487,7 @@
 				828E6D6B2B281BE4000D7453 /* TrackViewModel.swift in Sources */,
 				8227B18E2B234D6A00C5E4E6 /* AddPostView.swift in Sources */,
 				98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */,
+				82DBAE9D2B29DDA00038F43A /* RouteDisplayMapView.swift in Sources */,
 				616C28072B24BE8F0029857B /* CalendarHomeView.swift in Sources */,
 				8227B1902B2363DB00C5E4E6 /* View+Keyboard.swift in Sources */,
 				616C28082B24BE8F0029857B /* RunningChartView.swift in Sources */,
@@ -499,7 +503,7 @@
 				610D59CD2B27EAD1006362AD /* MyRunning.swift in Sources */,
 				8227B1922B236C6700C5E4E6 /* CommentCell.swift in Sources */,
 				8227B1942B236EC300C5E4E6 /* CommentInput.swift in Sources */,
-				8241564E2B28313000DFA923 /* TrackPathUIMapView.swift in Sources */,
+				8241564E2B28313000DFA923 /* RouteDrawingMapView.swift in Sources */,
 				6125B4E42B2946980037D7FB /* Functions.swift in Sources */,
 				8241564C2B28305300DFA923 /* AddTrackPathView.swift in Sources */,
 				82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */,
