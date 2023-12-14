@@ -20,7 +20,7 @@ struct AddTrackView: View {
     @State private var memberAlert = false
     let titlePlaceholder : String = "트랙 이름을 입력해 주세요"
     let textPlaceholder : String = "소개 글을 입력해 주세요"
-    
+    @StateObject var userViewModel = UserViewModel.shared
     var body: some View {
         VStack(spacing: 20) {
             // MARK: - 입력된 정보로 예상거리, 소요시간, 소모칼로리를 보여줌
@@ -183,7 +183,7 @@ struct AddTrackView: View {
     }
     
     //     MARK: - Button actions
-    func plusTimeButtonTapped() {
+    func plusTimeButtonTapped() {        
         trackViewModel.currnetTrackData.timeTaken += 60
     }
     

@@ -13,13 +13,13 @@ struct profile {
 }
 
 struct MyProfile: View {
-    
+    @StateObject var userViewModel = UserViewModel.shared
     var body: some View {
         VStack(alignment: .leading){
             
             HStack{
                 
-                HStack(alignment: .top){
+                HStack{
                     //사용자 이미지
                     Image(profile().userImage)
                         .resizable()
@@ -29,11 +29,12 @@ struct MyProfile: View {
                             RoundedRectangle(cornerRadius: 360)
                                 .stroke(lineWidth: 1)
                                 .foregroundStyle(.orange)
+                                .offset(CGSize(width: 7.0, height: 5.0))
                         )
                     VStack{
                         HStack{
                             //사용자 이름
-                            Text(profile().userName)
+                            Text(userViewModel.currentUser.username)
                                 .foregroundStyle(.white)
                                 .fontWeight(.semibold)
                             Button(action: {}, label: {
@@ -53,6 +54,7 @@ struct MyProfile: View {
                             .resizable()
                             .frame(width: 25, height: 25)
                             .foregroundColor(.white)
+                            .offset(x: -10, y: 4)
                     })
                 }
             }

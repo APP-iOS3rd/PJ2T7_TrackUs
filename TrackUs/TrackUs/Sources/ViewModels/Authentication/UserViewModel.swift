@@ -8,12 +8,8 @@
 import Foundation
 
 class UserViewModel: ObservableObject {
-    let shared = UserViewModel()
-    init(){}
+    static let shared = UserViewModel()
+    private init(){}
     
-    @Published var currentUser: User?
-    
-    init(currentUser: User? = nil) {
-        self.currentUser = User(username: "테스트", profileImageUrl: "")
-    }
+    @Published var currentUser: User = User(username: "테스트", profileImageUrl: "")
 }

@@ -10,9 +10,7 @@ import MapKit
 
 // 프로필 이미지를 나타내는 구조체
 struct ParticipantImage: View {
-  
     var participationsImage: String
-
     var body: some View {
         Image(participationsImage)
             .resizable()
@@ -29,8 +27,6 @@ struct MateDetailView: View {
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
     @State private var convertedAddress = ""
-    //var trackInfo: TrackInfo
-
 
     var body: some View {
         VStack {
@@ -40,11 +36,10 @@ struct MateDetailView: View {
                 VStack(spacing: 10) {
                     
                     // MARK: - 지도
-                    // 이미지
-                    Rectangle()
-                        .background(.gray)
-                        .frame(height: 185)
-                    
+                    RouteDisplayMapView(trackRoutePaths: trackInfo.trackPaths.points)
+                        .frame(height: 260)
+                        .cornerRadius(10)
+                   
                     // MARK: - 내용
                     VStack(spacing: 15) {
                         // 내용
@@ -91,51 +86,52 @@ struct MateDetailView: View {
                     
                     
                     // MARK: - 소개, 참여자
-                    HStack(spacing: 150) {
-                        // 소개 버튼
-                        Button(action: {
-                            withAnimation {
-                                showGreeting = true
-                            }
-                        }) {
-                            TUText(style: .mediumTitle, text: "소 개")
-                        }
-                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-                        
-                        // 참여자
-                        Button(action: {
-                            withAnimation {
-                                showGreeting = false
-                            }
-                        }) {
-                            TUText(style: .mediumTitle, text: "참여자")
-                        }
-                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-                        
-                    }
+                    
+                    MateDetailTab(trackInfo: trackInfo)
+                    
+//                    HStack(spacing: 150) {
+//                        // 소개 버튼
+//                        Button(action: {
+//                            withAnimation {
+//                                showGreeting = true
+//                            }
+//                        }) {
+//                            TUText(style: .mediumTitle, text: "소 개")
+//                        }
+//                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
+//                        
+//                        // 참여자
+//                        Button(action: {
+//                            withAnimation {
+//                                showGreeting = false
+//                            }
+//                        }) {
+//                            TUText(style: .mediumTitle, text: "참여자")
+//                        }
+//                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
+//                        
+//                    }
                     
                     // MARK: - 추가된 내용
-                    if !showGreeting {
-                        // 참여자에 해당하는 내용
-                        VStack(spacing: 30) {
-                            HStack {
-                                ParticipantImage(participationsImage: "image1")
-                                ParticipantImage(participationsImage: "image1")
-                                ParticipantImage(participationsImage: "image1")
-                                ParticipantImage(participationsImage: "image1")
-                            }
-                            
-                            Spacer()
-                            
-                        }
-                        .padding(.top, 30)
-                    } else {
-                        // 소개에 해당하는 내용
-                        TUText(style: .body, text: trackInfo.trackBio)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(20)
-                        
-                    }
+//                    if !showGreeting {
+//                        // 참여자에 해당하는 내용
+//                        VStack(spacing: 30) {
+//                            HStack {
+//                                ParticipantImage(participationsImage: "image1")
+//                                ParticipantImage(participationsImage: "image1")
+//                                ParticipantImage(participationsImage: "image1")
+//                                ParticipantImage(participationsImage: "image1")
+//                            }
+//                            
+//                            Spacer()
+//                            
+//                        }
+//                        .padding(.top, 30)
+//                    } else {
+//                        // 소개에 해당하는 내용
+//                        TUText(style: .body, text: trackInfo.trackBio)
+//                        
+//                    }
                 }
                 .foregroundColor(.white)
                 
@@ -152,6 +148,7 @@ struct MateDetailView: View {
             // 참가하기 버튼
             TUButton(text: "참가하기") {
                 // TODO: 참가하기 버튼 클릭 시 동작 구현
+                
             }
             .padding(.bottom, 8)
             .animation(.default) // 애니메이션 적용
@@ -180,3 +177,4 @@ struct MateDetailView: View {
 //#Preview {
 //    MateDetailView()
 //}
+

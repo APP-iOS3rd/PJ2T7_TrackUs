@@ -17,6 +17,7 @@ enum CustomTextStyle {
     case caption
     case captionGray
 }
+
 extension View {
     func customTextStyle(style: CustomTextStyle) -> some View {
         var font: Font

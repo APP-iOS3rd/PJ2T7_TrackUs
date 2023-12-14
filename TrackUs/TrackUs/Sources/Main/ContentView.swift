@@ -16,8 +16,15 @@ struct ContentView: View {
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().backgroundColor = .init(red: 22/225, green: 22/225, blue: 22/225, alpha: 1)
         UITabBar.appearance().unselectedItemTintColor = .community
+        // Inline Navigation Title
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.mainFont]
+        UINavigationBar.appearance().tintColor = .sub
+        UINavigationBar.appearance().backItem?.backBarButtonItem?.tintColor = .red
+        UINavigationBarAppearance().buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.green]
+        
+        //UINavigationBarAppearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        
     }
-    
     
     var body: some View {
         ZStack {
@@ -87,6 +94,22 @@ struct ContentView: View {
                                 }
                         )
                 }
+                .navigationBarItems(
+                    leading:
+                        HStack {
+                            HStack(spacing: 0, content: {
+                                Text("Track")
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .foregroundStyle(.mainFont)
+                                Text("Us")
+                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                    .foregroundStyle(.sub)
+                                Spacer()
+                            })
+                        }
+                )
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarColor(backgroundColor: .main, titleColor: .mainFont)
                 .accentColor(.sub)
@@ -98,7 +121,7 @@ struct ContentView: View {
                 }
             }
         }
-            
+        
     }
     
     var tabTitle: String {
