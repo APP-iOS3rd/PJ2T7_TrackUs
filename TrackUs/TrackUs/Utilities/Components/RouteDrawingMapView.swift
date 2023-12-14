@@ -58,37 +58,47 @@ struct RouteDrawingMapView: UIViewRepresentable {
             renderTrackPath()
         }
         
+        // MARK: - methods
+        
+        func renderStartMarker() {
+            let markerSize: CGFloat = 20
+            trackViewModel.currnetTrackData.startMarker.mapView = nil
+            trackViewModel.currnetTrackData.startMarker = NMFMarker(position: NMGLatLng(lat: trackViewModel.currnetTrackData.trackPaths.points[0].lat, lng: trackViewModel.currnetTrackData.trackPaths.points[0].lng))
+            
+            trackViewModel.currnetTrackData.startMarker.iconImage = NMFOverlayImage(name: "branch")
+            trackViewModel.currnetTrackData.startMarker.width = markerSize
+            trackViewModel.currnetTrackData.startMarker.height = markerSize
+            trackViewModel.currnetTrackData.startMarker.mapView = view.mapView
+        }
+        
+        // 화면이 init되고 설정값에 따라서 경로를 보여줍니다
         func renderTrackPath() {
-            if trackViewModel.currnetTrackData.trackPaths.points.count >= 2 {
+            if trackViewModel.currnetTrackData.trackPaths.points.count == 1 {
+                renderStartMarker()
+            }
+            else if trackViewModel.currnetTrackData.trackPaths.points.count >= 2 {
+                renderStartMarker()
                 trackViewModel.currnetTrackData.trackPaths.width = 10
                 trackViewModel.currnetTrackData.trackPaths.color = UIColor.sub
                 trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
             }
         }
         
-        // MARK: - methods
         // 맵을 클릭하면 위도, 경도를 찍어준다.
         func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
+            // 트랙경로 UI 설정
             trackViewModel.currnetTrackData.trackPaths.width = 10
             trackViewModel.currnetTrackData.trackPaths.color = UIColor.sub
             trackViewModel.currnetTrackData.trackPaths.points.append(latlng)
             trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
+            // 트랙 정보를 기반으로 운동정보 계산
             trackViewModel.caculateWorkoutMetrics()
-            let marker = trackViewModel.currnetTrackData.startMarker
-            let markerSize: CGFloat = 20
+            
+            // 포인트가 1개만 존재하는 경우 시작점 마커 생성
             if trackViewModel.currnetTrackData.trackPaths.points.count == 1 {
-                trackViewModel.currnetTrackData.startMarker.mapView = nil
-                trackViewModel.currnetTrackData.startMarker = NMFMarker(position: NMGLatLng(lat: trackViewModel.currnetTrackData.trackPaths.points[0].lat, lng: trackViewModel.currnetTrackData.trackPaths.points[0].lng))
-                
-                trackViewModel.currnetTrackData.startMarker.iconImage = NMFOverlayImage(name: "branch")
-                trackViewModel.currnetTrackData.startMarker.width = markerSize
-                trackViewModel.currnetTrackData.startMarker.height = markerSize
-                trackViewModel.currnetTrackData.startMarker.mapView = view.mapView
-                //                marker.width = markerSize
-                //                marker.height = markerSize
-                //                marker.mapView = view.mapView
+                renderStartMarker()
             }
-        
+            
         }
     }
     
