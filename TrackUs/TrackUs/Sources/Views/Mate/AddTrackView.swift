@@ -11,6 +11,13 @@ import NMapsMap
 struct AddTrackView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @EnvironmentObject var trackViewModel: TrackViewModel
+    @State private var selectedDate = Date()
+    // 입력 확인 - 트랙, 제목, 소개글, 날짜, 인원
+    @State private var trackEmptyAlert = false
+    @State private var titleEmptyAlert = false
+    @State private var textEmptyAlert = false
+    @State private var dateSelectedAlert = false
+    @State private var memberAlert = false
     let titlePlaceholder : String = "트랙 이름을 입력해 주세요"
     let textPlaceholder : String = "소개 글을 입력해 주세요"
     
@@ -58,7 +65,7 @@ struct AddTrackView: View {
                         .scrollContentBackground(.hidden)
                         .background(Color.main)
                         .padding(20)
-                        .foregroundColor(.white)
+                        .foregroundColor(.mainFont)
                     
                     if trackViewModel.currnetTrackData.trackBio.isEmpty {
                         Text(textPlaceholder)
@@ -133,17 +140,42 @@ struct AddTrackView: View {
                         
                         Spacer()
                         
-                        DatePicker("", selection: $trackViewModel.currnetTrackData.startDate)
+                        DatePicker("", selection: $trackViewModel.currnetTrackData.startDate, in: Date()...)
                     }
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.mainFont)
+                    .padding(.vertical, 10)
                 } .padding(.horizontal, 20)
             }
             TUButton(text: "코스등록") {
-                trackViewModel.addTrackData(trackData: trackViewModel.currnetTrackData)
-                mode.wrappedValue.dismiss()
+                if trackViewModel.currnetTrackData.trackPaths.points.count < 2 {
+                    trackEmptyAlert.toggle()
+                } else if trackViewModel.currnetTrackData.trackName.isEmpty{
+                
+                    titleEmptyAlert.toggle()
+                }else if trackViewModel.currnetTrackData.trackBio.isEmpty{
+                    textEmptyAlert.toggle()
+                }else {
+                    trackViewModel.addTrackData(trackData: trackViewModel.currnetTrackData)
+                    mode.wrappedValue.dismiss()
+                }
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 8)
+            .alert("코스를 입력해주세요.", isPresented: $trackEmptyAlert) {
+                Button("확인", role: .cancel) {}
+            }
+            .alert("트랙 이름을 입력해주세요.", isPresented: $titleEmptyAlert) {
+                Button("확인", role: .cancel) {}
+            }
+            .alert("소개 글을 입력해주세요.", isPresented: $textEmptyAlert) {
+                Button("확인", role: .cancel) {}
+            }
+            .alert("인원을 선택해주세요.", isPresented: $memberAlert) {
+                Button("확인", role: .cancel) {}
+            }
+            .alert("시간을 선택해주세요.", isPresented: $dateSelectedAlert) {
+                Button("확인", role: .cancel) {}
+            }
             
         }
         .onTapGesture {hideKeyboard()}

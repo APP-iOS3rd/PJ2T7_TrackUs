@@ -54,6 +54,7 @@
 		980FD6562B29360900181E03 /* RecruitmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FD6552B29360900181E03 /* RecruitmentList.swift */; };
 		9882F1BA2B2884B700366DE7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882F1B92B2884B700366DE7 /* MapView.swift */; };
 		9882F1BC2B28852600366DE7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9882F1BB2B28852600366DE7 /* MapViewModel.swift */; };
+		989791142B29A92C00D8A7F8 /* NavigationBarColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989791132B29A92C00D8A7F8 /* NavigationBarColorModifier.swift */; };
 		98A721082B26A3FD00E9C1AA /* TUFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721072B26A3FD00E9C1AA /* TUFont.swift */; };
 		98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A721092B26A41400E9C1AA /* MateList.swift */; };
 		98A7210C2B26A41400E9C1AA /* MateList2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7210A2B26A41400E9C1AA /* MateList2.swift */; };
@@ -110,6 +111,7 @@
 		980FD6552B29360900181E03 /* RecruitmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitmentList.swift; sourceTree = "<group>"; };
 		9882F1B92B2884B700366DE7 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9882F1BB2B28852600366DE7 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		989791132B29A92C00D8A7F8 /* NavigationBarColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColorModifier.swift; sourceTree = "<group>"; };
 		98A721072B26A3FD00E9C1AA /* TUFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUFont.swift; sourceTree = "<group>"; };
 		98A721092B26A41400E9C1AA /* MateList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateList.swift; sourceTree = "<group>"; };
 		98A7210A2B26A41400E9C1AA /* MateList2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateList2.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				98A721072B26A3FD00E9C1AA /* TUFont.swift */,
 				8241564F2B28330700DFA923 /* TUExerciseIndicator.swift */,
 				980FD6552B29360900181E03 /* RecruitmentList.swift */,
+				989791132B29A92C00D8A7F8 /* NavigationBarColorModifier.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				610D59CB2B27EAD1006362AD /* Recruitment.swift in Sources */,
 				827DB11F2B227E0200B298D3 /* UserViewModel.swift in Sources */,
 				61D617C52B223F58008AC1BB /* ContentView.swift in Sources */,
+				989791142B29A92C00D8A7F8 /* NavigationBarColorModifier.swift in Sources */,
 				8227B1962B237A1000C5E4E6 /* FloatingButton.swift in Sources */,
 				2EBF445E2B294EBA002FAB92 /* LaunchScreen.swift in Sources */,
 				616C280A2B24BE8F0029857B /* MyProfileView.swift in Sources */,
@@ -646,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackUs/Preview Content\"";
-				DEVELOPMENT_TEAM = SQDR264Q5Q;
+				DEVELOPMENT_TEAM = 6SCMVYDLZ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrackUs/Info.plist;
@@ -661,7 +665,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ios33.TrackUs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios34.TrackUs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -680,7 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackUs/Preview Content\"";
-				DEVELOPMENT_TEAM = SQDR264Q5Q;
+				DEVELOPMENT_TEAM = 6SCMVYDLZ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrackUs/Info.plist;
@@ -695,7 +699,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ios33.TrackUs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios34.TrackUs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
