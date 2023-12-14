@@ -28,6 +28,8 @@ struct SettingView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundStyle(.white)
+                    .frame(width: 80, height: 100)
+                    .offset(x:0, y:60)
                 
                 List{
                     Section(){
@@ -35,8 +37,8 @@ struct SettingView: View {
                             Text(item.text)
                                 .foregroundStyle(.white)
                                 .listRowSeparator(.hidden)
-                            //                            .listRowSeparatorTint(.white)
                                 .listRowBackground(Color.main)
+                                .offset(y:10)
                         }
                     }
                     

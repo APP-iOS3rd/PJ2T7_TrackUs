@@ -16,6 +16,9 @@
 		610D59CF2B27EAD1006362AD /* MateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610D59C92B27EAD1006362AD /* MateView.swift */; };
 		6125B4E42B2946980037D7FB /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B4E32B2946980037D7FB /* Functions.swift */; };
 		6125B4E62B2979190037D7FB /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B4E52B2979190037D7FB /* SettingView.swift */; };
+		6125B4EA2B29FF430037D7FB /* MateDetailTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B4E92B29FF430037D7FB /* MateDetailTab.swift */; };
+		6125B4EC2B2A009B0037D7FB /* Jointab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B4EB2B2A009B0037D7FB /* Jointab.swift */; };
+		6125B4EE2B2A01290037D7FB /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6125B4ED2B2A01290037D7FB /* Introduction.swift */; };
 		616C28062B24BE8F0029857B /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FD2B24BE8E0029857B /* CustomDatePicker.swift */; };
 		616C28072B24BE8F0029857B /* CalendarHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FE2B24BE8E0029857B /* CalendarHomeView.swift */; };
 		616C28082B24BE8F0029857B /* RunningChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616C27FF2B24BE8E0029857B /* RunningChartView.swift */; };
@@ -70,6 +73,9 @@
 		610D59C92B27EAD1006362AD /* MateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MateView.swift; sourceTree = "<group>"; };
 		6125B4E32B2946980037D7FB /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		6125B4E52B2979190037D7FB /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		6125B4E92B29FF430037D7FB /* MateDetailTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateDetailTab.swift; sourceTree = "<group>"; };
+		6125B4EB2B2A009B0037D7FB /* Jointab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jointab.swift; sourceTree = "<group>"; };
+		6125B4ED2B2A01290037D7FB /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
 		616C27FD2B24BE8E0029857B /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		616C27FE2B24BE8E0029857B /* CalendarHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHomeView.swift; sourceTree = "<group>"; };
 		616C27FF2B24BE8E0029857B /* RunningChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningChartView.swift; sourceTree = "<group>"; };
@@ -197,6 +203,9 @@
 			children = (
 				610D59C82B27EAD1006362AD /* AddTrackView.swift */,
 				610D59C62B27EAD1006362AD /* MateDetailView.swift */,
+				6125B4E92B29FF430037D7FB /* MateDetailTab.swift */,
+				6125B4EB2B2A009B0037D7FB /* Jointab.swift */,
+				6125B4ED2B2A01290037D7FB /* Introduction.swift */,
 				610D59C92B27EAD1006362AD /* MateView.swift */,
 				610D59C72B27EAD1006362AD /* MyRunning.swift */,
 				610D59C42B27EAD1006362AD /* RecruitMate.swift */,
@@ -479,6 +488,7 @@
 				2EBF445E2B294EBA002FAB92 /* LaunchScreen.swift in Sources */,
 				616C280A2B24BE8F0029857B /* MyProfileView.swift in Sources */,
 				98A7210B2B26A41400E9C1AA /* MateList.swift in Sources */,
+				6125B4EE2B2A01290037D7FB /* Introduction.swift in Sources */,
 				616C28062B24BE8F0029857B /* CustomDatePicker.swift in Sources */,
 				610D59CF2B27EAD1006362AD /* MateView.swift in Sources */,
 				828E6D6B2B281BE4000D7453 /* TrackViewModel.swift in Sources */,
@@ -503,8 +513,10 @@
 				6125B4E42B2946980037D7FB /* Functions.swift in Sources */,
 				8241564C2B28305300DFA923 /* AddTrackPathView.swift in Sources */,
 				82962F9A2B234C2100C7A54B /* CommunityDetailView.swift in Sources */,
+				6125B4EA2B29FF430037D7FB /* MateDetailTab.swift in Sources */,
 				82962F962B23221900C7A54B /* TUButton.swift in Sources */,
 				827DB1162B2278A200B298D3 /* TUText.swift in Sources */,
+				6125B4EC2B2A009B0037D7FB /* Jointab.swift in Sources */,
 				61D617C32B223F58008AC1BB /* TrackUsApp.swift in Sources */,
 				9882F1BC2B28852600366DE7 /* MapViewModel.swift in Sources */,
 				61D617D72B224449008AC1BB /* MyPageView.swift in Sources */,
@@ -646,7 +658,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackUs/Preview Content\"";
-				DEVELOPMENT_TEAM = SQDR264Q5Q;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrackUs/Info.plist;
@@ -661,7 +673,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ios33.TrackUs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios36.TrackUs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -680,7 +692,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TrackUs/Preview Content\"";
-				DEVELOPMENT_TEAM = SQDR264Q5Q;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TrackUs/Info.plist;
@@ -695,7 +707,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ios33.TrackUs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios36.TrackUs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
