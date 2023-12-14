@@ -52,13 +52,17 @@ struct RouteDisplayMapView: UIViewRepresentable {
             
             view.mapView.addCameraDelegate(delegate: self)
             view.mapView.touchDelegate = self
+            
             renderTrackPath()
         }
         
         // 지점마다 포인트를 주기위해서 NMFPolylineOverlay 사용
         func renderTrackPath() {
             if trackRoutePaths.count < 2 {return}
-            
+            // 카메라의 포커스를 시작점의 위치로 설정합니다
+            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: trackRoutePaths[0].lat, lng: trackRoutePaths[0].lng))
+            view.mapView.moveCamera(cameraUpdate)
+
             DispatchQueue.global(qos: .default).async {
                 var markers = [NMFMarker]()
                 for (idx, data) in self.trackRoutePaths.enumerated() {
@@ -97,9 +101,9 @@ struct RouteDisplayMapView: UIViewRepresentable {
         
         // MARK: - methods
         // 맵을 클릭하면 위도, 경도를 찍어준다.
-        func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
-            
-        }
+//        func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
+//            
+//        }
     }
     
 }

@@ -151,10 +151,7 @@ struct AddTrackView: View {
     }
     
     //     MARK: - Button actions
-    func plusTimeButtonTapped() {
-        print(userViewModel.currentUser.id)
-        print(userViewModel.currentUser.username)
-        
+    func plusTimeButtonTapped() {        
         trackViewModel.currnetTrackData.timeTaken += 60
     }
     
