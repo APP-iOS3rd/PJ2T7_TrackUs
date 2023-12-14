@@ -90,17 +90,17 @@ struct MapList: View {
                             let dragOffset = value.translation.height
                             
                             if dragOffset < 0 && mapViewHeight < viewHeight*3/6{
-                                withAnimation(Animation.linear(duration: 0.1)){
+                                withAnimation(Animation.linear(duration: 0.12)){
                                     mapViewHeight = viewHeight * 1/6
                                     listViewHeight = viewHeight * 5/6
                                 }
                             }else if (dragOffset > 0 && mapViewHeight < viewHeight*3/6) || (dragOffset < 0 && mapViewHeight > viewHeight*3/6)  {
-                                withAnimation(Animation.linear(duration: 0.1)){
+                                withAnimation(Animation.linear(duration: 0.12)){
                                     mapViewHeight = viewHeight * 3/6
                                     listViewHeight = viewHeight * 3/6
                                 }
                             }else{
-                                withAnimation(Animation.linear(duration: 0.1)){
+                                withAnimation(Animation.linear(duration: 0.12)){
                                     mapViewHeight = viewHeight * 11/12
                                     listViewHeight = viewHeight * 1/12
                                 }
