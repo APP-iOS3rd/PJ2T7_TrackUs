@@ -53,6 +53,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         
         view.mapView.addCameraDelegate(delegate: self)
         view.mapView.touchDelegate = self
+        view.mapView.mapType = .navi
     }
     
     // Coordinator 클래스 안의 코드
@@ -153,6 +154,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
                 marker.userInfo = [
                     "제목": track.trackName
                 ]
+                marker.iconImage = NMFOverlayImage(name: "marker3")
                 marker.width = CGFloat(NMF_MARKER_SIZE_AUTO)
                 marker.height = CGFloat(NMF_MARKER_SIZE_AUTO)
                 markers.append(marker)
@@ -161,11 +163,26 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
                 for marker in markers {
                     marker.mapView = self?.view.mapView
                     marker.touchHandler = { (overlay) -> Bool in
-                        
-                            return true
+                        if let marker = overlay as? NMFMarker,
+                           let title = marker.userInfo["제목"] as? String {
+                            print("마커 터치됨: \(title)")
+
+                            if let track = self?.trackViewModel.trackDatas.first(where: { $0.trackName == title }) {
+                                self?.navigateToMateDetailView(track: track)
+                            }
+                        }
+                        return true
                     }
                 }
             }
+        }
+    }
+
+    func navigateToMateDetailView(track: TrackInfo) {
+        let mateDetailView = MateDetailView(trackInfo: track)
+        DispatchQueue.main.async {
+            let navController = UINavigationController(rootViewController: UIHostingController(rootView: mateDetailView))
+            UIApplication.shared.windows.first?.rootViewController?.present(navController, animated: true, completion: nil)
         }
     }
 }
