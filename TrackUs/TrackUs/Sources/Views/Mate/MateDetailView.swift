@@ -92,49 +92,52 @@ struct MateDetailView: View {
                     
                     
                     // MARK: - 소개, 참여자
-                    HStack(spacing: 150) {
-                        // 소개 버튼
-                        Button(action: {
-                            withAnimation {
-                                showGreeting = true
-                            }
-                        }) {
-                            TUText(style: .mediumTitle, text: "소 개")
-                        }
-                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-                        
-                        // 참여자
-                        Button(action: {
-                            withAnimation {
-                                showGreeting = false
-                            }
-                        }) {
-                            TUText(style: .mediumTitle, text: "참여자")
-                        }
-                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-                        
-                    }
+                    
+                    MateDetailTab(trackInfo: trackInfo)
+                    
+//                    HStack(spacing: 150) {
+//                        // 소개 버튼
+//                        Button(action: {
+//                            withAnimation {
+//                                showGreeting = true
+//                            }
+//                        }) {
+//                            TUText(style: .mediumTitle, text: "소 개")
+//                        }
+//                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
+//                        
+//                        // 참여자
+//                        Button(action: {
+//                            withAnimation {
+//                                showGreeting = false
+//                            }
+//                        }) {
+//                            TUText(style: .mediumTitle, text: "참여자")
+//                        }
+//                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
+//                        
+//                    }
                     
                     // MARK: - 추가된 내용
-                    if !showGreeting {
-                        // 참여자에 해당하는 내용
-                        VStack(spacing: 30) {
-                            HStack {
-                                ParticipantImage(participationsImage: "image1")
-                                ParticipantImage(participationsImage: "image1")
-                                ParticipantImage(participationsImage: "image1")
-                                ParticipantImage(participationsImage: "image1")
-                            }
-                            
-                            Spacer()
-                            
-                        }
-                        .padding(.top, 30)
-                    } else {
-                        // 소개에 해당하는 내용
-                        TUText(style: .body, text: trackInfo.trackBio)
-                        
-                    }
+//                    if !showGreeting {
+//                        // 참여자에 해당하는 내용
+//                        VStack(spacing: 30) {
+//                            HStack {
+//                                ParticipantImage(participationsImage: "image1")
+//                                ParticipantImage(participationsImage: "image1")
+//                                ParticipantImage(participationsImage: "image1")
+//                                ParticipantImage(participationsImage: "image1")
+//                            }
+//                            
+//                            Spacer()
+//                            
+//                        }
+//                        .padding(.top, 30)
+//                    } else {
+//                        // 소개에 해당하는 내용
+//                        TUText(style: .body, text: trackInfo.trackBio)
+//                        
+//                    }
                 }
                 .foregroundColor(.white)
                 
