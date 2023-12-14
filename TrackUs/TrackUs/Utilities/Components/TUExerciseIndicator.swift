@@ -9,9 +9,9 @@ import SwiftUI
 
 // 예상거리, 칼로리, 운동정보를 표시해주는 컴포넌트
 struct TUExerciseIndicator: View {
-     var estimatedDistance: Double
-     var timeTaken: Int
-     var caloriesConsumed: Int
+    var estimatedDistance: Double
+    var timeTaken: Int
+    var caloriesConsumed: Int
     
     var body: some View {
         HStack{
@@ -43,7 +43,6 @@ struct TUExerciseIndicator: View {
                         .italic()
                         .fontWeight(.black)
                 }
-               
             }
             
             Spacer()

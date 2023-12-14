@@ -16,7 +16,7 @@ struct AddTrackPathView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            TrackPathUIMapView()
+            RouteDrawingMapView()
         }
         .edgesIgnoringSafeArea(.bottom)
         .overlay(TUExerciseIndicator(estimatedDistance: trackViewModel.currnetTrackData.estimatedDistance, timeTaken: trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: trackViewModel.currnetTrackData.caloriesConsumed), alignment: .top)
@@ -29,10 +29,10 @@ struct AddTrackPathView: View {
             }
         })
             .alert(isPresented: $showingAlert) {
-                      Alert(title: Text("알림"), message: Text("트랙포인트를 2개이상 추가해주세요."),
-                            dismissButton: .default(Text("확인")))
-                  }
-        .padding(20), alignment: .bottom)
+                Alert(title: Text("알림"), message: Text("트랙포인트를 2개이상 추가해주세요."),
+                      dismissButton: .default(Text("확인")))
+            }
+            .padding(20), alignment: .bottom)
         .toolbar{
             ToolbarItem {
                 HStack{
@@ -48,12 +48,12 @@ struct AddTrackPathView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {
-                        // 뒤로가기 버튼을 누르는경우 데이터 삭제
-                        self.mode.wrappedValue.dismiss()
-                        trackViewModel.resetTrackPathData()
-                    }){
-                        Image(systemName: "arrow.left")
-                    })
+            // 뒤로가기 버튼을 누르는경우 데이터 삭제
+            self.mode.wrappedValue.dismiss()
+            trackViewModel.resetTrackPathData()
+        }){
+            Image(systemName: "arrow.left")
+        })
     }
 }
 

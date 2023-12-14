@@ -10,9 +10,7 @@ import MapKit
 
 // 프로필 이미지를 나타내는 구조체
 struct ParticipantImage: View {
-  
     var participationsImage: String
-
     var body: some View {
         Image(participationsImage)
             .resizable()
@@ -29,8 +27,6 @@ struct MateDetailView: View {
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
     @State private var convertedAddress = ""
-    //var trackInfo: TrackInfo
-
 
     var body: some View {
         VStack {
@@ -40,11 +36,10 @@ struct MateDetailView: View {
                 VStack(spacing: 10) {
                     
                     // MARK: - 지도
-                    // 이미지
-                    Rectangle()
-                        .background(.gray)
-                        .frame(height: 185)
-                    
+                    RouteDisplayMapView(trackRoutePaths: trackInfo.trackPaths.points)
+                        .frame(height: 260)
+                        .cornerRadius(10)
+                   
                     // MARK: - 내용
                     VStack(spacing: 20) {
                         // 내용
@@ -159,6 +154,7 @@ struct MateDetailView: View {
             // 참가하기 버튼
             TUButton(text: "참가하기") {
                 // TODO: 참가하기 버튼 클릭 시 동작 구현
+                
             }
             .padding(.bottom, 8)
             .animation(.default) // 애니메이션 적용
@@ -178,3 +174,4 @@ struct MateDetailView: View {
 //#Preview {
 //    MateDetailView()
 //}
+

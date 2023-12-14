@@ -9,8 +9,7 @@ import Foundation
 import NMapsMap
 
 class TrackViewModel: ObservableObject {
-    // 트랙추가에 입력되는 정보
-    // 필드가 많고 계산로직이 필요하여 뷰모델에서 관리하는 방식으로 변경
+    // 좌표데이터
     let mapPoints = [
         [
             NMGLatLng(lat: 37.360588143749716, lng: 127.10927920086243),
@@ -34,27 +33,25 @@ class TrackViewModel: ObservableObject {
         ],
     ]
     
+    // 유저가 입력한 트랙정보
     @Published var currnetTrackData: TrackInfo = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath())
     
-    @Published var trackDatas: [TrackInfo] = [
-        //        TrackInfo(trackName: "트랙네임1", trackBio: "소개글1", startDate: Date(), estimatedDistance: 1222, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1200, author: UUID(), caloriesConsumed:1500, trackPaths: NMFArrowheadPath()),
-        //        TrackInfo(trackName: "트랙네임2", trackBio: "소개글3", startDate: Date(), estimatedDistance: 1400, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1400, author: UUID(), caloriesConsumed:1300, trackPaths: NMFArrowheadPath()),
-        //        TrackInfo(trackName: "트랙네임3", trackBio: "소개글3", startDate: Date(), estimatedDistance: 552, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 600, author: UUID(), caloriesConsumed:500, trackPaths: NMFArrowheadPath()),
-        //        TrackInfo(trackName: "트랙네임4", trackBio: "소개글4", startDate: Date(), estimatedDistance: 2333, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1700, author: UUID(), caloriesConsumed:1000,trackPaths: NMFArrowheadPath()),
-        //        TrackInfo(trackName: "트랙네임5", trackBio: "소개글5", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [UUID(), UUID()], timeTaken: 1100, author: UUID(), caloriesConsumed:1200,trackPaths: NMFArrowheadPath()),
-    ]
+    // 트랙정보
+    @Published var trackDatas: [TrackInfo] = []
     
     let R = 6371000.0
     
     init() { setTrackDatas() }
     
-    // 미리 지정한 데이터를 가져오기
+    /**
+    트랙정보 초기세팅
+     */
     func setTrackDatas() {
         for (idx, mapPoint) in mapPoints.enumerated() {
+            let fakeUUID = UUID()
             let pointList = mapPoint
             let mapPaths = NMFArrowheadPath(pointList)
-            
-            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [], timeTaken: 2300, author: UUID(), caloriesConsumed: 190, trackPaths: mapPaths!))
+            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [fakeUUID], timeTaken: 2300, author: fakeUUID, caloriesConsumed: 190, trackPaths: mapPaths!))
         }
     }
     
@@ -68,17 +65,16 @@ class TrackViewModel: ObservableObject {
     }
     
     /**
-        현재 form에 입력된 트랙정보를 초기화합니다
+     현재 form에 입력된 트랙정보를 초기화합니다
      */
     func resetTrackData() {
         self.currnetTrackData = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath())
     }
+    
     /**
      현재 설정된 트랙경로의 정보 비웁니다
      */
     func resetTrackPathData() {
-        print("RESET PATHS")
-        print(self.currnetTrackData.trackPaths.points.count)
         self.currnetTrackData.trackPaths.points.removeAll()
         self.currnetTrackData.trackPaths.mapView = nil
         self.currnetTrackData.estimatedDistance = 0
@@ -101,7 +97,6 @@ class TrackViewModel: ObservableObject {
             self.currnetTrackData.trackPaths.mapView = nil
             resetTrackPathData()
         }
-        
     }
     
     /**
@@ -135,7 +130,6 @@ class TrackViewModel: ObservableObject {
             self.currnetTrackData.timeTaken = calculateAverageTimeInMinute(distanceInMeters: self.currnetTrackData.estimatedDistance, averageSpeed: 2.0)
         }
     }
-    
 }
 
 // MARK: - 서브함수
