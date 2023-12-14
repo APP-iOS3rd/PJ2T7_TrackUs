@@ -15,7 +15,9 @@ enum CustomTextStyle {
     case headline
     case body
     case caption
+    case captionGray
 }
+
 extension View {
     func customTextStyle(style: CustomTextStyle) -> some View {
         var font: Font
@@ -37,6 +39,9 @@ extension View {
         case .caption:
             font = Font.system(size: 12, weight: .medium)
             color = Color.sub // 캡션에 대한 컬러 지정
+        case .captionGray:
+            font = Font.system(size: 14, weight: .medium)
+            color = Color.disableFont // 캡션에 대한 컬러 지정
         }
 
         return self

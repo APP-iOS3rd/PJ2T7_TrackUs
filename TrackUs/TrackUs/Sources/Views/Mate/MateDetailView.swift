@@ -10,9 +10,7 @@ import MapKit
 
 // 프로필 이미지를 나타내는 구조체
 struct ParticipantImage: View {
-  
     var participationsImage: String
-
     var body: some View {
         Image(participationsImage)
             .resizable()
@@ -29,8 +27,6 @@ struct MateDetailView: View {
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
     @State private var convertedAddress = ""
-    //var trackInfo: TrackInfo
-
 
     var body: some View {
         VStack {
@@ -40,60 +36,53 @@ struct MateDetailView: View {
                 VStack(spacing: 10) {
                     
                     // MARK: - 지도
-                    // 이미지
-                    Rectangle()
-                        .background(.gray)
-                        .frame(height: 185)
-                    
+                    RouteDisplayMapView(trackRoutePaths: trackInfo.trackPaths.points)
+                        .frame(height: 260)
+                        .cornerRadius(10)
+                   
                     // MARK: - 내용
-                    VStack(spacing: 20) {
+                    VStack(spacing: 15) {
                         // 내용
-                        TUText(style: .body, text: trackInfo.trackName)
+                        Text(trackInfo.trackName)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        HStack {
-                            Image(systemName: "clock")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.white)
-                            TUText(style: .body, text: Functions().formatDate(date: trackInfo.startDate))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        HStack {
-                            Image(systemName: "clock")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.white)
-                            TUText(style: .body, text: Functions().formatTime(time: trackInfo.startDate))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        
-                        HStack {
-                            Image(systemName: "pin")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.white)
-                            TUText(style: .body, text: convertedAddress)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        
-                        HStack {
-                            Image(systemName: "flag")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.white)
-                            TUText(style: .body, text: "\(trackInfo.estimatedDistance)km")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        
-                        HStack {
-                            Image(systemName: "person")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.white)
-                            TUText(style: .body, text: "\(trackInfo.participations.count)/\(trackInfo.limitedMember)명")
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            .customTextStyle(style: .largeTitle)
+                        VStack(spacing: 6) {
+                            HStack {
+                                Image(systemName: "calendar")
+                                    .foregroundColor(.mainFont)
+                                Text(Functions().formatDate(date: trackInfo.startDate))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            HStack {
+                                Image(systemName: "clock")
+                                    .foregroundColor(.mainFont)
+                                Text(Functions().formatTime(time: trackInfo.startDate))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            HStack {
+                                Image(systemName: "mappin.and.ellipse")
+                                    .foregroundColor(.mainFont)
+                                Text(convertedAddress)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            
+                            HStack {
+                                Image(systemName: "arrow.triangle.turn.up.right.diamond")
+                                    .foregroundColor(.mainFont)
+                                Text(distanceConversion(trackInfo.estimatedDistance))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            
+                            HStack {
+                                Image(systemName: "person")
+                                    .foregroundColor(.mainFont)
+                                Text("\(trackInfo.participations.count)/\(trackInfo.limitedMember)명")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
                         }
                     }
+                    .customTextStyle(style: .captionGray)
+                    .padding(12)
                     
                     
                     // MARK: - 소개, 참여자
@@ -159,6 +148,7 @@ struct MateDetailView: View {
             // 참가하기 버튼
             TUButton(text: "참가하기") {
                 // TODO: 참가하기 버튼 클릭 시 동작 구현
+                
             }
             .padding(.bottom, 8)
             .animation(.default) // 애니메이션 적용
@@ -173,8 +163,18 @@ struct MateDetailView: View {
         .padding(.horizontal, 20)
         .background(Color.main)
     }
+    
+    // 거리 변환 함수
+    func distanceConversion(_ distance: Double) -> String{
+        if distance >= 1000 {
+            return String(format: "%.1fkm", distance/1000)
+        }else {
+            return String(format: "%.0fm", distance)
+        }
+    }
 }
 
 //#Preview {
 //    MateDetailView()
 //}
+
