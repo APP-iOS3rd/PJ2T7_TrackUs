@@ -74,21 +74,21 @@ struct RouteDrawingMapView: UIViewRepresentable {
             trackViewModel.currnetTrackData.trackPaths.points.append(latlng)
             trackViewModel.currnetTrackData.trackPaths.mapView = view.mapView
             trackViewModel.caculateWorkoutMetrics()
-            print(1)
-            var marker: NMFMarker
-            var markerSize: CGFloat = 20
+            let marker = trackViewModel.currnetTrackData.startMarker
+            let markerSize: CGFloat = 20
             if trackViewModel.currnetTrackData.trackPaths.points.count == 1 {
-                marker = NMFMarker(position: NMGLatLng(lat: trackViewModel.currnetTrackData.trackPaths.points[0].lat, lng: trackViewModel.currnetTrackData.trackPaths.points[0].lng))
+                trackViewModel.currnetTrackData.startMarker.mapView = nil
+                trackViewModel.currnetTrackData.startMarker = NMFMarker(position: NMGLatLng(lat: trackViewModel.currnetTrackData.trackPaths.points[0].lat, lng: trackViewModel.currnetTrackData.trackPaths.points[0].lng))
                 
-                marker.iconImage = NMFOverlayImage(name: "branch")
-                marker.width = markerSize
-                marker.height = markerSize
-                marker.mapView = view.mapView
-            } else {
-                
+                trackViewModel.currnetTrackData.startMarker.iconImage = NMFOverlayImage(name: "branch")
+                trackViewModel.currnetTrackData.startMarker.width = markerSize
+                trackViewModel.currnetTrackData.startMarker.height = markerSize
+                trackViewModel.currnetTrackData.startMarker.mapView = view.mapView
+                //                marker.width = markerSize
+                //                marker.height = markerSize
+                //                marker.mapView = view.mapView
             }
-            
-            
+        
         }
     }
     

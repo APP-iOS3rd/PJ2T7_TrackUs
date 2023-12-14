@@ -52,7 +52,6 @@ struct RouteDisplayMapView: UIViewRepresentable {
             
             view.mapView.addCameraDelegate(delegate: self)
             view.mapView.touchDelegate = self
-            
             renderTrackPath()
         }
         
@@ -93,6 +92,8 @@ struct RouteDisplayMapView: UIViewRepresentable {
             }
             
             let polyline = NMFPolylineOverlay(trackRoutePaths)
+            polyline?.joinType = .round
+            polyline?.capType = .round
             polyline?.width = 5
             polyline?.color = UIColor.sub
             polyline?.mapView = view.mapView
