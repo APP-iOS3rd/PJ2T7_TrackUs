@@ -27,7 +27,6 @@ struct MateDetailView: View {
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
     @State private var convertedAddress = ""
-    //var trackInfo: TrackInfo
 
     var body: some View {
         VStack {

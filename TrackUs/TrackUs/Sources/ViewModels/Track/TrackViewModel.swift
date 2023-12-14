@@ -35,6 +35,7 @@ class TrackViewModel: ObservableObject {
     
     // 유저가 입력한 트랙정보
     @Published var currnetTrackData: TrackInfo = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath())
+    
     // 트랙정보
     @Published var trackDatas: [TrackInfo] = []
     
@@ -47,9 +48,10 @@ class TrackViewModel: ObservableObject {
      */
     func setTrackDatas() {
         for (idx, mapPoint) in mapPoints.enumerated() {
+            let fakeUUID = UUID()
             let pointList = mapPoint
             let mapPaths = NMFArrowheadPath(pointList)
-            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [], timeTaken: 2300, author: UUID(), caloriesConsumed: 190, trackPaths: mapPaths!))
+            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [fakeUUID], timeTaken: 2300, author: fakeUUID, caloriesConsumed: 190, trackPaths: mapPaths!))
         }
     }
     

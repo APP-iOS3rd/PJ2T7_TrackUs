@@ -8,7 +8,8 @@
 import SwiftUI
 import NMapsMap
 /**
- 트랙경로를 보여주는 맵뷰
+  트랙경로를 보여주는 맵뷰
+  [NMGLatLng] 위도, 경도가 저장된 배열을 받아서 화면에 보여주는 맵뷰
  */
 struct RouteDisplayMapView: UIViewRepresentable {
     let trackRoutePaths: [NMGLatLng]
@@ -16,6 +17,7 @@ struct RouteDisplayMapView: UIViewRepresentable {
         Coordinator(trackRoutePaths: trackRoutePaths)
     }
     
+    // NMFNaverMapView를 렌더링한다
     func makeUIView(context: Context) -> NMFNaverMapView {
         context.coordinator.view
     }
@@ -31,7 +33,7 @@ struct RouteDisplayMapView: UIViewRepresentable {
     class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
         let trackRoutePaths: [NMGLatLng]
         let view = NMFNaverMapView(frame: .zero)
-
+        
         // MARK: - init
         init(trackRoutePaths: [NMGLatLng]) {
             self.trackRoutePaths = trackRoutePaths
@@ -50,7 +52,6 @@ struct RouteDisplayMapView: UIViewRepresentable {
             
             view.mapView.addCameraDelegate(delegate: self)
             view.mapView.touchDelegate = self
-            
             renderTrackPath()
         }
         

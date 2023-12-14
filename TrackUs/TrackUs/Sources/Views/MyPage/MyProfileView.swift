@@ -13,7 +13,7 @@ struct profile {
 }
 
 struct MyProfile: View {
-    
+    @StateObject var userViewModel = UserViewModel.shared
     var body: some View {
         VStack(alignment: .leading){
             
@@ -33,7 +33,7 @@ struct MyProfile: View {
                     VStack{
                         HStack{
                             //사용자 이름
-                            Text(profile().userName)
+                            Text(userViewModel.currentUser.username)
                                 .foregroundStyle(.white)
                                 .fontWeight(.semibold)
                             Button(action: {}, label: {
