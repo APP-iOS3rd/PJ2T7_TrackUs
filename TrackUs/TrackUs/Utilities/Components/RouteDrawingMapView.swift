@@ -40,6 +40,7 @@ struct RouteDrawingMapView: UIViewRepresentable {
             
             view.mapView.positionMode = .direction
             view.mapView.mapType = .navi
+            view.showLocationButton = true
             view.mapView.isNightModeEnabled = true
             
             view.mapView.zoomLevel = 15
@@ -65,6 +66,7 @@ struct RouteDrawingMapView: UIViewRepresentable {
             trackViewModel.currnetTrackData.startMarker.iconImage = NMFOverlayImage(name: "branch")
             trackViewModel.currnetTrackData.startMarker.width = markerSize
             trackViewModel.currnetTrackData.startMarker.height = markerSize
+            trackViewModel.currnetTrackData.startMarker.anchor = CGPoint(x: 0.5, y: 0.5)
             trackViewModel.currnetTrackData.startMarker.mapView = view.mapView
         }
         

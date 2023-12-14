@@ -84,6 +84,7 @@ struct RouteDisplayMapView: UIViewRepresentable {
                     }
                     marker.width = markerSize
                     marker.height = markerSize
+                    marker.anchor = CGPoint(x: 0.5, y: 0.5)
                     markers.append(marker)
                 }
                 
