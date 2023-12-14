@@ -22,6 +22,7 @@ struct AddTrackPathView: View {
         .overlay(TUExerciseIndicator(estimatedDistance: trackViewModel.currnetTrackData.estimatedDistance, timeTaken: trackViewModel.currnetTrackData.timeTaken, caloriesConsumed: trackViewModel.currnetTrackData.caloriesConsumed), alignment: .top)
         .overlay(TUButton(text: "트랙추가", action: {
             // 트랙추가 하는경우 데이터 유지 화면이동
+            print(trackViewModel.currnetTrackData.trackPaths.points.count)
             if trackViewModel.currnetTrackData.trackPaths.points.count < 2 {
                 showingAlert = true
             } else {
