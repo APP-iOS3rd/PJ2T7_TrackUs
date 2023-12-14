@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 인스턴스가 1개이상 생성이 안됨 싱글톤
 class UserViewModel: ObservableObject {
     static let shared = UserViewModel()
     private init(){}

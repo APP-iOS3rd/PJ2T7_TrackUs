@@ -37,12 +37,20 @@ struct AddTrackView: View {
                     }, label: {
                         ZStack(alignment: .center){
                             Image("mapImage")
+                                .aspectRatio(contentMode: .fit)
                                 .frame(minWidth: 300, maxWidth: .infinity,minHeight: 80,maxHeight: 80)
+
                                 .cornerRadius(10)
                                 
-                            Text("코스를 입력해 주세요")
-                                .fontWeight(.bold)
-                                .foregroundStyle(.black)
+                            if trackViewModel.currnetTrackData.trackPaths.points.count >= 2 {
+                                Text("OO동에서 출발")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                            } else {
+                                Text("코스를 입력해 주세요")
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                            }
                         }
                     })
                 }.padding(.horizontal, 20)
@@ -140,8 +148,9 @@ struct AddTrackView: View {
                         Text("날짜 설정")
                         
                         Spacer()
-                        
+            
                         DatePicker("", selection: $trackViewModel.currnetTrackData.startDate, in: Date()...)
+                          
                     }
                     .foregroundStyle(.mainFont)
                     .padding(.vertical, 10)
@@ -178,9 +187,6 @@ struct AddTrackView: View {
                 Button("확인", role: .cancel) {}
             }
             
-        }
-        .onDisappear {
-            trackViewModel.resetTrackData()
         }
         .onTapGesture {hideKeyboard()}
         .background(Color.main)

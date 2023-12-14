@@ -9,6 +9,7 @@ import SwiftUI
 
 // 커뮤니티 상세화면
 struct CommunityDetailView: View {
+    @StateObject var userViewModel = UserViewModel.shared
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .bottom) {

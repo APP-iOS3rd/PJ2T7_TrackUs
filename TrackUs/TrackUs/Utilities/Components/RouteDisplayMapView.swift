@@ -7,9 +7,10 @@
 
 import SwiftUI
 import NMapsMap
+
 /**
   트랙경로를 보여주는 맵뷰
-  [NMGLatLng] 위도, 경도가 저장된 배열을 받아서 화면에 보여주는 맵뷰
+  [NMGLatLng] 위도 경도의 배열을 받아서 화면에 경로를 그려줍니다
  */
 struct RouteDisplayMapView: UIViewRepresentable {
     let trackRoutePaths: [NMGLatLng]

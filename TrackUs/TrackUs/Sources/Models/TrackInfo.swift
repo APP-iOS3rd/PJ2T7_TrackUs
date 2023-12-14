@@ -16,7 +16,7 @@ struct TrackInfo : Hashable, Identifiable {
     var limitedMember: Int // 제한인원
     var participations: [UUID] // 참여자리스트
     var timeTaken: Int // 소요시간
-    var author: UUID // 작성
+    var author: UUID? // 작성
     var caloriesConsumed: Int // 소모칼로리
     var trackPaths: NMFArrowheadPath // 트랙경로
     var startMarker: NMFMarker // 시작마커

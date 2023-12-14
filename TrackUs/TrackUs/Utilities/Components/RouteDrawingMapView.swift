@@ -31,12 +31,10 @@ struct RouteDrawingMapView: UIViewRepresentable {
     
     // 델리게이트들을 추가해주는 Coordinator 클래스 UIKit -> SwiftUI로의 데이터 전달
     class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, NMFMapViewTouchDelegate, CLLocationManagerDelegate {
-        
         let view = NMFNaverMapView(frame: .zero)
         @ObservedObject var trackViewModel: TrackViewModel
         // MARK: - init
         init(trackViewModel: TrackViewModel) {
-            
             self.trackViewModel = trackViewModel
             super.init()
             
@@ -54,7 +52,6 @@ struct RouteDrawingMapView: UIViewRepresentable {
             
             view.mapView.addCameraDelegate(delegate: self)
             view.mapView.touchDelegate = self
-            
             renderTrackPath()
         }
         
