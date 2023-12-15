@@ -140,6 +140,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
                 marker.iconImage = NMFOverlayImage(name: "marker3")
                 marker.width = CGFloat(NMF_MARKER_SIZE_AUTO)
                 marker.height = CGFloat(NMF_MARKER_SIZE_AUTO)
+                marker.anchor = CGPoint(x: 0.5, y: 0.5)
                 markers.append(marker)
             }
             DispatchQueue.main.async { [weak self] in
