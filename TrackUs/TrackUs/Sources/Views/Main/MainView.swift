@@ -66,7 +66,7 @@ struct MapList: View {
                     }
                     HStack{
                         // 지역값 Text내부 추가
-                        Text("ㄹ러닝 코스")
+                        Text("러닝 코스")
                             .customTextStyle(style: .title)
                             .padding(.init(top: 0, leading: 20, bottom: 0, trailing: 0))
                         Spacer()
