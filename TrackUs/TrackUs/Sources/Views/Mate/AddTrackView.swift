@@ -165,6 +165,7 @@ struct AddTrackView: View {
                 }else if trackViewModel.currnetTrackData.trackBio.isEmpty{
                     textEmptyAlert.toggle()
                 }else {
+                    trackViewModel.currnetTrackData.participations.append(userViewModel.currentUser.id)
                     trackViewModel.addTrackData(trackData: trackViewModel.currnetTrackData)
                     mode.wrappedValue.dismiss()
                 }

@@ -21,12 +21,20 @@ struct ParticipantImage: View {
 
 // 메이트모집 상세화면
 struct MateDetailView: View {
-    let trackInfo: TrackInfo
+    //let trackInfo: TrackInfo
+    @State private var trackInfo: TrackInfo
+    @StateObject var userViewModel = UserViewModel.shared
 
     @StateObject var trackViewModel = TrackViewModel()
     @State private var showGreeting: Bool = true
     @State private var showJoinButton: Bool = true
     @State private var convertedAddress = ""
+    @State private var isJoined: Bool = false
+    
+    // 초기화 메서드
+    init(trackInfo: TrackInfo) {
+        _trackInfo = State(initialValue: trackInfo)
+    }
 
     var body: some View {
         VStack {
@@ -39,7 +47,7 @@ struct MateDetailView: View {
                     RouteDisplayMapView(trackRoutePaths: trackInfo.trackPaths.points)
                         .frame(height: 260)
                         .cornerRadius(10)
-                   
+                    
                     // MARK: - 내용
                     VStack(spacing: 15) {
                         // 내용
@@ -78,6 +86,12 @@ struct MateDetailView: View {
                                     .foregroundColor(.mainFont)
                                 Text("\(trackInfo.participations.count)/\(trackInfo.limitedMember)명")
                                     .frame(maxWidth: .infinity, alignment: .leading)
+                                    .onChange(of: trackInfo.participations.count) { _ in
+                                        // 참여자 수가 변경될 때마다 UI 업데이트
+                                        // 여기에서 참여자 수를 표시하는 UI 업데이트
+                                        Text("\(trackInfo.participations.count)/\(trackInfo.limitedMember)명")
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
                             }
                         }
                     }
@@ -89,53 +103,10 @@ struct MateDetailView: View {
                     
                     MateDetailTab(trackInfo: trackInfo)
                     
-//                    HStack(spacing: 150) {
-//                        // 소개 버튼
-//                        Button(action: {
-//                            withAnimation {
-//                                showGreeting = true
-//                            }
-//                        }) {
-//                            TUText(style: .mediumTitle, text: "소 개")
-//                        }
-//                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-//                        
-//                        // 참여자
-//                        Button(action: {
-//                            withAnimation {
-//                                showGreeting = false
-//                            }
-//                        }) {
-//                            TUText(style: .mediumTitle, text: "참여자")
-//                        }
-//                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-//                        
-//                    }
-                    
-                    // MARK: - 추가된 내용
-//                    if !showGreeting {
-//                        // 참여자에 해당하는 내용
-//                        VStack(spacing: 30) {
-//                            HStack {
-//                                ParticipantImage(participationsImage: "image1")
-//                                ParticipantImage(participationsImage: "image1")
-//                                ParticipantImage(participationsImage: "image1")
-//                                ParticipantImage(participationsImage: "image1")
-//                            }
-//                            
-//                            Spacer()
-//                            
-//                        }
-//                        .padding(.top, 30)
-//                    } else {
-//                        // 소개에 해당하는 내용
-//                        TUText(style: .body, text: trackInfo.trackBio)
-//                        
-//                    }
                 }
                 .foregroundColor(.white)
                 
-//                Spacer()
+                //                Spacer()
                 
             }
             .onChange(of: showGreeting) { _ in
@@ -146,15 +117,23 @@ struct MateDetailView: View {
             }
             
             // 참가하기 버튼
-            TUButton(text: "참가하기") {
-                // TODO: 참가하기 버튼 클릭 시 동작 구현
-                
+            TUButton(text: isJoined ? "취소하기" : "참가하기") {
+                let currentUserID = userViewModel.currentUser.id
+                if isJoined {
+                    // "취소하기" 버튼 동작 구현
+                    trackViewModel.removeParticipantFromTrack(trackId: trackInfo.id, userId: currentUserID)
+                } else {
+                    // "참가하기" 버튼 동작 구현
+                    trackViewModel.addParticipantToTrack(trackId: trackInfo.id, userId: currentUserID)
+                }
+                // 참여자 수를 1 증가시키고 UI 업데이트
+                trackInfo.participations.append(currentUserID)
+                isJoined.toggle()
             }
             .padding(.bottom, 8)
             .animation(.default) // 애니메이션 적용
         }
         .onAppear {
-      
             convertCLLocationToAddress(location: CLLocation(latitude: trackInfo.trackPaths.points[0].lat, longitude: trackInfo.trackPaths.points[0].lng)) { address in
                 self.convertedAddress = address
             }
@@ -174,8 +153,3 @@ struct MateDetailView: View {
         }
     }
 }
-
-//#Preview {
-//    MateDetailView()
-//}
-
