@@ -39,9 +39,6 @@ struct RecruitMate: View {
             .padding(20)
         }
         .background(Color.main)
-        
-        
-        
     }
     
     @ViewBuilder
