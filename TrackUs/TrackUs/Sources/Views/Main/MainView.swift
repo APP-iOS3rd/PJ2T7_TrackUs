@@ -38,15 +38,6 @@ struct MapList: View {
                                 }
                             }
                     )
-                    //.overlay(
-//                        VStack {
-//                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
-//                                .frame(height: 30)
-//                            Spacer()
-//                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(0), Color.main.opacity(1)]), startPoint: .top, endPoint: .bottom)
-//                                .frame(height: 30)
-//                        }
-                    //)
             }
             .frame(height: mapViewHeight )
             .gesture(

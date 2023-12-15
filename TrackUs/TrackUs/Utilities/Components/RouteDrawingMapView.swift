@@ -60,7 +60,7 @@ struct RouteDrawingMapView: UIViewRepresentable {
         func renderStartMarker() {
             let markerSize: CGFloat = 20
             trackViewModel.currnetTrackData.startMarker.mapView = nil
-            trackViewModel.currnetTrackData.startMarker = NMFMarker(position: NMGLatLng(lat: trackViewModel.currnetTrackData.trackPaths.points[0].lat-0.00019, lng: trackViewModel.currnetTrackData.trackPaths.points[0].lng))
+            trackViewModel.currnetTrackData.startMarker = NMFMarker(position: NMGLatLng(lat: trackViewModel.currnetTrackData.trackPaths.points[0].lat-0.00002, lng: trackViewModel.currnetTrackData.trackPaths.points[0].lng))
             
             trackViewModel.currnetTrackData.startMarker.iconImage = NMFOverlayImage(name: "branch")
             trackViewModel.currnetTrackData.startMarker.width = markerSize
