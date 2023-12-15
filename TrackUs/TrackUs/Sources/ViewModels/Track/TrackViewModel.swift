@@ -41,8 +41,10 @@ class TrackViewModel: ObservableObject {
     
     let R = 6371000.0
     
-    init() { setTrackDatas() }
-    
+    init() {
+        setTrackDatas()
+    }
+        
     /**
     트랙정보 초기세팅
      */

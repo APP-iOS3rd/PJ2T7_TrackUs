@@ -56,7 +56,6 @@ struct RouteDrawingMapView: UIViewRepresentable {
         }
         
         // MARK: - methods
-        
         func renderStartMarker() {
             let markerSize: CGFloat = 20
             trackViewModel.currnetTrackData.startMarker.mapView = nil
@@ -95,8 +94,8 @@ struct RouteDrawingMapView: UIViewRepresentable {
             if trackViewModel.currnetTrackData.trackPaths.points.count == 1 {
                 renderStartMarker()
             }
-            
         }
+        
     }
     
 }

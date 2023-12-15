@@ -9,9 +9,9 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+    @EnvironmentObject var trackViewModel: TrackViewModel
     @State var tabBarIndex: Int = 0
     @State var showSplash = true
-    @EnvironmentObject var trackViewModel: TrackViewModel
     init() {
         // TabBar 설정
         UITabBar.appearance().backgroundImage = UIImage()
@@ -50,7 +50,7 @@ struct ContentView: View {
                                 }.tag(0)
                                
                             
-                            MateView()
+                            RecruitMate()
                                 .onTapGesture {
                                     tabBarIndex = 1
                                 }

@@ -20,6 +20,7 @@ struct MainView: View {
 
 struct MapList: View {
     let viewHeight: Double
+    @EnvironmentObject var trackViewModel: TrackViewModel
     @State var mapViewHeight: Double
     @State var listViewHeight: Double
     var body: some View {
@@ -28,6 +29,15 @@ struct MapList: View {
             ZStack {
                 // 지도 추가 코드
                 MapView() // 해당부분 제거 후 map 표시 추가
+                    .gesture(
+                        DragGesture()
+                            .onChanged{_ in
+                                withAnimation {
+                                    mapViewHeight = viewHeight * 11/12
+                                    listViewHeight = viewHeight * 1/12
+                                }
+                            }
+                    )
                     //.overlay(
                         VStack {
                             LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
@@ -108,7 +118,7 @@ struct MapList: View {
                         }
                 )
                 ZStack{
-                    RecruitmentList()
+                    RecruitmentList(trackDatas: trackViewModel.trackDatas)
                     .background(Color.main)
                     .listStyle(PlainListStyle())
                     VStack{
