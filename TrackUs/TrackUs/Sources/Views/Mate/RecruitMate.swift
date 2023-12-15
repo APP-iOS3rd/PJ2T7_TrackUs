@@ -13,7 +13,7 @@ enum mateTab: String, CaseIterable {
 }
 
 struct RecruitMate: View {
-    @EnvironmentObject private var trackViewModel: TrackViewModel
+    @EnvironmentObject var trackViewModel: TrackViewModel
     @State private var selectedPicker: mateTab = .recruitment
     @State private var action: Int? = 0
     @Namespace private var animation
@@ -24,7 +24,7 @@ struct RecruitMate: View {
 
             VStack {
                 animate()
-                selectTab(selec: selectedPicker)
+                selectTab(selec: selectedPicker, trackViewModel: trackViewModel)
             }
             
             NavigationLink(destination: AddTrackView(), label: {
@@ -71,20 +71,23 @@ struct RecruitMate: View {
         }
     }
 }
-
+// A StateObject or EnvimentObject -> ObervsedObject -> C
 struct selectTab : View {
     var selec : mateTab
+    @ObservedObject var trackViewModel: TrackViewModel
+    @EnvironmentObject var userViewModel: UserViewModel
     
     var body: some View {
         switch selec {
         case .recruitment:
-            RecruitmentList() //모집
+            RecruitmentList(trackDatas: trackViewModel.trackDatas) //모집
         case .myRunning:
-            RecruitmentList()
+            RecruitmentList(trackDatas: trackViewModel.trackDatas.filter {$0.participations.contains(userViewModel.currentUser.id)}) //내 러닝 모음
+    
         }
     }
 }
 
-#Preview {
-    RecruitMate()
-}
+//#Preview {
+//    RecruitMate()
+//}

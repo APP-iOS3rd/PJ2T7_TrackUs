@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct TrackUsApp: App {
+    @StateObject var trackViewModel = TrackViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(TrackViewModel())
+                .environmentObject(trackViewModel)
+                .environmentObject(UserViewModel.shared)
         }
     }
 }

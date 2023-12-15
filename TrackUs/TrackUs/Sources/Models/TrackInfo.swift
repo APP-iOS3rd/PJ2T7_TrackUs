@@ -20,10 +20,7 @@ struct TrackInfo : Hashable, Identifiable {
     var caloriesConsumed: Int // 소모칼로리
     var trackPaths: NMFArrowheadPath // 트랙경로
     var startMarker: NMFMarker // 시작마커
-    
-    var id: UUID {
-        return UUID()
-    }
+    var id = UUID()
 }
 
 
