@@ -15,10 +15,13 @@ struct Introduction: View {
     
     var body: some View {
         
-        // 소개에 해당하는 내용
-        TUText(style: .body, text: trackInfo.trackBio)
-
-        
+        VStack{
+            // 소개에 해당하는 내용
+            TUText(style: .body, text: trackInfo.trackBio)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+        }
+        .padding(.vertical, 20)
     }
 }
 
