@@ -31,7 +31,7 @@ struct MapList: View {
                 MapView() // 해당부분 제거 후 map 표시 추가
                     .gesture(
                         DragGesture()
-                            .onChanged{_ in
+                            .onChanged{_ in 
                                 withAnimation {
                                     mapViewHeight = viewHeight * 11/12
                                     listViewHeight = viewHeight * 1/12

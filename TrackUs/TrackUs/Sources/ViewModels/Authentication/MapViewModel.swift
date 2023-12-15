@@ -47,7 +47,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
         view.mapView.maxZoomLevel = 17 // 최대 줌 레벨
         
         view.showLocationButton = true
-        view.showZoomControls = true // 줌 확대, 축소 버튼 활성화
+        view.showZoomControls = false // 줌 확대, 축소 버튼 활성화
         view.showCompass = true
         view.showScaleBar = false
         
@@ -126,24 +126,6 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     func getNaverMapView() -> NMFNaverMapView {
         view
     }
-    
-    //        func startMarkersForAllTracks() {
-    //            for trackInfo in trackViewModel.trackDatas {
-    //                let trackPaths = trackInfo.trackPaths
-    //                // trackPaths.points에 있는 모든 NMGLatLng를 출력
-    //                for point in trackPaths.points {
-    //                    print("\(trackPaths.points)")
-    //
-    //                    // 마커 추가
-    //                    if let firstPoint = trackViewModel.currnetTrackData.trackPaths.points.first {
-    //                        let marker = NMFMarker()
-    //                        marker.iconImage = NMF_MARKER_IMAGE_PINK
-    //                        marker.position = point
-    //                        marker.mapView = view.mapView
-    //                    }
-    //                }
-    //            }
-    //        }
     
     func renderMarker() {
         DispatchQueue.global(qos: .default).async {
