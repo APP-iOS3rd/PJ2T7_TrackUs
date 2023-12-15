@@ -80,7 +80,7 @@ struct selectTab : View {
         case .recruitment:
             RecruitmentList() //모집
         case .myRunning:
-            RecruitmentList() //내 러닝 모음
+            RecruitmentList()
         }
     }
 }

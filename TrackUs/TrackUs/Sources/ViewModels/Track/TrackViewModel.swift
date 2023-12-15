@@ -8,6 +8,12 @@
 import Foundation
 import NMapsMap
 
+// (임시)
+//enum TrackListType {
+//    case recruitment
+//    case myRunning
+//}
+
 class TrackViewModel: ObservableObject {
     // 좌표데이터
     let mapPoints = [
@@ -130,6 +136,9 @@ class TrackViewModel: ObservableObject {
             self.currnetTrackData.timeTaken = calculateAverageTimeInMinute(distanceInMeters: self.currnetTrackData.estimatedDistance, averageSpeed: 2.0)
         }
     }
+    
+    // (임시)
+//    @Published var currentListType: TrackListType = .recruitment
 }
 
 // MARK: - 서브함수
@@ -170,6 +179,18 @@ func calculateCoordinatesDistance(lat1: Double, lon1: Double, lat2: Double, lon2
     return distance
 }
 
-
-
-
+// (임시)
+//extension TrackViewModel {
+//    func trackDatas(for type: TrackListType) -> [TrackInfo] {
+//        switch type {
+//        case .recruitment:
+//            return trackDatas
+//        case .myRunning:
+//            // 기존 트랙
+//            let exTrackName = ["트랙이름 0", "트랙이름 1", "트랙이름 2"]
+//            return trackDatas.filter { TrackInfo in
+//                return !exTrackName.contains(TrackInfo.trackName)
+//            }
+//        }
+//    }
+//}
