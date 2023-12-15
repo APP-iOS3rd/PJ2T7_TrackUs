@@ -36,7 +36,7 @@ struct CommunityDetailView: View {
                         VStack {
                             VStack(spacing: 20) {
                                 // 내용
-                                TUText(style: .body, text: "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용")
+                                TUText(style: .body, text: "내용")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 // 이미지
                                 Image("photo-add")

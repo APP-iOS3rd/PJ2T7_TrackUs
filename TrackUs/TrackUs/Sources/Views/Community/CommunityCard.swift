@@ -34,7 +34,7 @@ struct CommunityCard: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 // 본문
-                TUText(style: .body, text: "내용.....")
+                TUText(style: .body, text: "내용")
                     .lineLimit(2)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 

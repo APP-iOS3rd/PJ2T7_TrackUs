@@ -30,7 +30,7 @@ struct AddPostView: View {
                 }
                 // 글내용 입력필드
                 ZStack(alignment:.topLeading) {
-                    let placeholder: String = "글 내용을 입력해 주세요."
+                    let placeholder: String = "내용을 입력해 주세요."
                     if content.isEmpty {
                         TUText(style: .mediumTitle, text: placeholder)
                             .padding(20)

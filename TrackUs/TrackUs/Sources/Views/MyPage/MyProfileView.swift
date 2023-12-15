@@ -35,7 +35,7 @@ struct MyProfile: View {
                         HStack{
                             //사용자 이름
                             Group {
-                                Text(userViewModel.currentUser.username)
+                                Text("JeongHwan")
                                     .foregroundStyle(.white)
                                     .fontWeight(.semibold)
                                 Button(action: {}, label: {

@@ -51,7 +51,7 @@ struct SettingView: View {
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.main)
                         if self.logoutCheck{
-                            Text("로그아웃 하실 수 없습니다")
+                            //Text("로그아웃 하실 수 없습니다")
                         }
                         
                     })
@@ -69,7 +69,7 @@ struct SettingView: View {
                         .listRowBackground(Color.main)
                         .frame(height: 50)
                     if self.secessionCheck{
-                        Text("탈퇴 하실 수 없습니다")
+                        //Text("탈퇴 하실 수 없습니다")
                     }
                 })
                 

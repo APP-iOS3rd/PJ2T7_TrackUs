@@ -10,9 +10,9 @@ import SwiftUI
 struct MateList2: View {
     
     //임의값
-    let title = "달릴 러닝 브로..."
+    let title = "달릴 러닝 브로 구합니다"
     let distance = 500
-    let location = "여기서 달린다"
+    let location = "서울특별시 서초구"
     let date = "2023.12.08"
     let time = "10:00" // 나중에 타입 변경
     

@@ -16,7 +16,7 @@ struct CommentCell: View {
                 .clipShape(Circle())
                 .frame(width: 50, height: 50)
             // 유저이름
-            TUText(style: .body, text: "댓글댓글댓글댓글")
+            TUText(style: .body, text: "댓글")
                 .lineLimit(1)
                 .padding(.leading, 10)
             Spacer()

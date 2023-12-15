@@ -23,8 +23,9 @@ struct CommentInput: View {
                 TUText(style: .body, text: "댓글을 입력해 주세요.", color:.white)
             }
             .foregroundColor(.white)
-            .frame(height: 32)
+            .frame(width: 290,height: 32)
             .padding(.leading, 8)
+            .offset(x:10)
             .background(.gray)
             .clipShape(Capsule())
             // 댓글입력 버튼

@@ -165,7 +165,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
                     marker.touchHandler = { (overlay) -> Bool in
                         if let marker = overlay as? NMFMarker,
                            let title = marker.userInfo["제목"] as? String {
-                            print("마커 터치됨: \(title)")
+                            print("마커 터치: \(title)")
 
                             if let track = self?.trackViewModel.trackDatas.first(where: { $0.trackName == title }) {
                                 self?.navigateToMateDetailView(track: track)
