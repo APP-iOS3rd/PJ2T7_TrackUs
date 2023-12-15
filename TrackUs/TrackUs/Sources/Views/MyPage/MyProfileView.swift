@@ -34,13 +34,16 @@ struct MyProfile: View {
                     VStack{
                         HStack{
                             //사용자 이름
-                            Text(userViewModel.currentUser.username)
-                                .foregroundStyle(.white)
-                                .fontWeight(.semibold)
-                            Button(action: {}, label: {
-                                Image(systemName: "pencil.circle.fill")
-                                    .foregroundColor(.sub)
-                            })
+                            Group {
+                                Text(userViewModel.currentUser.username)
+                                    .foregroundStyle(.white)
+                                    .fontWeight(.semibold)
+                                Button(action: {}, label: {
+                                    Image(systemName: "pencil.circle.fill")
+                                        .foregroundColor(.sub)
+                                })
+                            }
+                            .offset(x:20, y:4)
                         }
                     }
                 }

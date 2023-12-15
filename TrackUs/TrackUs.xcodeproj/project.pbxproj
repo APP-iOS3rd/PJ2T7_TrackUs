@@ -382,6 +382,8 @@
 			dependencies = (
 			);
 			name = TrackUs;
+			packageProductDependencies = (
+			);
 			productName = TrackUs;
 			productReference = 61D617BF2B223F58008AC1BB /* TrackUs.app */;
 			productType = "com.apple.product-type.application";
@@ -410,6 +412,8 @@
 				Base,
 			);
 			mainGroup = 61D617B62B223F57008AC1BB;
+			packageReferences = (
+			);
 			productRefGroup = 61D617C02B223F58008AC1BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
