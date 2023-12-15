@@ -13,6 +13,7 @@ struct AddTrackPathView: View {
     @State private var showingAlert = false
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @EnvironmentObject var trackViewModel: TrackViewModel
+    @State private var resetAlert = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -41,9 +42,21 @@ struct AddTrackPathView: View {
                         Text("되돌리기")
                     })
                     
-                    Button(action: { trackViewModel.resetTrackPathData() }, label: {
+                    Button(action: { resetAlert.toggle() }, label: {
                         Text("초기화")
-                    })
+                    }).alert(isPresented: $resetAlert) {
+                        Alert(
+                            title: Text("경로 초기화"),
+                            message: Text("경로를 초기화합니다"),
+                            primaryButton: .destructive(
+                                Text("초기화"),
+                                action: {
+                                    trackViewModel.resetTrackPathData()
+                                }
+                            ),
+                            secondaryButton: .cancel(Text("취소"))
+                        )
+                    }
                 }
             }
         }

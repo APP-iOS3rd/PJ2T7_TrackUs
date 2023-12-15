@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum mateTab: String, CaseIterable {
-    case recruitment = "런닝 모집"
+    case recruitment = "러닝 모집"
     case myRunning = "내 러닝 모음"
 }
 

@@ -39,13 +39,13 @@ struct MapList: View {
                             }
                     )
                     //.overlay(
-                        VStack {
-                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: 30)
-                            Spacer()
-                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(0), Color.main.opacity(1)]), startPoint: .top, endPoint: .bottom)
-                                .frame(height: 30)
-                        }
+//                        VStack {
+//                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(1), Color.main.opacity(0)]), startPoint: .top, endPoint: .bottom)
+//                                .frame(height: 30)
+//                            Spacer()
+//                            LinearGradient(gradient: Gradient(colors: [Color.main.opacity(0), Color.main.opacity(1)]), startPoint: .top, endPoint: .bottom)
+//                                .frame(height: 30)
+//                        }
                     //)
             }
             .frame(height: mapViewHeight )
@@ -75,7 +75,7 @@ struct MapList: View {
                     }
                     HStack{
                         // 지역값 Text내부 추가
-                        Text("런닝 코스")
+                        Text("ㄹ러닝 코스")
                             .customTextStyle(style: .title)
                             .padding(.init(top: 0, leading: 20, bottom: 0, trailing: 0))
                         Spacer()
