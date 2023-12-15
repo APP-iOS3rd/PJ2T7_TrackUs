@@ -57,7 +57,7 @@ class TrackViewModel: ObservableObject {
             let fakeUUID = UUID()
             let pointList = mapPoint
             let mapPaths = NMFArrowheadPath(pointList)
-            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [fakeUUID], timeTaken: 2300, author: fakeUUID, caloriesConsumed: 190, trackPaths: mapPaths!, startMarker: NMFMarker(position: NMGLatLng(lat: mapPaths!.points[0].lat, lng: mapPaths!.points[0].lng))))
+            trackDatas.append(TrackInfo(trackName: "트랙이름", trackBio: "소개글", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [fakeUUID], timeTaken: 2300, author: fakeUUID, caloriesConsumed: 190, trackPaths: mapPaths!, startMarker: NMFMarker(position: NMGLatLng(lat: mapPaths!.points[0].lat, lng: mapPaths!.points[0].lng))))
         }
     }
     
