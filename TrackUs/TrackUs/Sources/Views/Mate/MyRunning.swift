@@ -7,109 +7,44 @@
 
 //import SwiftUI
 //
-//struct MyRunning: View {
-//    
-//    @StateObject var trackViewModel = TrackViewModel()
-//    
+//struct MyRunningList: View {
+////    @EnvironmentObject var trackViewModel: TrackViewModel
+////    @StateObject var userViewModel: UserViewModel
+////    var trackDatas: [TrackInfo] = []
+////    var trackInfo: TrackInfo
+//    @StateObject var userViewModel = UserViewModel.shared
+////    @EnvironmentObject var trackViewModel: TrackViewModel
+////    @EnvironmentObject var userViewModel: UserViewModel
+//    @ObservedObject var trackViewModel : TrackViewModel
 //    
 //    private var vGridItems = [GridItem()]
 //    
 //    var body: some View {
-//            ScrollView{
-////                NavigationLink(destination: MateDetailView(), label: {
+//            ScrollView {
 //                LazyVGrid(columns: vGridItems, spacing: 0) {
-////                    ForEach((0..<trackViewModel.trackDatas.count), id: \.self) { item in
-//                    ForEach(trackViewModel.trackDatas, id: \.self) { item in
-////                        MyRunningCell(title: "\(trackInfo.trackName)km", date: "\(trackInfo.startDate)", time: "\(trackInfo.timeTaken)")
-//                        MyRunningCell(trackInfo: item)
+////                    ForEach(trackViewModel.trackDatas.filter { $0.author == userViewModel.currentUser.id}) { item in
+////                    ForEach(trackViewModel.trackDatas.filter{ $0.id == userViewModel.currentUser.id}) { item in
+////                    ForEach(trackDatas.filter{ $0.id == userViewModel.currentUser.id}) { item in
+//                    ForEach(trackDatas.filter{ $0.id == userViewModel.currentUser.id}) { item in
+//                        
+//                        RecruitmentCell(trackInfo: item)
+//                    }
+//                    Button {
+//                        print("\(userViewModel.currentUser.id)")
+//                    } label: {
+//                        Text("가나다라마바사")
+//                            .foregroundStyle(.white)
 //                    }
 //                }
-////            })
-//            }
-//            .foregroundStyle(.white)
-//            .background(Color.main)
-//    }
-//}
-//
-//struct MyRunningCell: View {
-//    
-//    let trackInfo: TrackInfo
-//    
-//    var body: some View {
-//        NavigationLink(destination: MateDetailView(trackInfo: trackInfo)) {
-//        VStack{
-//            HStack(spacing: 10) {
-//                
-//                Spacer()
-//                
-//                Image(systemName: "figure.run")
-//                    .resizable()
-//                    .frame(width: 30, height: 30)
-//                
-//                Spacer()
-//                
-//                VStack(alignment: .leading) {
-//                    Text("\(trackInfo.trackName)")
-//                        .font(.headline)
-//                        .bold()
-//                        .lineLimit(1)
-//                        .truncationMode(.tail)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                Button {
+//                    print("\(userViewModel.currentUser.id)")
+//                } label: {
+//                    Text("가나다라마바사")
 //                        .foregroundStyle(.white)
-//                    HStack{
-//                        Image(systemName: "figure.track.and.field")
-//                        Text(String(format: "%.1f km", trackInfo.estimatedDistance))
-//                            .font(.subheadline)
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .foregroundStyle(.sub)
-//                    }
-//                    HStack{
-//                        Image(systemName: "calendar")
-//                        Text("\(formattedDate)")
-//                            .font(.subheadline)
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .foregroundStyle(.sub)
-//                    }
-//                    HStack{
-//                        Image(systemName: "clock")
-//                        Text("\(formattedDateTime)")
-//                            .font(.subheadline)
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                            .foregroundStyle(.sub)
-//                    }
 //                }
-//                
-//                Image(systemName: "chevron.forward")
 //            }
-//            
-//            .padding(15)
-//            
-//            Text("")
-//                .frame(minWidth: 10, maxWidth: .infinity, minHeight: 1, maxHeight: 1)
-//                .background(Color.sub)
-//            
-//        }
-//        .background(Color.main)
-//        }
-//    }
-//    
-//    var formattedDate: String {
-//        let formatter  = DateFormatter()
-//        formatter.dateFormat = "YYYY.MM.dd"
-//        return formatter.string(from: trackInfo.startDate)
-//    }
-//    
-////    var formattedTime: String {
-////        let seconds = trackInfo.timeTaken
-////        let minutes = (seconds / 60) % 60
-////        let hours = seconds / 3600
-////        return String(format: "%02d:%02d", hours, minutes)
-////    }
-//    
-//    var formattedDateTime: String {
-//        let formatter  = DateFormatter()
-//        formatter.dateFormat = "h:mm a"
-//        return formatter.string(from: trackInfo.startDate)
+//            .foregroundStyle(.mainFont)
+//            .background(Color.main)
 //    }
 //}
 
