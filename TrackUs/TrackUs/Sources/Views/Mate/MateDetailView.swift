@@ -118,17 +118,17 @@ struct MateDetailView: View {
             
             // 참가하기 버튼
             TUButton(text: isJoined ? "취소하기" : "참가하기") {
-                let currentUserID = userViewModel.currentUser.id
-                if isJoined {
-                    // "취소하기" 버튼 동작 구현
-                    trackViewModel.removeParticipantFromTrack(trackId: trackInfo.id, userId: currentUserID)
-                } else {
-                    // "참가하기" 버튼 동작 구현
-                    trackViewModel.addParticipantToTrack(trackId: trackInfo.id, userId: currentUserID)
-                }
-                // 참여자 수를 1 증가시키고 UI 업데이트
-                trackInfo.participations.append(currentUserID)
-                isJoined.toggle()
+//                let currentUserID = userViewModel.currentUser.id
+//                if isJoined {
+//                    // "취소하기" 버튼 동작 구현
+//                    trackViewModel.removeParticipantFromTrack(trackId: trackInfo.id, userId: currentUserID)
+//                } else {
+//                    // "참가하기" 버튼 동작 구현
+//                    trackViewModel.addParticipantToTrack(trackId: trackInfo.id, userId: currentUserID)
+//                }
+//                // 참여자 수를 1 증가시키고 UI 업데이트
+//                trackInfo.participations.append(currentUserID)
+//                isJoined.toggle()
             }
             .padding(.bottom, 8)
             .animation(.default) // 애니메이션 적용
