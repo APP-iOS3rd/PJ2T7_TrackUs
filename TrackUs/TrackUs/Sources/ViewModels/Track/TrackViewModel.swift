@@ -40,7 +40,7 @@ class TrackViewModel: ObservableObject {
     ]
     
     // 유저가 입력한 트랙정보
-    @Published var currnetTrackData: TrackInfo = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath())
+    @Published var currnetTrackData: TrackInfo = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath(), startMarker: NMFMarker())
     
     // 트랙정보
     @Published var trackDatas: [TrackInfo] = []
@@ -57,7 +57,7 @@ class TrackViewModel: ObservableObject {
             let fakeUUID = UUID()
             let pointList = mapPoint
             let mapPaths = NMFArrowheadPath(pointList)
-            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [fakeUUID], timeTaken: 2300, author: fakeUUID, caloriesConsumed: 190, trackPaths: mapPaths!))
+            trackDatas.append(TrackInfo(trackName: "트랙이름 \(idx)", trackBio: "소개글 \(idx)", startDate: Date(), estimatedDistance: 2300, limitedMember: 6, participations: [fakeUUID], timeTaken: 2300, author: fakeUUID, caloriesConsumed: 190, trackPaths: mapPaths!, startMarker: NMFMarker(position: NMGLatLng(lat: mapPaths!.points[0].lat, lng: mapPaths!.points[0].lng))))
         }
     }
     
@@ -74,15 +74,17 @@ class TrackViewModel: ObservableObject {
      현재 form에 입력된 트랙정보를 초기화합니다
      */
     func resetTrackData() {
-        self.currnetTrackData = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath())
+        self.currnetTrackData = TrackInfo(trackName: "", trackBio: "", startDate: Date(), estimatedDistance: 0.0, limitedMember: 1, participations: [], timeTaken: 0, author: UUID(), caloriesConsumed: 0, trackPaths: NMFArrowheadPath(), startMarker: NMFMarker())
     }
     
     /**
      현재 설정된 트랙경로의 정보 비웁니다
      */
     func resetTrackPathData() {
-        self.currnetTrackData.trackPaths.points.removeAll()
-        self.currnetTrackData.trackPaths.mapView = nil
+        self.currnetTrackData.trackPaths.points.removeAll() // 현재 선택된 경로를 모두 비웁니다
+        self.currnetTrackData.trackPaths.mapView = nil // 맵뷰상에서 경로를 사라지게 설정
+        self.currnetTrackData.startMarker.mapView = nil // 맵뷰 상에서 시작마커를 사라지게 설정
+        // 소요시간, 칼로리, 예상거리 데이터를 0으로 초기화
         self.currnetTrackData.estimatedDistance = 0
         self.currnetTrackData.caloriesConsumed = 0
         self.currnetTrackData.timeTaken = 0
@@ -99,8 +101,6 @@ class TrackViewModel: ObservableObject {
         }
         // 포인트가 2개인경우 모든 경로 삭제
         else if self.currnetTrackData.trackPaths.points.count >= 2 {
-            self.currnetTrackData.trackPaths.points.removeAll()
-            self.currnetTrackData.trackPaths.mapView = nil
             resetTrackPathData()
         }
     }

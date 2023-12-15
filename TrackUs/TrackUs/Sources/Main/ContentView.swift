@@ -11,6 +11,7 @@ import UIKit
 struct ContentView: View {
     @State var tabBarIndex: Int = 0
     @State var showSplash = true
+    @EnvironmentObject var trackViewModel: TrackViewModel
     init() {
         // TabBar 설정
         UITabBar.appearance().backgroundImage = UIImage()
@@ -47,6 +48,7 @@ struct ContentView: View {
                                     Image(systemName: "house")
                                     Text("홈")
                                 }.tag(0)
+                               
                             
                             MateView()
                                 .onTapGesture {
@@ -56,7 +58,9 @@ struct ContentView: View {
                                     Image(systemName: "doc.plaintext")
                                     Text("메이트 모집")
                                 }.tag(1)
-                            
+                                .onAppear {
+                                    trackViewModel.resetTrackData()
+                                }
                             
                             CommunityView()
                                 .onTapGesture {
