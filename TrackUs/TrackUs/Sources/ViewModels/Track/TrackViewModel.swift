@@ -64,6 +64,16 @@ class TrackViewModel: ObservableObject {
     }
     
     /**
+     트랙에 참가자 추가
+     */
+    func addParticipantToTrack(trackId: UUID, userId: UUID) {
+        if let index = trackDatas.firstIndex(where: { $0.id == trackId }) {
+            trackDatas[index].addParticipant(userId: userId)
+        }
+    }
+
+    
+    /**
      트랙정보를 리스트에 추가합니다
      */
     func addTrackData(trackData: TrackInfo) {
@@ -71,6 +81,12 @@ class TrackViewModel: ObservableObject {
         self.trackDatas.append(trackData)
         resetTrackData()
     }
+    func removeParticipantFromTrack(trackId: UUID, userId: UUID) {
+        if let index = trackDatas.firstIndex(where: { $0.id == trackId }) {
+            trackDatas[index].participations.removeAll { $0 == userId }
+        }
+    }
+
     
     /**
      현재 form에 입력된 트랙정보를 초기화합니다

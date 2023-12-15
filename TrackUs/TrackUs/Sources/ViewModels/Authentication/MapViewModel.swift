@@ -28,6 +28,7 @@ final class Coordinator: NSObject, ObservableObject, NMFMapViewCameraDelegate, N
     static let shared = Coordinator()
     
     let view = NMFNaverMapView()
+
     @Published var coord: (Double, Double) = (0.0, 0.0)
     @Published var userLocation: (Double, Double) = (0.0, 0.0)
     @ObservedObject var trackViewModel = TrackViewModel()
