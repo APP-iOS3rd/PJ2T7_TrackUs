@@ -20,6 +20,7 @@ struct MainView: View {
 
 struct MapList: View {
     let viewHeight: Double
+    @EnvironmentObject var trackViewModel: TrackViewModel
     @State var mapViewHeight: Double
     @State var listViewHeight: Double
     var body: some View {
@@ -117,7 +118,7 @@ struct MapList: View {
                         }
                 )
                 ZStack{
-                    RecruitmentList()
+                    RecruitmentList(trackDatas: trackViewModel.trackDatas)
                     .background(Color.main)
                     .listStyle(PlainListStyle())
                     VStack{

@@ -99,7 +99,7 @@ struct MateDetailView: View {
 //                            TUText(style: .mediumTitle, text: "소 개")
 //                        }
 //                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-//                        
+//
 //                        // 참여자
 //                        Button(action: {
 //                            withAnimation {
@@ -109,7 +109,7 @@ struct MateDetailView: View {
 //                            TUText(style: .mediumTitle, text: "참여자")
 //                        }
 //                        .background(RoundedRectangle(cornerRadius: 2).frame(height: 3).foregroundColor(!showGreeting ? .yellow : .clear).padding(.top, 30)) // 밑줄
-//                        
+//
 //                    }
                     
                     // MARK: - 추가된 내용
@@ -122,15 +122,15 @@ struct MateDetailView: View {
 //                                ParticipantImage(participationsImage: "image1")
 //                                ParticipantImage(participationsImage: "image1")
 //                            }
-//                            
+//
 //                            Spacer()
-//                            
+//
 //                        }
 //                        .padding(.top, 30)
 //                    } else {
 //                        // 소개에 해당하는 내용
 //                        TUText(style: .body, text: trackInfo.trackBio)
-//                        
+//
 //                    }
                 }
                 .foregroundColor(.white)
@@ -178,4 +178,3 @@ struct MateDetailView: View {
 //#Preview {
 //    MateDetailView()
 //}
-

@@ -12,5 +12,5 @@ class UserViewModel: ObservableObject {
     static let shared = UserViewModel()
     private init(){}
     
-    @Published var currentUser: User = User(username: "테스트", profileImageUrl: "")
+    @Published var currentUser: User = User()
 }

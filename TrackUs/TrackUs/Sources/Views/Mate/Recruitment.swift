@@ -41,12 +41,12 @@ struct Recruitment: View {
 //import SwiftUI
 //
 //struct Recruitment: View {
-//    
+//
 //    @StateObject var trackViewModel = TrackViewModel()
-//    
-//    
+//
+//
 //    private var vGridItems = [GridItem()]
-//    
+//
 //    var body: some View {
 //            ScrollView{
 ////                NavigationLink(destination: MateDetailView(), label: {
@@ -55,7 +55,7 @@ struct Recruitment: View {
 //                    ForEach(trackViewModel.trackDatas, id: \.self) { item in
 ////                        MyRunningCell(title: "\(trackInfo.trackName)km", date: "\(trackInfo.startDate)", time: "\(trackInfo.timeTaken)")
 //                        RecruitmentCell(trackInfo: item)
-//                            
+//
 //                    }
 //                }
 ////            })
@@ -66,22 +66,22 @@ struct Recruitment: View {
 //}
 //
 //struct RecruitmentCell: View {
-//    
+//
 //    let trackInfo: TrackInfo
-//    
+//
 //    var body: some View {
 //        NavigationLink(destination: MateDetailView(trackInfo: trackInfo)) {
 //        VStack{
 //            HStack(spacing: 10) {
-//                
+//
 //                Spacer()
-//                
+//
 //                Image(systemName: "figure.run")
 //                    .resizable()
 //                    .frame(width: 30, height: 30)
-//                
+//
 //                Spacer()
-//                
+//
 //                VStack(alignment: .leading) {
 //                    Text("\(trackInfo.trackName)")
 //                        .font(.headline)
@@ -120,34 +120,34 @@ struct Recruitment: View {
 //                            .foregroundStyle(.sub)
 //                    }
 //                }
-//                
+//
 //                Image(systemName: "chevron.forward")
 //            }
-//            
+//
 //            .padding(15)
-//            
+//
 //            Text("")
 //                .frame(minWidth: 10, maxWidth: .infinity, minHeight: 1, maxHeight: 1)
 //                .background(Color.sub)
-//            
+//
 //        }
 //        .background(Color.main)
 //        }
 //    }
-//    
+//
 //    var formattedDate: String {
 //        let formatter  = DateFormatter()
 //        formatter.dateFormat = "YYYY.MM.dd"
 //        return formatter.string(from: trackInfo.startDate)
 //    }
-//    
+//
 ////    var formattedTime: String {
 ////        let seconds = trackInfo.timeTaken
 ////        let minutes = (seconds / 60) % 60
 ////        let hours = seconds / 3600
 ////        return String(format: "%02d:%02d", hours, minutes)
 ////    }
-//    
+//
 //    var formattedDateTime: String {
 //        let formatter  = DateFormatter()
 //        formatter.dateFormat = "h:mm a"
@@ -168,7 +168,7 @@ struct Recruitment: View {
 ////        let hours = seconds / 3600
 ////        return String(format: "%02d:%02d", hours, minutes)
 ////    }
-//    
+//
 //    var formattedDateTime: String {
 //        let formatter  = DateFormatter()
 //        formatter.dateFormat = "h:mm a"
