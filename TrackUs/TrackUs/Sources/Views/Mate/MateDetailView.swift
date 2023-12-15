@@ -154,6 +154,7 @@ struct MateDetailView: View {
             .animation(.default) // 애니메이션 적용
         }
         .onAppear {
+      
             convertCLLocationToAddress(location: CLLocation(latitude: trackInfo.trackPaths.points[0].lat, longitude: trackInfo.trackPaths.points[0].lng)) { address in
                 self.convertedAddress = address
             }

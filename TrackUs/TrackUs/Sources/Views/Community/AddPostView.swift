@@ -54,7 +54,7 @@ struct AddPostView: View {
                 VStack {
                     HStack {
                         Button(action: {}, label: {
-                            Image("add_photo")
+                            Image("addPhoto")
                                 .frame(width: 70, height: 70)
                         })
                         Spacer()

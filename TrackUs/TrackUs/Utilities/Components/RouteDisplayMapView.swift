@@ -7,9 +7,10 @@
 
 import SwiftUI
 import NMapsMap
+
 /**
   트랙경로를 보여주는 맵뷰
-  [NMGLatLng] 위도, 경도가 저장된 배열을 받아서 화면에 보여주는 맵뷰
+  [NMGLatLng] 위도 경도의 배열을 받아서 화면에 경로를 그려줍니다
  */
 struct RouteDisplayMapView: UIViewRepresentable {
     let trackRoutePaths: [NMGLatLng]
@@ -52,7 +53,6 @@ struct RouteDisplayMapView: UIViewRepresentable {
             
             view.mapView.addCameraDelegate(delegate: self)
             view.mapView.touchDelegate = self
-            
             renderTrackPath()
         }
         
@@ -60,8 +60,11 @@ struct RouteDisplayMapView: UIViewRepresentable {
         func renderTrackPath() {
             if trackRoutePaths.count < 2 {return}
             // 카메라의 포커스를 시작점의 위치로 설정합니다
-            let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: trackRoutePaths[0].lat, lng: trackRoutePaths[0].lng))
-            view.mapView.moveCamera(cameraUpdate)
+            if let LatLng = findMinMaxLatLng(latLngArray: trackRoutePaths){
+                let cameraUpdate = NMFCameraUpdate(scrollTo: LatLng.NMGLatLng,zoomTo: LatLng.zoom)
+                view.mapView.moveCamera(cameraUpdate)
+                view.mapView.extent = LatLng.NMGLatLngBounds
+            }
 
             DispatchQueue.global(qos: .default).async {
                 var markers = [NMFMarker]()
@@ -81,6 +84,7 @@ struct RouteDisplayMapView: UIViewRepresentable {
                     }
                     marker.width = markerSize
                     marker.height = markerSize
+                    marker.anchor = CGPoint(x: 0.5, y: 0.5)
                     markers.append(marker)
                 }
                 
@@ -93,12 +97,49 @@ struct RouteDisplayMapView: UIViewRepresentable {
             }
             
             let polyline = NMFPolylineOverlay(trackRoutePaths)
+            polyline?.joinType = .round
+            polyline?.capType = .round
             polyline?.width = 5
             polyline?.color = UIColor.sub
             polyline?.mapView = view.mapView
             
         }
         
+        func findMinMaxLatLng(latLngArray: [NMGLatLng]) -> (NMGLatLng: NMGLatLng, NMGLatLngBounds: NMGLatLngBounds, zoom: Double)? {
+            guard let firstPoint = latLngArray.first else {
+                    return nil
+                }
+                
+                var minLat = firstPoint.lat
+                var maxLat = firstPoint.lat
+                var minLng = firstPoint.lng
+                var maxLng = firstPoint.lng
+                
+                for point in latLngArray {
+                    minLat = min(minLat, point.lat)
+                    maxLat = max(maxLat, point.lat)
+                    minLng = min(minLng, point.lng)
+                    maxLng = max(maxLng, point.lng)
+                }
+            let latLng = NMGLatLng(lat: (minLat+maxLat)/2, lng: (minLng+maxLng)/2)
+            let southWest = NMGLatLng(lat: minLat, lng: minLng)
+            let northEast = NMGLatLng(lat: maxLat, lng: maxLng)
+            let bounds = NMGLatLngBounds(southWest: southWest, northEast: northEast)
+            
+            
+            let coordinate = maxLat - minLat * 12 / 10 > (maxLng - minLng) ? maxLat - minLat * 12 / 10 : (maxLng - minLng)
+            var meter = 0.0015
+            var zoom:Double = 17
+            var zoomlever = 1
+            while coordinate>meter {
+                meter *= 2
+                zoom -= 1
+            }
+                
+                    
+                    
+            return (latLng, bounds, zoom)
+        }
         // MARK: - methods
         // 맵을 클릭하면 위도, 경도를 찍어준다.
 //        func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
